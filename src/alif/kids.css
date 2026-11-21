@@ -651,7 +651,7 @@ html[data-theme='light'] .app-letter-art canvas {
   top: 12px;
   left: 16px;
   z-index: 5;
-  width: min(460px, calc(100vw - 32px));
+  width: min(560px, calc(100vw - 32px));
   transform: none;
   padding: 10px 12px;
   border-radius: 18px;
@@ -710,11 +710,20 @@ html[data-theme='light'] .app-letter-art canvas {
 
 .proj-filter-row {
   display: flex;
+  align-items: center;
   gap: 6px;
-  margin-top: 8px;
+  margin-top: 6px;
   padding-bottom: 2px;
   overflow-x: auto;
   scrollbar-width: none;
+}
+
+.proj-filter-sep {
+  flex: 0 0 auto;
+  width: 1px;
+  height: 18px;
+  margin: 0 2px;
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .proj-filter-row::-webkit-scrollbar {
@@ -778,6 +787,29 @@ html[data-theme='light'] .proj-filter-chip.is-active {
   border-color: rgba(2, 132, 199, 0.5);
   background: rgba(2, 132, 199, 0.13);
   color: #075985;
+}
+
+html[data-theme='light'] .proj-filter-sep {
+  background: rgba(15, 23, 42, 0.18);
+}
+
+@media (max-height: 520px) {
+  .proj-filter-bar {
+    top: 6px;
+    padding: 6px 8px;
+  }
+
+  .proj-search {
+    height: 32px;
+  }
+
+  .proj-filter-row {
+    margin-top: 4px;
+  }
+
+  .proj-filter-chip {
+    padding: 4px 8px;
+  }
 }
 
 @media (max-width: 720px) {

@@ -1161,14 +1161,12 @@ window.gsap = gsap;
           </label>
           <span class="proj-filter-count">${ITEMS.length} / ${ITEMS.length} öyin</span>
         </div>
-        <div class="proj-filter-row" id="proj-filter-categories" aria-label="Kategoriya filtri"></div>
-        <div class="proj-filter-row" id="proj-filter-years" aria-label="Yosh filtri"></div>
+        <div class="proj-filter-row" id="proj-filter-chips" aria-label="Öyin filtrlari"></div>
       `;
       section.appendChild(filterBar);
       const searchInput = filterBar.querySelector('#proj-search-input');
       const countEl = filterBar.querySelector('.proj-filter-count');
-      const categoryRow = filterBar.querySelector('#proj-filter-categories');
-      const yearRow = filterBar.querySelector('#proj-filter-years');
+      const chipRow = filterBar.querySelector('#proj-filter-chips');
       const categories = ['all', ...new Set(ITEMS.map((it) => it.category))];
       const years = ['all', ...new Set(ITEMS.map((it) => it.year))];
       let activeCategory = 'all';
@@ -1834,11 +1832,13 @@ window.gsap = gsap;
       let entrancePlayed = false;
 
       function makeChipRow(row, values, getActive, setActive, labelFor) {
-        row.innerHTML = values.map((value) => {
+        const start = row.children.length;
+        row.insertAdjacentHTML('beforeend', values.map((value) => {
           const active = value === getActive();
           return `<button type="button" class="proj-filter-chip${active ? ' is-active' : ''}" data-value="${value}" aria-pressed="${active}">${labelFor(value)}</button>`;
-        }).join('');
-        row.querySelectorAll('.proj-filter-chip').forEach((btn) => {
+        }).join(''));
+        const added = Array.from(row.children).slice(start);
+        added.forEach((btn) => {
           btn.addEventListener('click', () => {
             setActive(btn.dataset.value);
             row.querySelectorAll('.proj-filter-chip').forEach((b) => {
@@ -1904,8 +1904,9 @@ window.gsap = gsap;
         filterBar.classList.toggle('is-empty', shown.length === 0);
       }
 
-      makeChipRow(categoryRow, categories, () => activeCategory, (value) => { activeCategory = value; }, (value) => value === 'all' ? 'Hammasi' : value);
-      makeChipRow(yearRow, years, () => activeYear, (value) => { activeYear = value; }, (value) => value === 'all' ? 'Barcha yosh' : value);
+      makeChipRow(chipRow, categories, () => activeCategory, (value) => { activeCategory = value; }, (value) => value === 'all' ? 'Hammasi' : value);
+      chipRow.insertAdjacentHTML('beforeend', '<span class="proj-filter-sep" aria-hidden="true"></span>');
+      makeChipRow(chipRow, years, () => activeYear, (value) => { activeYear = value; }, (value) => value === 'all' ? 'Barcha yosh' : value);
       searchInput.addEventListener('input', () => {
         searchQuery = normalizeFilter(searchInput.value.trim());
         applyFilters();

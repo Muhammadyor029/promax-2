@@ -85,7 +85,7 @@ function buildCheckForLetter(entry: AlphabetEntry): AlphabetCheckSchema {
       prompt: '«Quyoş» sözidagi 22-harf qaysi?',
       options: shuffleArr(['Ş ş', 'S s', 'Ç ç', 'J j']),
       answer: 'Ş ş',
-      explain: 'Töğri! 22-örinda «Ş ş» turadi (Quyoş, Şar, Şir).'
+      explain: 'Töğri! 22-örinda «Ş ş» turadi (Quyoş, Şar, Şer).'
     };
   }
   if (entry.type === 'belgi') {

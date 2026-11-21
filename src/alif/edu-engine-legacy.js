@@ -130,7 +130,7 @@ export const UZ_ALPHABET = [
   { num: 19, upper: 'Q', lower: 'q', example: 'Qurbaqa', words: ['Qurbaqa', 'Qalam', 'Qor'], art: 'qurbaqa', hint: '19-harf · Undosh tovuş', type: 'undosh' },
   { num: 20, upper: 'R', lower: 'r', example: 'Raketa', words: ['Raketa', 'Rasm', 'Rang'], art: 'raketa', hint: '20-harf · Undosh tovuş', type: 'undosh' },
   { num: 21, upper: 'S', lower: 's', example: 'Soat', words: ['Soat', 'Suv', 'Savat'], art: 'quyos', hint: '21-harf · Undosh tovuş', type: 'undosh' },
-  { num: 22, upper: 'Ş', lower: 'ş', example: 'Şar', words: ['Şar', 'Şir', 'Quyoş'], art: 'sir', hint: '22-harf · Yangi harf Ş ş', type: 'yangi', old: 'Ş ş' },
+  { num: 22, upper: 'Ş', lower: 'ş', example: 'Şar', words: ['Şar', 'Şer', 'Quyoş'], art: 'sir', hint: '22-harf · Yangi harf Ş ş', type: 'yangi', old: 'Ş ş' },
   { num: 23, upper: 'T', lower: 't', example: 'Tarozi', words: ['Tarozi', 'Toğ', 'Tuz'], art: 'tarozi', hint: '23-harf · Undosh tovuş', type: 'undosh' },
   { num: 24, upper: 'U', lower: 'u', example: 'Uçqur', words: ['Uçqur', 'Uzum', 'Uy'], art: 'raketa', hint: '24-harf · Unli tovuş', type: 'unli' },
   { num: 25, upper: 'V', lower: 'v', example: 'Vatan', words: ['Vatan', 'Vodiy', 'Varaqa'], art: 'tog', hint: '25-harf · Undosh tovuş', type: 'undosh' },
@@ -162,7 +162,7 @@ const EXTRA_LEARNING_WORDS = [
   ['Qurbaqa', 'qurbaqa'], ['Qalam', 'kitob'], ['Qor', 'tog'], ['Qöşiq', 'sar'], ['Qözi', 'qozi'], ['Qozi', 'sar'], ['Qiyin', 'kitob'], ['Qar', 'sar'], ['Qaror', 'kitob'], ['Quti', 'kitob'],
   ['Raketa', 'raketa'], ['Rasm', 'kitob'], ['Rang', 'sar'], ['Röyxat', 'kitob'], ['Rahmat', 'sar'], ['Raqam', 'kitob'], ['Rasim', 'kitob'], ['Ruh', 'sar'], ['Rayon', 'kitob'], ['Reja', 'kitob'],
   ['Soat', 'soat'], ['Suv', 'olma'], ['Savat', 'olma'], ['Söz', 'kitob'], ['Sabzi', 'olma'], ['Sar', 'sar'], ['Somon', 'gul'], ['Siyoh', 'kitob'], ['Salam', 'sar'], ['Soğ', 'olma'],
-  ['Şar', 'sar'], ['Şir', 'sir'], ['Quyoş', 'quyos'], ['Şahar', 'tog'], ['Şamol', 'quyos'], ['Şirin', 'olma'], ['Şoli', 'gul'], ['Şarpa', 'sar'], ['Şahzod', 'sar'], ['Maşina', 'poyezd'],
+  ['Şar', 'sar'], ['Şer', 'sir'], ['Quyoş', 'quyos'], ['Şahar', 'tog'], ['Şamol', 'quyos'], ['Şirin', 'olma'], ['Şoli', 'gul'], ['Şarpa', 'sar'], ['Şahzod', 'sar'], ['Maşina', 'poyezd'],
   ['Tarozi', 'tarozi'], ['Toğ', 'tog'], ['Tuz', 'olma'], ['Tovuq', 'ordak'], ['Tarvuz', 'olma'], ['Toş', 'tog'], ['Teg', 'kitob'], ['Temir', 'kitob'], ['Tun', 'yulduz'], ['Taʼlim', 'kitob'],
   ['Uçqur', 'raketa'], ['Uzum', 'olma'], ['Uy', 'kitob'], ['Usta', 'kitob'], ['Umid', 'yulduz'], ['Uquv', 'kitob'], ['Uyqu', 'yulduz'], ['Ustoz', 'sar'], ['Uzoq', 'yulduz'], ['Uç', 'raketa'],
   ['Vatan', 'tog'], ['Vodiy', 'tog'], ['Varaqa', 'kitob'], ['Vagon', 'poyezd'], ['Vaqt', 'soat'], ['Vint', 'kitob'], ['Viza', 'kitob'], ['Vokzal', 'poyezd'], ['Voleybol', 'sar'], ['Vosita', 'kitob'],
@@ -188,7 +188,7 @@ function artForWord(word) {
   if (/poyezd|vagon|vokzal|bilet|maşina/.test(w)) return 'poyezd';
   if (/tarozi|ölçov|öt/.test(w)) return 'tarozi';
   if (/qurbaqa|çumoli/.test(w)) return 'qurbaqa';
-  if (/sir|şir|zebra/.test(w)) return 'sir';
+  if (/sir|şer|zebra/.test(w)) return 'sir';
   if (/çoy|çana|çiroq/.test(w)) return 'coy';
   return 'sar';
 }
@@ -277,7 +277,7 @@ function buildLetterDuelQuestions(letter, words, count) {
 }
 
 export const EDU_ITEMS = [
-  { id: 1, glyph: 'Ş ş', subGlyph: 'Rasm ovi · yangi Ş harfi', title: 'Şir va Şar', category: 'Yangi Alifbo', year: 'Boşlanğiç', desc: 'Vodiy boğida tarkibida Ş harfi bor rasmlarni (Şir, Şar, Quyoş) toping!', accent: '#68b5ff', art: 'sir', bg: 'valley', gameType: 'picture-hunt', config: { letter: 'Ş', old: 'sh' } },
+  { id: 1, glyph: 'Ş ş', subGlyph: 'Rasm ovi · yangi Ş harfi', title: 'Şer va Şar', category: 'Yangi Alifbo', year: 'Boşlanğiç', desc: 'Vodiy boğida tarkibida Ş harfi bor rasmlarni (Şer, Şar, Quyoş) toping!', accent: '#68b5ff', art: 'sir', bg: 'valley', gameType: 'picture-hunt', config: { letter: 'Ş', old: 'sh' } },
   { id: 2, glyph: 'A – ʼ', subGlyph: '29 harf yoziş', title: 'Harf Yozib Kör', category: 'Yangi Alifbo', year: 'Boşlanğiç', desc: 'Barcha 29 ta harfni (A dan ʼ belgisigaça) suyuq şisha taxtasida barmoq bilan çizing.', accent: '#5eead4', art: 'coy', bg: 'prism', gameType: 'letter-trace', config: {} },
   { id: 3, glyph: 'Ö ö', subGlyph: 'Köl öyini · yangi Ö harfi', title: 'Ördak va Öt', category: 'Yangi Alifbo', year: 'Boşlanğiç', desc: 'Köldagi Ö harfli ördakçalarni tutib uyasiga kuzating!', accent: '#ffd166', art: 'ordak', bg: 'valley', gameType: 'duck-pond', config: { letter: 'Ö' } },
   { id: 4, glyph: 'Ğ ğ', subGlyph: 'Sehrli fonar · yangi Ğ harfi', title: 'Ğoz va Toğ', category: 'Yangi Alifbo', year: 'Boşlanğiç', desc: 'Tungi vodiyda sehrli fonarni yurgizib Ğ harfli rasmlarni yoritib toping!', accent: '#ff8fab', art: 'tog', bg: 'valley', gameType: 'flashlight-hunt', config: { letter: 'Ğ' } },
@@ -291,7 +291,7 @@ export const EDU_ITEMS = [
   { id: 12, glyph: '1 → 10', subGlyph: 'Qurbaqa sakraşi', title: 'Qurbaqa Yöli', category: 'Raqamlar', year: 'İlk qadam', desc: 'Qurbaqa nilufar yaproqlaridan tartib bilan (1 → 2 → 3...) sakrab ötsin!', accent: '#ffd166', art: 'qurbaqa', bg: 'valley', gameType: 'frog-hops', config: { step: 1 } },
   { id: 13, glyph: '2 · 4 · 6', subGlyph: 'Poyezd vagoni', title: 'Sakraş Poyezdi', category: 'Raqamlar', year: 'Tayyorlov', desc: 'Poyezd vagonlarida yetişmayotgan sonli yuklarni yuklab yölga çiqaring!', accent: '#ff8fab', art: 'poyezd', bg: 'valley', gameType: 'train-builder', config: {} },
   { id: 14, glyph: '6 < 9', subGlyph: 'Şisha tarozi', title: 'Katta va Kiçik', category: 'Raqamlar', year: 'Boşlanğiç', desc: 'Tarozi pallalaridagi olmalarni soliştirib (<, =, >) belgisini bosing.', accent: '#68b5ff', art: 'tarozi', bg: 'prism', gameType: 'balance-scale', config: { mode: 'compare' } },
-  { id: 15, glyph: '3 + 4', subGlyph: 'Şirga olma ber', title: 'Şir Ziyofati', category: 'Qöşiş', year: 'İlk qadam', desc: 'Quvnoq şirga olmalarni sanab bering va jami sonini hisoblang!', accent: '#5eead4', art: 'sir', bg: 'valley', gameType: 'lion-feeder', config: {} },
+  { id: 15, glyph: '3 + 4', subGlyph: 'Şerga olma ber', title: 'Şer Ziyofati', category: 'Qöşiş', year: 'İlk qadam', desc: 'Quvnoq şerga olmalarni sanab bering va jami sonini hisoblang!', accent: '#5eead4', art: 'sir', bg: 'valley', gameType: 'lion-feeder', config: {} },
   { id: 16, glyph: '7 + 6', subGlyph: 'Pufak qöşiş', title: 'Önlikdan Ötiş', category: 'Qöşiş', year: 'Tayyorlov', desc: 'Suyuq şisha pufaklarini sanab qöşiş javobini toping!', accent: '#ffd166', art: 'yulduz', bg: 'aurora', gameType: 'bubble-math', config: { mode: 'add', maxSum: 20 } },
   { id: 17, glyph: '14 + 12', subGlyph: 'Kosmik raketa', title: 'Raketa Qöşiş', category: 'Qöşiş', year: 'Boşlanğiç', desc: 'Töğri javobli meteoritni lazer bilan urib raketani yulduzlarga uçiring!', accent: '#ff8fab', art: 'raketa', bg: 'space', gameType: 'rocket-shooter', config: { mode: 'add' } },
   { id: 18, glyph: '? + ? = 10', subGlyph: 'Tarozi 10', title: 'Önlik Tarozisi', category: 'Qöşiş', year: 'İlk qadam', desc: 'Tarozini 10 ga tenglaş uçun yetmayotgan olma toşini pallasiga qöying!', accent: '#a78bfa', art: 'tarozi', bg: 'prism', gameType: 'balance-scale', config: { mode: 'maketen' } },
@@ -1117,7 +1117,7 @@ export function openEduGame(item, onClose) {
     const banksByLetter = {
       'Ş': [
         { word: 'Şar', art: 'sar' },
-        { word: 'Şir', art: 'sir' },
+        { word: 'Şer', art: 'sir' },
         { word: 'Quyoş', art: 'quyos' },
         { word: 'Şahar', art: 'raketa' },
         { word: 'Şamol', art: 'gul' },
@@ -2012,7 +2012,7 @@ export function openEduGame(item, onClose) {
     nextTrain();
   }
 
-  // ── 7. FEED THE LION ADDITION (Şir Ziyofati — Tap apples & Sum!) ──────────
+  // ── 7. FEED THE LION ADDITION (Şer Ziyofati — Tap apples & Sum!) ──────────
   function gameLionFeeder() {
     let roundIdx = 0;
     const totalRounds = 4;
@@ -2020,7 +2020,7 @@ export function openEduGame(item, onClose) {
     function nextMeal() {
       clearActiveGame();
       if (roundIdx >= totalRounds) {
-        showVictory('Mehribon hisobçi!', 'Şirga barcha olmalarni sanab berdingiz va jami sonini töğri topdingiz!');
+        showVictory('Mehribon hisobçi!', 'Şerga barcha olmalarni sanab berdingiz va jami sonini töğri topdingiz!');
         return;
       }
       roundIdx++;
@@ -2035,7 +2035,7 @@ export function openEduGame(item, onClose) {
           <span class="edu-hud-pill" id="lion-hud">Berildi: 0 / ${ans}</span>
         </div>
         <div class="edu-banner" id="lion-ban">
-          Şirga avval <strong>${a}</strong> ta, söng yana <strong>${b}</strong> ta olma bosing (<strong>${a} + ${b}</strong>)!
+          Şerga avval <strong>${a}</strong> ta, söng yana <strong>${b}</strong> ta olma bosing (<strong>${a} + ${b}</strong>)!
         </div>
       `;
 
@@ -2101,7 +2101,7 @@ export function openEduGame(item, onClose) {
             if (fed >= ans) {
               ansRow.style.opacity = '1';
               const ban = modalBody.querySelector('#lion-ban');
-              if (ban) ban.innerHTML = `Endi Şir jami neçta olma yeganini tanlang: <strong>${a} + ${b} = ?</strong>`;
+              if (ban) ban.innerHTML = `Endi Şer jami neçta olma yeganini tanlang: <strong>${a} + ${b} = ?</strong>`;
             }
             break;
           }
@@ -2329,7 +2329,7 @@ export function openEduGame(item, onClose) {
   // ── 10. ILLUSTRATED WORD BUILDER (Levels 1, 2 & School Starter 3) ─────────
   function gameWordBuilder(cfg) {
     const level1Pool = [
-      { word: 'ŞAR', art: 'sar' }, { word: 'ŞIR', art: 'sir' }, { word: 'ÇOY', art: 'coy' },
+      { word: 'ŞAR', art: 'sar' }, { word: 'ŞER', art: 'sir' }, { word: 'ÇOY', art: 'coy' },
       { word: 'TOĞ', art: 'tog' }, { word: 'ĞOZ', art: 'ordak' }, { word: 'GUL', art: 'gul' },
       { word: 'BOĞ', art: 'olma' }, { word: 'QOR', art: 'tog' }, { word: 'NON', art: 'quyos' },
       { word: 'ÖT', art: 'gul' }
@@ -3227,7 +3227,7 @@ export function openEduGame(item, onClose) {
       { id: 'ordak', a: { txt: 'Ördak', art: null }, b: { txt: '', art: 'ordak' } },
       { id: 'coy', a: { txt: 'Çoy', art: null }, b: { txt: '', art: 'coy' } },
       { id: 'tog', a: { txt: 'Toğ', art: null }, b: { txt: '', art: 'tog' } },
-      { id: 'sir', a: { txt: 'Şir', art: null }, b: { txt: '', art: 'sir' } },
+      { id: 'sir', a: { txt: 'Şer', art: null }, b: { txt: '', art: 'sir' } },
       { id: 'quyos', a: { txt: 'Quyoş', art: null }, b: { txt: '', art: 'quyos' } },
       { id: 'qozi', a: { txt: 'Qözi', art: null }, b: { txt: '', art: 'qozi' } },
       { id: 'olma', a: { txt: 'Olma', art: null }, b: { txt: '', art: 'olma' } },
