@@ -649,10 +649,10 @@ html[data-theme='light'] .app-letter-art canvas {
 .proj-filter-bar {
   position: absolute;
   top: 12px;
-  left: 50%;
+  left: 16px;
   z-index: 5;
-  width: min(1080px, calc(100vw - 28px));
-  transform: translateX(-50%);
+  width: min(460px, calc(100vw - 32px));
+  transform: none;
   padding: 10px 12px;
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.16);
@@ -783,6 +783,8 @@ html[data-theme='light'] .proj-filter-chip.is-active {
 @media (max-width: 720px) {
   .proj-filter-bar {
     top: 8px;
+    left: 10px;
+    width: calc(100vw - 20px);
     padding: 8px 10px;
     border-radius: 14px;
   }
