@@ -1,7 +1,7 @@
-/* ALIF.12 — qo'shimcha qatlam:
-   tillar (uz/kaa/ru/en), kontakt, sozlamalar, robot-yordamchi, ko'z dam olish taymeri,
-   to'lqin effekti (sayt so'nadi va qaytadi), ko'z maşqlari, xatolarni ko'rsatish.
-   Asosiy 3D kod (index.html) bilan faqat DOM va 'alif:robot-click' hodisasi orqali bog'lanadi. */
+/* ALIF.12 — qoʼshimcha qatlam:
+   tillar (uz/kaa/ru/en), kontakt, sozlamalar, robot-yordamchi, koʼz dam olish taymeri,
+   toʼlqin effekti (sayt soʼnadi va qaytadi), koʼz maşqlari, xatolarni koʼrsatish.
+   Asosiy 3D kod (index.html) bilan faqat DOM va 'alif:robot-click' hodisasi orqali boğlanadi. */
 
 import { toggleTheme, onThemeChange } from './theme.ts';
 import { EDU_ITEMS as KIDS_ITEMS, getKidsProgress } from './edu-engine.js';
@@ -16,9 +16,9 @@ const CONFIG = {
   restOptions: [20, 40, 60],         // soniya
   defaultInterval: 20,
   defaultRest: 40,
-  idleCutoffMs: 45000,               // shuncha vaqt harakat bo'lmasa, ekran vaqti sanalmaydi
+  idleCutoffMs: 45000,               // shuncha vaqt harakat boʼlmasa, ekran vaqti sanalmaydi
   snoozeMin: 5,
-  promptAutoMs: 12000                // robot xabaridan keyin to'lqin o'zi boshlanadi
+  promptAutoMs: 12000                // robot xabaridan keyin toʼlqin oʼzi boshlanadi
 };
 const DEMO = /[?&]demo\b/.test(location.search); // ?demo — taqdimot uçun: 30 s da eslatma, 15 s dam olish
 
@@ -34,7 +34,7 @@ const I18N = {
     set_every: 'Köz uçun dam oliş eslatmasi', set_rest: 'Dam oliş davomiyligi', min: 'daq', sec: 's',
     rest_now: 'Hozir dam olamiz', eye_now: 'Köz maşqi',
     theme_mode: 'Kungi / Tungi rejim', theme_day: 'Kun', theme_night: 'Tun',
-    guide_btn: 'Yöriqnoma', guide_title: 'ALIF VESNA KIDS — Yöriqnoma', guide_sub: 'Bogʼcha va 1-sinf öquvçilari uçun',
+    guide_btn: 'Yöriqnoma', guide_title: 'ALIF VESNA KIDS — Yöriqnoma', guide_sub: 'Boğcha va 1-sinf öquvçilari uçun',
     greet: ['Salom! Men Vesna. Meni bosib kör!', 'Birga öynaymizmi?'],
     again: 'Yana salom! Davom etamizmi?',
     prompt_now: 'Hozir dam olamiz', prompt_later: '5 daqiqadan keyin',
@@ -320,11 +320,11 @@ function renderChips() {
 
 // ───────────────────────── (Kontakt olib tashlandi) ─────────────────────────
 
-// ───────────────────────── rAF / vaqtni to'xtatish (dam olish paytida) ─────────────────────────
+// ───────────────────────── rAF / vaqtni toʼxtatish (dam olish paytida) ─────────────────────────
 const realRAF = window.requestAnimationFrame.bind(window);
 const realCancel = window.cancelAnimationFrame.bind(window);
 const realNow = performance.now.bind(performance);
-let timeOffset = 0;      // to'xtatilgan vaqt yig'indisi (ms)
+let timeOffset = 0;      // toʼxtatilgan vaqt yigʼindisi (ms)
 let pausedAt = 0;
 let paused = false;
 const heldQueue = new Map();
@@ -464,7 +464,7 @@ function hop() {
   mascot.classList.add('is-hop');
 }
 
-// ko'zlari kursor/barmoqqa ergashadi
+// koʼzlari kursor/barmoqqa ergashadi
 let eyeX = 0, eyeY = 0, tgtX = 0, tgtY = 0, lastSentX = 99, lastSentY = 99;
 function aimAt(px, py) {
   const r = mascot.getBoundingClientRect();
@@ -490,7 +490,7 @@ window.addEventListener('touchstart', (e) => { if (e.touches[0]) aimAt(e.touches
   }
   realRAF(eyeLoop);
 })();
-// ko'z qisish
+// koʼz qisish
 (function blinkLoop() {
   setTimeout(() => {
     if (!mascot.classList.contains('is-sleep')) {
@@ -631,7 +631,7 @@ async function startRest(origin, opts = {}) {
   el.bar.style.width = '0%';
   setTimeout(() => { mascot.classList.add('is-center', 'is-sleep'); }, 450);
   await runWave('in', origin, 1500);
-  // butun ekran yopildi: maskani olib tashlaymiz, saytni to'xtatamiz
+  // butun ekran yopildi: maskani olib tashlaymiz, saytni toʼxtatamiz
   veil.classList.remove('mode-in', 'mode-out');
   pauseSite();
   state = 'resting';

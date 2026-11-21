@@ -9,7 +9,7 @@ window.gsap = gsap;
     import { getTheme, isDayMode, onThemeChange } from './theme.ts';
     import { initMotionSensor, getMotionParallax } from './motion-sensor.ts';
     // gsap imported from module
-    // Shrift yuklanguncha (max 1.5s) kutamiz, canvas matnlari to'g'ri chiqsin
+    // Shrift yuklanguncha (max 1.5s) kutamiz, canvas matnlari töğri chiqsin
     try {
       await Promise.race([
         Promise.all([document.fonts.load('800 24px Nunito'), document.fonts.load('400 14px Nunito')]),

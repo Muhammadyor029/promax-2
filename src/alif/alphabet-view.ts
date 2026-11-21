@@ -344,9 +344,9 @@ export function createAlphabetView() {
     const accent = accentForEntry(entry);
 
     const ideaTabs: Array<{ id: IdeaId; label: string; desc: string }> = [
-      { id: 'matrix', label: '1-g‘oya · Studiya', desc: '29 jadval + yon maşq' },
-      { id: 'strip', label: '2-g‘oya · Lenta', desc: 'Taqqoslaş + ögirgiç' },
-      { id: 'cards', label: '3-g‘oya · Kartalar', desc: 'Guruhlar + tez test' }
+      { id: 'matrix', label: '1-ğoya · Studiya', desc: '29 jadval + yon maşq' },
+      { id: 'strip', label: '2-ğoya · Lenta', desc: 'Taqqoslaş + ögirgiç' },
+      { id: 'cards', label: '3-ğoya · Kartalar', desc: 'Guruhlar + tez test' }
     ];
 
     hostEl.innerHTML = '';
@@ -362,7 +362,7 @@ export function createAlphabetView() {
         <h1 class="alpha-head-title">Yangi Özbek Alifbosi <span class="alpha-count-tag">29 ta</span></h1>
         <p class="alpha-head-sub">1. A a — 29. ʼ (tutuq belgisi) · Ç, Ğ, Ö, Ş tartibi</p>
       </div>
-      <div class="alpha-idea-switcher" role="tablist" aria-label="Alifbo dizayn g‘oyalari">
+      <div class="alpha-idea-switcher" role="tablist" aria-label="Alifbo dizayn ğoyalari">
         ${ideaTabs
           .map(
             (tab) => `
