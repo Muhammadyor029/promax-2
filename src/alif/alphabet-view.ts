@@ -1,7 +1,7 @@
 // VESNA — Interactive 29-Letter Reformed Uzbek Latin Alphabet Section
 // Supports 3 switchable layout concepts so the user can preview and keep one.
 
-import { UZ_ALPHABET, EDU_ITEMS, openEduGame, openPvpDuel } from './edu-engine.js';
+import { UZ_ALPHABET, EDU_ITEMS, openEduGame, getLetterWords, LETTER_GAME_MODES } from './edu-engine.js';
 import { t as ct } from './senior-content.js';
 import { drawIllustration } from './edu-art.js';
 import { isDayMode, onThemeChange } from './theme.ts';
@@ -398,49 +398,85 @@ export function createAlphabetView() {
     }
 
     // Integrated Language & Alphabet Mini-Games + 2-Player PvP Duel Dock
-    renderIntegratedLanguageGames(shell);
+    renderIntegratedLanguageGames(shell, entry);
 
     hostEl.appendChild(shell);
     startArtLoop();
   }
 
-  function renderIntegratedLanguageGames(shell: HTMLElement) {
-    const langItems = EDU_ITEMS.filter((it) => ['Yangi Alifbo', 'Alifbo', 'Öqiş', 'Ijod'].includes(String(it.category)));
+  function renderIntegratedLanguageGames(shell: HTMLElement, entry: AlphabetEntry) {
+    const letter = entry.type === 'belgi' ? 'ʼ' : entry.upper;
+    const words = getLetterWords(letter);
+    const samples = words.slice(0, 6).map((w: { word: string }) => w.word).join(' · ');
+    const baseItem = {
+      id: 900 + entry.num,
+      category: 'Yangi Alifbo',
+      year: 'Harf asasi',
+      accent: accentForEntry(entry),
+      art: entry.art,
+      bg: 'prism'
+    };
+
+    const duelItem = () => ({
+      ...baseItem,
+      glyph: '1v2',
+      subGlyph: 'Ikki öyinçi, bir ekran',
+      title: `«${letter}» Tez Duel`,
+      desc: `${letter} harfiga mos sözlar bilan jonli duel.`,
+      gameType: 'pvp-duel',
+      config: { track: 'lang', letter, words, directPvp: true }
+    });
+
+    const modeItem = (mode: (typeof LETTER_GAME_MODES)[number], directPvp: boolean) => {
+      const isDuel = mode.id === 'pvp';
+      return {
+        ...baseItem,
+        glyph: mode.glyph,
+        subGlyph: mode.sub,
+        title: `${letter} · ${mode.title}`,
+        desc: `${letter} harfiga mos ${mode.title.toLocaleLowerCase('uz')} maşqi. Namunalar: ${samples}`,
+        gameType: isDuel ? 'pvp-duel' : 'letter-lab',
+        config: isDuel
+          ? { track: 'lang', letter, words, directPvp: true }
+          : { letter, mode: mode.id, words, directPvp }
+      };
+    };
+
     const dock = document.createElement('section');
     dock.className = 'alpha-games-dock';
-    dock.setAttribute('aria-label', String(ct('nav_letters')));
+    dock.setAttribute('aria-label', `«${letter}» harfiga mos öyinlar`);
 
     dock.innerHTML = `
       <div class="alpha-games-head">
         <div>
-          <h2 class="alpha-games-title">${ct('nav_letters')} (${langItems.length})</h2>
-          <p class="alpha-games-sub">${ct('app_subtitle')} · ${ct('start_desc', { count: 6 })}</p>
+          <h2 class="alpha-games-title">«${letter}» harfiga ${LETTER_GAME_MODES.length} ta öyin</h2>
+          <p class="alpha-games-sub">Namunalar: ${samples}</p>
         </div>
-        <button type="button" class="edu-btn-primary alpha-pvp-cta" id="alpha-pvp-duel-btn">⚔️ ${ct('pvp')} (1 vs 2)</button>
+        <button type="button" class="edu-btn-primary alpha-pvp-cta" id="alpha-pvp-duel-btn">1v2 ${ct('pvp')}</button>
       </div>
       <div class="alpha-games-grid"></div>
     `;
 
-    dock.querySelector('#alpha-pvp-duel-btn')?.addEventListener('click', () => {
-      openPvpDuel('lang');
-    });
+    dock.querySelector('#alpha-pvp-duel-btn')?.addEventListener('click', () => openEduGame(duelItem()));
 
     const grid = dock.querySelector('.alpha-games-grid') as HTMLElement;
-    langItems.forEach((gameItem) => {
-      if (!gameItem) return;
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'alpha-game-btn';
-      btn.innerHTML = `
-        <span class="alpha-game-glyph">${gameItem.glyph}</span>
-        <span class="alpha-game-info">
-          <strong>${gameItem.title}</strong>
-          <small>${gameItem.subGlyph}</small>
-        </span>
-        <span class="alpha-game-go" aria-hidden="true">→</span>
+    LETTER_GAME_MODES.forEach((mode) => {
+      const card = document.createElement('div');
+      card.className = 'alpha-game-card';
+      card.innerHTML = `
+        <button type="button" class="alpha-game-btn" data-role="play">
+          <span class="alpha-game-glyph">${mode.glyph}</span>
+          <span class="alpha-game-info">
+            <strong>${mode.title}</strong>
+            <small>${mode.sub}</small>
+          </span>
+          <span class="alpha-game-go" aria-hidden="true">→</span>
+        </button>
+        <button type="button" class="alpha-game-pvp-btn" data-role="pvp" title="${ct('pvp')}" aria-label="${mode.title} uchun ${ct('pvp')}">1v2</button>
       `;
-      btn.addEventListener('click', () => openEduGame(gameItem));
-      grid.appendChild(btn);
+      card.querySelector('[data-role="play"]')?.addEventListener('click', () => openEduGame(modeItem(mode, false)));
+      card.querySelector('[data-role="pvp"]')?.addEventListener('click', () => openEduGame(modeItem(mode, true)));
+      grid.appendChild(card);
     });
 
     shell.appendChild(dock);

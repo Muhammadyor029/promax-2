@@ -519,12 +519,128 @@ html[data-theme='light'] .edu-swap-btn {
   }
 }
 
+.alpha-game-card {
+  position: relative;
+}
+
+.alpha-game-btn {
+  padding-right: 62px;
+}
+
+.alpha-game-pvp-btn {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  z-index: 1;
+  min-width: 40px;
+  height: 30px;
+  padding: 0 7px;
+  border-radius: 9px;
+  border: 1px solid rgba(255, 209, 102, 0.55);
+  background: rgba(255, 209, 102, 0.16);
+  color: #ffe6a7;
+  font: 800 11px/1 'Nunito', ui-sans-serif, sans-serif;
+  cursor: pointer;
+  transition: transform 0.18s var(--ease), background 0.18s var(--ease);
+}
+
+.alpha-game-pvp-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 209, 102, 0.28);
+}
+
+html[data-theme='light'] .alpha-game-pvp-btn {
+  border-color: rgba(180, 83, 9, 0.42);
+  background: rgba(245, 158, 11, 0.14);
+  color: #92400e;
+}
+
+.app-letter-art {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0 4px;
+}
+
+.app-letter-art canvas {
+  width: 132px;
+  height: 132px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.app-letter-banner {
+  margin: 10px 0;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(94, 234, 212, 0.32);
+  background: linear-gradient(140deg, rgba(94, 234, 212, 0.16), rgba(124, 92, 255, 0.14));
+  color: var(--ink);
+  font: 800 15px/1.45 'Nunito', ui-sans-serif, sans-serif;
+  text-align: center;
+}
+
+.app-letter-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.app-letter-opt {
+  min-height: 52px;
+  padding: 10px 12px;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.app-letter-slots {
+  display: flex;
+  justify-content: center;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+
+.app-letter-slots span {
+  min-width: 34px;
+  height: 42px;
+  padding: 0 6px;
+  border-radius: 11px;
+  border: 1px dashed rgba(94, 234, 212, 0.58);
+  background: rgba(94, 234, 212, 0.09);
+  color: var(--ink);
+  font: 900 20px/42px 'Nunito', ui-sans-serif, sans-serif;
+  text-align: center;
+}
+
+html[data-theme='light'] .app-letter-banner {
+  border-color: rgba(2, 132, 199, 0.3);
+  background: linear-gradient(140deg, rgba(2, 132, 199, 0.1), rgba(124, 92, 255, 0.1));
+}
+
+html[data-theme='light'] .app-letter-art canvas {
+  border-color: rgba(27, 23, 64, 0.14);
+  background: rgba(255, 255, 255, 0.72);
+}
+
+@media (max-width: 720px) {
+  .app-letter-options {
+    grid-template-columns: 1fr;
+  }
+
+  .app-letter-opt {
+    min-height: 46px;
+    font-size: 14px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .kids-confetti-piece,
   .kids-total.is-bump,
   .edu-modal.is-open .edu-stage,
   .edu-stage .is-correct,
   .edu-stage .is-wrong,
+  .alpha-game-pvp-btn,
   body::before {
     animation: none;
   }

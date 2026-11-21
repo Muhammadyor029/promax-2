@@ -16,7 +16,9 @@ export {
   isEduGameOpen,
   closeEduGame,
   openPvpDuel,
-  openEduGame
+  openEduGame,
+  getLetterWords,
+  LETTER_GAME_MODES
 } from './edu-engine-legacy.js';
 
 function syncKidsTotal() {

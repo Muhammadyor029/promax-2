@@ -140,6 +140,142 @@ export const UZ_ALPHABET = [
   { num: 29, upper: 'ʼ', lower: 'ʼ', example: 'Maʼno', words: ['Maʼno', 'Aʼlo', 'Sanʼat'], art: 'kitob', hint: '29-belgi · Tutuq belgisi (unli yoki undoshdan keyin)', type: 'belgi', old: 'Tutuq belgisi' }
 ];
 
+const EXTRA_LEARNING_WORDS = [
+  ['Anor', 'olma'], ['Ari', 'olma'], ['Asal', 'olma'], ['Ata', 'kitob'], ['Ajoyib', 'yulduz'], ['Aloqa', 'kitob'], ['Aql', 'kitob'], ['Ayol', 'sar'],
+  ['Bola', 'sar'], ['Boğ', 'tog'], ['Baliq', 'ordak'], ['Boş', 'sar'], ['Bazar', 'olma'], ['Bilet', 'kitob'], ['Balon', 'sar'], ['Bor', 'sar'], ['Buz', 'sar'],
+  ['Çoynak', 'coy'], ['Çana', 'poyezd'], ['Çiroq', 'quyos'], ['Çumoli', 'qurbaqa'], ['Çoy', 'coy'], ['Quşça', 'ordak'], ['Keça', 'yulduz'], ['Köpçik', 'sar'], ['Ölçov', 'tarozi'], ['Gulça', 'gul'],
+  ['Daftar', 'kitob'], ['Daraxt', 'olma'], ['Daryo', 'tog'], ['Dovul', 'tog'], ['Dars', 'kitob'], ['Don', 'olma'], ['Düşanba', 'kitob'], ['Darvoza', 'kitob'], ['Dazmol', 'kitob'], ['Dengiz', 'tog'],
+  ['Eşik', 'kitob'], ['Erkak', 'sar'], ['Elak', 'olma'], ['Emlak', 'kitob'], ['Eʼlon', 'kitob'], ['Energetika', 'yulduz'], ['Et', 'olma'], ['Eski', 'kitob'], ['Ehtiyot', 'sar'], ['Ekskursiya', 'poyezd'],
+  ['Fil', 'sir'], ['Fasl', 'gul'], ['Fonar', 'quyos'], ['Fabrika', 'kitob'], ['Foyda', 'olma'], ['Fikr', 'kitob'], ['Qafas', 'sar'], ['Şafaq', 'quyos'], ['Faqir', 'sar'], ['Fakt', 'kitob'],
+  ['Gul', 'gul'], ['Gilam', 'sar'], ['Gilos', 'olma'], ['Gumbaz', 'tog'], ['Guruch', 'olma'], ['Gavhar', 'yulduz'], ['Goh', 'sar'], ['Gaz', 'sar'], ['Gulli', 'gul'], ['Gimnastika', 'sar'],
+  ['Ğoz', 'ordak'], ['Toğ', 'tog'], ['Boğ', 'tog'], ['Ğalla', 'gul'], ['Ğor', 'tog'], ['Jilğa', 'tog'], ['Boğcha', 'tog'], ['Toğli', 'tog'], ['Yoğ', 'olma'], ['Ğalaba', 'yulduz'],
+  ['Havo', 'quyos'], ['Hovli', 'kitob'], ['Hikoya', 'kitob'], ['Halqa', 'sar'], ['Hamma', 'sar'], ['Hozir', 'soat'], ['Hujum', 'raketa'], ['Hunar', 'kitob'], ['Hazil', 'sar'], ['His', 'kitob'],
+  ['Ilm', 'kitob'], ['Ikki', 'kitob'], ['Issiq', 'quyos'], ['Içimlik', 'olma'], ['Iş', 'kitob'], ['Iqtisod', 'kitob'], ['Ijod', 'kitob'], ['Iloj', 'kitob'], ['Ibrat', 'kitob'], ['Iz', 'sar'],
+  ['Jöja', 'ordak'], ['Jayron', 'sir'], ['Jilğa', 'tog'], ['Jadval', 'kitob'], ['Jamoa', 'sar'], ['Javob', 'kitob'], ['Jurnal', 'kitob'], ['Jism', 'sar'], ['Jang', 'raketa'], ['Jar', 'tog'],
+  ['Kitob', 'kitob'], ['Kapalak', 'gul'], ['Kema', 'sar'], ['Köz', 'sar'], ['Kafe', 'kitob'], ['Karta', 'kitob'], ['Kino', 'sar'], ['Kamalak', 'gul'], ['Kul', 'sar'], ['Ketmon', 'gul'],
+  ['Lola', 'gul'], ['Limon', 'olma'], ['Laylak', 'ordak'], ['Lampa', 'quyos'], ['Logika', 'kitob'], ['Lugat', 'kitob'], ['Lazer', 'yulduz'], ['Lok', 'sar'], ['Lenta', 'kitob'], ['Lim', 'olma'],
+  ['Maktab', 'kitob'], ['Meva', 'olma'], ['Muşuk', 'sir'], ['Maşina', 'poyezd'], ['Moy', 'olma'], ['Muz', 'olma'], ['Mantiq', 'kitob'], ['Maqsad', 'yulduz'], ['Meʼmor', 'kitob'], ['Mening', 'sar'],
+  ['Non', 'olma'], ['Nur', 'quyos'], ['Nok', 'olma'], ['Nomi', 'kitob'], ['Navbat', 'sar'], ['Nilufar', 'gul'], ['Nima', 'kitob'], ['Nafas', 'quyos'], ['Noyabr', 'kitob'], ['Norin', 'tog'],
+  ['Olma', 'olma'], ['Osmon', 'quyos'], ['Ota', 'sar'], ['Ona', 'sar'], ['Oy', 'yulduz'], ['Oq', 'sar'], ['Oş', 'olma'], ['Oçiq', 'kitob'], ['Ovoz', 'sar'], ['Obod', 'kitob'],
+  ['Ördak', 'ordak'], ['Öqiş', 'kitob'], ['Qözi', 'qozi'], ['Örmon', 'tog'], ['Jöja', 'ordak'], ['Öt', 'gul'], ['Qöşiq', 'sar'], ['Ölçov', 'tarozi'], ['Öz', 'sar'], ['Ömir', 'yulduz'],
+  ['Poyezd', 'poyezd'], ['Paxta', 'gul'], ['Piyola', 'sar'], ['Poy', 'sar'], ['Pult', 'kitob'], ['Piyoz', 'olma'], ['Poyabzal', 'sar'], ['Poyga', 'sar'], ['Paz', 'olma'], ['Pul', 'kitob'],
+  ['Qurbaqa', 'qurbaqa'], ['Qalam', 'kitob'], ['Qor', 'tog'], ['Qöşiq', 'sar'], ['Qözi', 'qozi'], ['Qozi', 'sar'], ['Qiyin', 'kitob'], ['Qar', 'sar'], ['Qaror', 'kitob'], ['Quti', 'kitob'],
+  ['Raketa', 'raketa'], ['Rasm', 'kitob'], ['Rang', 'sar'], ['Röyxat', 'kitob'], ['Rahmat', 'sar'], ['Raqam', 'kitob'], ['Rasim', 'kitob'], ['Ruh', 'sar'], ['Rayon', 'kitob'], ['Reja', 'kitob'],
+  ['Soat', 'soat'], ['Suv', 'olma'], ['Savat', 'olma'], ['Söz', 'kitob'], ['Sabzi', 'olma'], ['Sar', 'sar'], ['Somon', 'gul'], ['Siyoh', 'kitob'], ['Salam', 'sar'], ['Soğ', 'olma'],
+  ['Şar', 'sar'], ['Şir', 'sir'], ['Quyoş', 'quyos'], ['Şahar', 'tog'], ['Şamol', 'quyos'], ['Şirin', 'olma'], ['Şoli', 'gul'], ['Şarpa', 'sar'], ['Şahzod', 'sar'], ['Maşina', 'poyezd'],
+  ['Tarozi', 'tarozi'], ['Toğ', 'tog'], ['Tuz', 'olma'], ['Tovuq', 'ordak'], ['Tarvuz', 'olma'], ['Toş', 'tog'], ['Teg', 'kitob'], ['Temir', 'kitob'], ['Tun', 'yulduz'], ['Taʼlim', 'kitob'],
+  ['Uçqur', 'raketa'], ['Uzum', 'olma'], ['Uy', 'kitob'], ['Usta', 'kitob'], ['Umid', 'yulduz'], ['Uquv', 'kitob'], ['Uyqu', 'yulduz'], ['Ustoz', 'sar'], ['Uzoq', 'yulduz'], ['Uç', 'raketa'],
+  ['Vatan', 'tog'], ['Vodiy', 'tog'], ['Varaqa', 'kitob'], ['Vagon', 'poyezd'], ['Vaqt', 'soat'], ['Vint', 'kitob'], ['Viza', 'kitob'], ['Vokzal', 'poyezd'], ['Voleybol', 'sar'], ['Vosita', 'kitob'],
+  ['Xat', 'kitob'], ['Xona', 'kitob'], ['Xarita', 'kitob'], ['Xalq', 'sar'], ['Xizmat', 'kitob'], ['Xorazm', 'tog'], ['Xush', 'sar'], ['Xol', 'sar'], ['Xamir', 'olma'], ['Xonaqoh', 'kitob'],
+  ['Yulduz', 'yulduz'], ['Yomğir', 'quyos'], ['Yöl', 'tog'], ['Yuz', 'sar'], ['Yaxşi', 'sar'], ['Yordam', 'sar'], ['Yigit', 'sar'], ['Yumurta', 'olma'], ['Yay', 'sar'], ['Yaqin', 'sar'],
+  ['Zebra', 'sir'], ['Zina', 'sar'], ['Zafar', 'yulduz'], ['Zavod', 'kitob'], ['Zor', 'sar'], ['Qiz', 'sar'], ['Yuz', 'sar'], ['Tuz', 'olma'], ['Oz', 'olma'], ['Zargar', 'yulduz'],
+  ['Maʼno', 'kitob'], ['Aʼlo', 'yulduz'], ['Sanʼat', 'kitob'], ['Taʼlim', 'kitob'], ['Şeʼr', 'kitob'], ['Meʼmor', 'kitob'], ['Eʼlon', 'kitob'], ['Muʼallim', 'sar'], ['Taʼbir', 'kitob'], ['Maʼlum', 'kitob']
+];
+
+const ART_GLYPH = {
+  olma: '●', kitob: '▤', sar: '◉', sir: '◆', coy: '◇', ordak: '◕', tog: '▲', quyos: '☼',
+  yulduz: '★', raketa: '▮', poyezd: '▥', tarozi: '⌖', qurbaqa: '◍', qozi: '◐', gul: '✿', soat: '◷'
+};
+
+function artForWord(word) {
+  const w = String(word).toLocaleLowerCase('uz');
+  if (/olma|anor|uzum|meva|asal|tarvuz|sabzi|non|lim|piyoz/.test(w)) return 'olma';
+  if (/kitob|daftar|qalam|xat|ilm|maktab|lugat|jurnal|reja|maqsad|taʼlim|harf/.test(w)) return 'kitob';
+  if (/quyos|soat|oy|osmon|şafaq|röyxat/.test(w)) return 'quyos';
+  if (/ordak|ördak|jöja|ğoz|qözi|qozi|tovuq|baliq/.test(w)) return 'ordak';
+  if (/tog|toğ|boğ|ğor|jilğa|vodiy|vatan|qor|boğcha|toğli/.test(w)) return 'tog';
+  if (/yulduz|raketa|sayohat|umid|öz/.test(w)) return 'yulduz';
+  if (/poyezd|vagon|vokzal|bilet|maşina/.test(w)) return 'poyezd';
+  if (/tarozi|ölçov|öt/.test(w)) return 'tarozi';
+  if (/qurbaqa|çumoli/.test(w)) return 'qurbaqa';
+  if (/sir|şir|zebra/.test(w)) return 'sir';
+  if (/çoy|çana|çiroq/.test(w)) return 'coy';
+  return 'sar';
+}
+
+const LEARNING_WORDS = (() => {
+  const base = UZ_ALPHABET.flatMap((l) => (l.words || [l.example]).map((word) => ({ word, art: l.art })));
+  const extra = EXTRA_LEARNING_WORDS.map(([word, art]) => ({ word, art: art || artForWord(word) }));
+  const seen = new Set();
+  return [...base, ...extra].filter((it) => {
+    const key = it.word.toLocaleLowerCase('uz');
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+})();
+
+export function getLetterWords(letter) {
+  const upper = String(letter || '').toLocaleUpperCase('uz');
+  const matches = LEARNING_WORDS.filter((it) => it.word.toLocaleUpperCase('uz').includes(upper));
+  return matches.length >= 6 ? matches : LEARNING_WORDS.slice(0, 6);
+}
+
+export const LETTER_GAME_MODES = [
+  { id: 'rasm', glyph: '▣', title: 'Rasm ovi', sub: 'Rasmga mos sözi tap' },
+  { id: 'rasm-söz', glyph: '◉', title: 'Rasmga söz', sub: 'Rasmni sözler içidan tap' },
+  { id: 'boş', glyph: 'A', title: 'Boş harf', sub: 'Söz boshidagi harf' },
+  { id: 'oxir', glyph: 'Z', title: 'Oxirgi harf', sub: 'Söz oxiridagi harf' },
+  { id: 'harf', glyph: '?', title: 'Harf ovçisi', sub: 'Yetishmayotgan harf' },
+  { id: 'joy', glyph: '⌖', title: 'Harf örni', sub: 'Boshi, örtasi, oxiri' },
+  { id: 'söz', glyph: '✎', title: 'Söz qurish', sub: 'Harflarni tartiblab tuz' },
+  { id: 'böğin', glyph: '♬', title: 'Böğin sanaş', sub: 'Sözdagi böğinlar soni' },
+  { id: 'soni', glyph: '#', title: 'Harf soni', sub: 'Harf neçta qatnaşadi' },
+  { id: 'pvp', glyph: '1v2', title: 'Tez Duel', sub: 'Ikki öyinçi, bir ekran' }
+];
+
+function letterUp(value) {
+  return String(value || '').toLocaleUpperCase('uz');
+}
+
+function countLetter(word, letter) {
+  const up = letterUp(word);
+  const ch = letterUp(letter);
+  if (!ch) return 0;
+  return up.split(ch).length - 1;
+}
+
+function letterPosition(word, letter) {
+  const up = letterUp(word);
+  const ch = letterUp(letter);
+  const idx = up.indexOf(ch);
+  if (idx <= 0) return 'Boshida';
+  if (idx >= up.length - 1) return 'Oxirida';
+  return 'Örtasida';
+}
+
+function syllableCount(word) {
+  return Math.max(1, (String(word).match(/[aeiouö]/gi) || []).length);
+}
+
+function letterChoices(correct, pool, count = 4) {
+  const out = [String(correct)];
+  for (const value of shuffle(pool)) {
+    if (out.length >= count) break;
+    const text = String(value);
+    if (!out.includes(text)) out.push(text);
+  }
+  return shuffle(out);
+}
+
+function numberChoices(value) {
+  const n = Number(value) || 1;
+  const pool = n <= 1 ? [n, n + 1, n + 2, n + 3] : n >= 4 ? [n, n - 1, n - 2, n - 3] : [n, n - 1, n + 1, n + 2];
+  return shuffle(pool.map(String));
+}
+
+function buildLetterDuelQuestions(letter, words, count) {
+  const pool = pickFreshBatch(`letter-duel-${letter}`, words && words.length ? words : getLetterWords(letter), count, (x) => x.word);
+  return pool.map((entry) => {
+    const answer = String(countLetter(entry.word, letter));
+    return {
+      q: `«${entry.word}» sözida "${letter}" harfi neçtasi bor?`,
+      opts: letterChoices(answer, ['1', '2', '3', '4', '5']),
+      a: answer
+    };
+  });
+}
+
 export const EDU_ITEMS = [
   { id: 1, glyph: 'Ş ş', subGlyph: 'Rasm ovi · yangi Ş harfi', title: 'Şir va Şar', category: 'Yangi Alifbo', year: 'Boşlanğiç', desc: 'Vodiy boğida tarkibida Ş harfi bor rasmlarni (Şir, Şar, Quyoş) toping!', accent: '#68b5ff', art: 'sir', bg: 'valley', gameType: 'picture-hunt', config: { letter: 'Ş', old: 'sh' } },
   { id: 2, glyph: 'A – ʼ', subGlyph: '29 harf yoziş', title: 'Harf Yozib Kör', category: 'Yangi Alifbo', year: 'Boşlanğiç', desc: 'Barcha 29 ta harfni (A dan ʼ belgisigaça) suyuq şisha taxtasida barmoq bilan çizing.', accent: '#5eead4', art: 'coy', bg: 'prism', gameType: 'letter-trace', config: {} },
@@ -883,7 +1019,9 @@ export function openEduGame(item, onClose) {
     const roundsTotal = 7;
     const questions = track === 'math'
       ? Array.from({ length: roundsTotal }, () => makeRandomMathDuelQuestion())
-      : pickFreshBatch('pvp-lang-duel', PVP_LANG_QUESTIONS, roundsTotal, (q) => q.q);
+      : cfg.letter
+        ? buildLetterDuelQuestions(cfg.letter, cfg.words, roundsTotal)
+        : pickFreshBatch('pvp-lang-duel', PVP_LANG_QUESTIONS, roundsTotal, (q) => q.q);
     let rIdx = 0;
 
     const playDuelRound = () => {
@@ -3789,6 +3927,220 @@ export function openEduGame(item, onClose) {
     nextQ();
   }
 
+  function gameLetterLab(cfg) {
+    clearActiveGame();
+    const letter = cfg.letter || 'A';
+    const mode = cfg.mode || 'rasm';
+    const words = (cfg.words && cfg.words.length ? cfg.words : getLetterWords(letter)).slice(0, 10);
+    if (mode === 'pvp') {
+      gamePvpDuel({ track: 'lang', letter, words });
+      return;
+    }
+    const meta = LETTER_GAME_MODES.find((m) => m.id === mode) || LETTER_GAME_MODES[0];
+    const rounds = Math.min(5, words.length);
+    const queue = pickFreshBatch(`letter-lab-${mode}-${letter}`, words, rounds, (x) => x.word);
+    const letterPool = UZ_ALPHABET.filter((l) => l.type !== 'belgi').map((l) => l.upper).concat(['ʼ']);
+    let qIdx = 0;
+
+    const headHtml = (extra) => `
+      <div class="edu-hud">
+        <span>${meta.title} · "${letter}"</span>
+        <span class="edu-hud-pill">${qIdx} / ${rounds}</span>
+      </div>
+      ${extra || ''}
+    `;
+
+    const next = () => {
+      if (qIdx >= queue.length) {
+        showVictory(`${meta.title} · «${letter}»`, `Namunalar: ${queue.map((x) => x.word).join(', ')}`);
+        return;
+      }
+      const entry = queue[qIdx];
+      qIdx++;
+      if (mode === 'söz') renderBuilder(entry);
+      else renderChoice(entry);
+    };
+
+    function renderChoice(entry) {
+      clearActiveGame();
+      let focus = entry;
+      let prompt = '';
+      let opts = [];
+      let answer = '';
+      let artHtml = '';
+      const word = entry.word;
+      const art = entry.art || artForWord(word);
+
+      if (mode === 'rasm') {
+        const decoys = pickFreshBatch(
+          `ll-rasm-${letter}`,
+          LEARNING_WORDS.filter((x) => countLetter(x.word, letter) === 0),
+          3,
+          (x) => x.word
+        );
+        const cards = shuffle([entry, ...decoys]);
+        prompt = `Rasmga qarab, tarkibida "${letter}" harfi bor sözni bosing:`;
+        opts = cards.map((x) => `${ART_GLYPH[x.art] || '▣'} ${x.word}`);
+        answer = `${ART_GLYPH[art] || '▣'} ${word}`;
+      } else if (mode === 'rasm-söz') {
+        const decoys = pickFreshBatch(
+          `ll-art-${letter}`,
+          LEARNING_WORDS.filter((x) => countLetter(x.word, letter) === 0),
+          3,
+          (x) => x.word
+        );
+        const cards = shuffle([entry, ...decoys]);
+        prompt = 'Rasmga mos sözni tanlang:';
+        opts = cards.map((x) => x.word);
+        answer = word;
+        artHtml = `<div class="app-letter-art"><canvas width="132" height="132"></canvas></div>`;
+      } else if (mode === 'boş') {
+        const starts = LEARNING_WORDS.filter((x) => letterUp(x.word).startsWith(letterUp(letter)));
+        const useStarts = starts.length >= 4;
+        const source = useStarts ? starts : words;
+        focus = source.find((x) => letterUp(x.word) === letterUp(word)) || source[0] || entry;
+        const decoyPool = useStarts
+          ? LEARNING_WORDS.filter((x) => !letterUp(x.word).startsWith(letterUp(letter)))
+          : LEARNING_WORDS.filter((x) => countLetter(x.word, letter) === 0);
+        const decoys = pickFreshBatch(`ll-start-${letter}`, decoyPool, 3, (x) => x.word);
+        prompt = useStarts
+          ? `Qaysi söz "${letter}" harfi bilan boşlanadi?`
+          : `Qaysi sözda "${letter}" harfi bor?`;
+        opts = shuffle([focus.word, ...decoys.map((x) => x.word)]);
+        answer = focus.word;
+      } else if (mode === 'oxir') {
+        const ends = LEARNING_WORDS.filter((x) => letterUp(x.word).endsWith(letterUp(letter)));
+        const useEnds = ends.length >= 4;
+        const source = useEnds ? ends : words;
+        focus = source.find((x) => letterUp(x.word) === letterUp(word)) || source[0] || entry;
+        const decoyPool = useEnds
+          ? LEARNING_WORDS.filter((x) => !letterUp(x.word).endsWith(letterUp(letter)))
+          : LEARNING_WORDS.filter((x) => countLetter(x.word, letter) === 0);
+        const decoys = pickFreshBatch(`ll-end-${letter}`, decoyPool, 3, (x) => x.word);
+        prompt = useEnds
+          ? `Qaysi söz "${letter}" harfi bilan tugaydi?`
+          : `Qaysi sözda "${letter}" harfi bor?`;
+        opts = shuffle([focus.word, ...decoys.map((x) => x.word)]);
+        answer = focus.word;
+      } else if (mode === 'harf') {
+        const idx = letterUp(word).indexOf(letterUp(letter));
+        const safeIdx = idx >= 0 ? idx : 0;
+        const display = word.slice(0, safeIdx) + '[ ]' + word.slice(safeIdx + 1);
+        prompt = `«${display}» sözdagi boş harf qaysi?`;
+        opts = letterChoices(letter, letterPool.filter((x) => letterUp(x) !== letterUp(letter)));
+        answer = letter;
+      } else if (mode === 'joy') {
+        prompt = `«${word}» sözda "${letter}" qayerda?`;
+        opts = shuffle(['Boshida', 'Örtasida', 'Oxirida']);
+        answer = letterPosition(word, letter);
+      } else if (mode === 'böğin') {
+        prompt = `«${word}» sözida neçta böğin bor?`;
+        opts = numberChoices(syllableCount(word));
+        answer = String(syllableCount(word));
+      } else {
+        prompt = `«${word}» sözida "${letter}" harfi neçta?`;
+        opts = numberChoices(countLetter(word, letter));
+        answer = String(countLetter(word, letter));
+      }
+
+      modalBody.innerHTML = `
+        ${headHtml(artHtml)}
+        <div class="app-letter-banner">${prompt}</div>
+        <div class="edu-options app-letter-options">
+          ${opts.map((o) => `<button type="button" class="edu-opt app-letter-opt" data-v="${o}">${o}</button>`).join('')}
+        </div>
+        <div class="edu-feedback" id="app-letter-fb">Töğri javobni bosing · +1 ★</div>
+      `;
+
+      const canvas = modalBody.querySelector('.app-letter-art canvas');
+      if (canvas) {
+        const ctx = canvas.getContext('2d');
+        drawCoverBg(ctx, 132, 132, 'prism', 0.18);
+        drawIllustration(ctx, focus.art || art, 66, 66, 92, 0.4, '#5eead4');
+      }
+
+      let locked = false;
+      modalBody.querySelectorAll('.app-letter-opt').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          if (locked) return;
+          const value = btn.dataset.v || '';
+          const fb = modalBody.querySelector('#app-letter-fb');
+          if (value === answer) {
+            locked = true;
+            btn.classList.add('is-correct');
+            if (fb) fb.textContent = `Töğri! "${focus.word}" · +1 ★`;
+            addStar(1);
+            playSound('good');
+            gameTimeout(next, 980);
+          } else {
+            btn.classList.add('is-wrong');
+            if (fb) fb.textContent = 'Yana bir marta urinib köring.';
+            playSound('bad');
+            gameTimeout(() => btn.classList.remove('is-wrong'), 680);
+          }
+        });
+      });
+    }
+
+    function renderBuilder(entry) {
+      clearActiveGame();
+      const word = entry.word;
+      const chars = shuffle([...word]);
+      const used = new Set();
+      let typed = '';
+      let locked = false;
+
+      const draw = () => {
+        modalBody.innerHTML = `
+          ${headHtml('')}
+          <div class="app-letter-banner">Harflarni tartib bilan bosing: <strong>${word}</strong></div>
+          <div class="app-letter-slots">
+            ${[...word].map((_, i) => `<span>${typed[i] || '_'}</span>`).join('')}
+          </div>
+          <div class="edu-options app-letter-options">
+            ${chars
+              .map((ch, i) => `<button type="button" class="edu-opt app-letter-opt" data-i="${i}" ${used.has(i) ? 'disabled' : ''}>${ch}</button>`)
+              .join('')}
+          </div>
+          <div class="edu-feedback" id="app-letter-fb">Harflarni bosing, söz hosil bölsin.</div>
+        `;
+        modalBody.querySelectorAll('.app-letter-opt').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            if (locked) return;
+            const idx = Number(btn.dataset.i);
+            used.add(idx);
+            typed += chars[idx];
+            if (typed.length < word.length) {
+              draw();
+              return;
+            }
+            locked = true;
+            const fb = modalBody.querySelector('#app-letter-fb');
+            if (letterUp(typed) === letterUp(word)) {
+              btn.classList.add('is-correct');
+              if (fb) fb.textContent = `Töğri! "${word}" · +1 ★`;
+              addStar(1);
+              playSound('good');
+              gameTimeout(next, 980);
+            } else {
+              if (fb) fb.textContent = 'Tartib xato, qaytadan urinib köring.';
+              playSound('bad');
+              gameTimeout(() => {
+                typed = '';
+                used.clear();
+                locked = false;
+                draw();
+              }, 950);
+            }
+          });
+        });
+      };
+      draw();
+    }
+
+    next();
+  }
+
   // ── 26. GRAND COMBINED MARATHON ──────────────────────────────────────────
   function gameFinalMix() {
     const pick = pickFreshBatch('final-mix', [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 1, String)[0];
@@ -3807,6 +4159,7 @@ export function openEduGame(item, onClose) {
   function launchGame(cur) {
     switch (cur.gameType) {
       case 'pvp-duel': gamePvpDuel(cur.config); break;
+      case 'letter-lab': gameLetterLab(cur.config); break;
       case 'picture-hunt': gamePictureHunt(cur.config); break;
       case 'flashlight-hunt': gameFlashlightHunt(cur.config); break;
       case 'letter-trace': gameLetterTrace(cur.config); break;
