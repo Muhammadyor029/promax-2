@@ -1151,6 +1151,30 @@ window.gsap = gsap;
       const host = document.getElementById('proj-canvas');
       const bubbleEl = document.getElementById('proj-view-bubble');
 
+      const filterBar = document.createElement('div');
+      filterBar.className = 'proj-filter-bar';
+      filterBar.innerHTML = `
+        <div class="proj-filter-top">
+          <label class="proj-search">
+            <span aria-hidden="true">⌕</span>
+            <input id="proj-search-input" type="search" placeholder="Öyin qidirish..." autocomplete="off" aria-label="Öyin qidirish" />
+          </label>
+          <span class="proj-filter-count">${ITEMS.length} / ${ITEMS.length} öyin</span>
+        </div>
+        <div class="proj-filter-row" id="proj-filter-categories" aria-label="Kategoriya filtri"></div>
+        <div class="proj-filter-row" id="proj-filter-years" aria-label="Yosh filtri"></div>
+      `;
+      section.appendChild(filterBar);
+      const searchInput = filterBar.querySelector('#proj-search-input');
+      const countEl = filterBar.querySelector('.proj-filter-count');
+      const categoryRow = filterBar.querySelector('#proj-filter-categories');
+      const yearRow = filterBar.querySelector('#proj-filter-years');
+      const categories = ['all', ...new Set(ITEMS.map((it) => it.category))];
+      const years = ['all', ...new Set(ITEMS.map((it) => it.year))];
+      let activeCategory = 'all';
+      let activeYear = 'all';
+      let searchQuery = '';
+
       const projItems = ITEMS;
       const touch = isTouchDevice();
 
@@ -1725,8 +1749,9 @@ window.gsap = gsap;
         const blockHeight = tileH + 10 + 16 + 4 + 16; // tile + 10px + title + 4px + cat
 
         let maxBottom = gridTop;
-        for (let i = 0; i < tiles.length; i++) {
-          const t = tiles[i];
+        const shownTiles = tiles.filter((t) => !t.filtered);
+        for (let i = 0; i < shownTiles.length; i++) {
+          const t = shownTiles[i];
           const col = i % cols;
           const row = Math.floor(i / cols);
           const xLeft = pad + col * (tileW + colGap);
@@ -1807,6 +1832,85 @@ window.gsap = gsap;
       });
 
       let entrancePlayed = false;
+
+      function makeChipRow(row, values, getActive, setActive, labelFor) {
+        row.innerHTML = values.map((value) => {
+          const active = value === getActive();
+          return `<button type="button" class="proj-filter-chip${active ? ' is-active' : ''}" data-value="${value}" aria-pressed="${active}">${labelFor(value)}</button>`;
+        }).join('');
+        row.querySelectorAll('.proj-filter-chip').forEach((btn) => {
+          btn.addEventListener('click', () => {
+            setActive(btn.dataset.value);
+            row.querySelectorAll('.proj-filter-chip').forEach((b) => {
+              const on = b === btn;
+              b.classList.toggle('is-active', on);
+              b.setAttribute('aria-pressed', String(on));
+            });
+            applyFilters();
+          });
+        });
+      }
+
+      function normalizeFilter(value) {
+        return String(value || '')
+          .toLocaleLowerCase('uz')
+          .replace(/[ʻ‘’`ʼ]/g, "'");
+      }
+
+      function itemMatchesFilter(t) {
+        if (activeCategory !== 'all' && t.item.category !== activeCategory) return false;
+        if (activeYear !== 'all' && t.item.year !== activeYear) return false;
+        if (!searchQuery) return true;
+        const haystack = normalizeFilter([
+          t.item.title,
+          t.item.subGlyph,
+          t.item.category,
+          t.item.year,
+          t.item.desc,
+          t.item.glyph
+        ].join(' '));
+        return haystack.includes(searchQuery);
+      }
+
+      function applyFilters() {
+        const shown = [];
+        for (const t of tiles) {
+          t.filtered = !itemMatchesFilter(t);
+          const on = !t.filtered;
+          t.tileMesh.visible = on;
+          t.chipMesh.visible = on;
+          t.titleMesh.visible = on;
+          t.catMesh.visible = on;
+          if (on) {
+            shown.push(t);
+            if (entrancePlayed || reducedMotion) {
+              t.opacityVal = 1;
+              t.riseOffset = 0;
+            }
+          } else {
+            gsap.killTweensOf(t, 'opacityVal,riseOffset');
+            t.opacityVal = 0;
+            t.riseOffset = 60;
+          }
+        }
+        hoveredTile = null;
+        mobileCenterTile = null;
+        setActiveVideoTile(null, false);
+        targetScroll = 0;
+        currentScroll = 0;
+        scrollVel = 0;
+        layoutGrid();
+        countEl.textContent = `${shown.length} / ${tiles.length} öyin`;
+        filterBar.classList.toggle('is-empty', shown.length === 0);
+      }
+
+      makeChipRow(categoryRow, categories, () => activeCategory, (value) => { activeCategory = value; }, (value) => value === 'all' ? 'Hammasi' : value);
+      makeChipRow(yearRow, years, () => activeYear, (value) => { activeYear = value; }, (value) => value === 'all' ? 'Barcha yosh' : value);
+      searchInput.addEventListener('input', () => {
+        searchQuery = normalizeFilter(searchInput.value.trim());
+        applyFilters();
+      });
+
       function playEntrance() {
         if (entrancePlayed) return;
         entrancePlayed = true;
@@ -1911,6 +2015,7 @@ window.gsap = gsap;
 
       function setActiveVideoTile(nextTile, isDesktopHover) {
         for (const t of tiles) {
+          if (t.filtered) continue;
           const active = t === nextTile;
           const targetMix = active ? 1 : 0;
           if (Math.abs(t.tileMat.uniforms.uMix.value - targetMix) > 0.001) {
@@ -2006,7 +2111,7 @@ window.gsap = gsap;
         ndc.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
         ndc.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
         raycaster.setFromCamera(ndc, camera);
-        const hits = raycaster.intersectObjects(tiles.map((t) => t.tileMesh), false);
+        const hits = raycaster.intersectObjects(tiles.filter((t) => !t.filtered).map((t) => t.tileMesh), false);
         if (hits.length) {
           openLightbox(hits[0].object.userData.tileState.item);
         }
@@ -2038,7 +2143,7 @@ window.gsap = gsap;
         for (let i = 0; i < tiles.length; i++) {
           const t = tiles[i];
           const yBottom = t.yTop + t.tileH;
-          if (!t.loading && yBottom >= minLoadY && t.yTop <= maxLoadY) {
+          if (!t.filtered && !t.loading && yBottom >= minLoadY && t.yTop <= maxLoadY) {
             loadTileMedia(t);
           }
 
@@ -2062,6 +2167,7 @@ window.gsap = gsap;
           t.titleMesh.position.set(t.x + tw / 2, -(t.yTop + t.tileH + 10 + th / 2 + rise), 0);
           t.catMesh.position.set(t.x + ctw / 2, -(t.yTop + t.tileH + 10 + 16 + 4 + cth / 2 + rise), 0);
 
+          if (t.filtered) continue;
           const tileCenterY = t.yTop + t.tileH / 2;
           const dist = Math.abs(tileCenterY - viewCenterY);
           if (dist < closestDist) {
@@ -2079,7 +2185,7 @@ window.gsap = gsap;
             activeTile.videoTex.needsUpdate = true;
           }
           const visibleTiles = tiles.filter(
-            (t) => t.stillReady && t.yTop + t.tileH >= currentScroll - 80 && t.yTop <= currentScroll + vh + 80
+            (t) => !t.filtered && t.stillReady && t.yTop + t.tileH >= currentScroll - 80 && t.yTop <= currentScroll + vh + 80
           );
           if (visibleTiles.length > 0) {
             if (typeof makeLoopDriver.__projAnimCursor !== 'number') makeLoopDriver.__projAnimCursor = 0;
@@ -2111,7 +2217,7 @@ window.gsap = gsap;
           ndc.x = ((pointerX - rect.left) / rect.width) * 2 - 1;
           ndc.y = -((pointerY - rect.top) / rect.height) * 2 + 1;
           raycaster.setFromCamera(ndc, camera);
-          const hits = raycaster.intersectObjects(tiles.map((t) => t.tileMesh), false);
+          const hits = raycaster.intersectObjects(tiles.filter((t) => !t.filtered).map((t) => t.tileMesh), false);
           const hitTile = hits.length ? hits[0].object.userData.tileState : null;
           if (hitTile !== hoveredTile) {
             hoveredTile = hitTile;
