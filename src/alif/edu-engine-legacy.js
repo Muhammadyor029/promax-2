@@ -1,5 +1,5 @@
 // Interactive educational games for beginners & school entrants, Liquid Glass illustrated cards & PvP
-// Reformed Uzbek Latin Alphabet (29): A–Z + Ç ç, Ğ ğ, Ö ö, Ş ş, ʼ (tutuq)
+// Reformed Uzbek Latin Alphabet (28 harf + ʼ): A B D E F G Ğ H I J K L M N O Ö P Q R S Ş Ç T U V X Y Z
 
 import gsap from 'gsap';
 import { drawIllustration, drawApple, drawBalloon, drawStar, drawDuck, hexAlpha } from './edu-art.js';
@@ -111,33 +111,33 @@ function drawCoverBg(ctx, w, h, key, dimAlpha = 0.35) {
 export const UZ_ALPHABET = [
   { num: 1, upper: 'A', lower: 'a', example: 'Anor', words: ['Anor', 'Ari', 'Asal'], art: 'olma', hint: '1-harf · Unli tovuş', type: 'unli' },
   { num: 2, upper: 'B', lower: 'b', example: 'Bola', words: ['Bola', 'Boğ', 'Baliq'], art: 'sir', hint: '2-harf · Undosh tovuş', type: 'undosh' },
-  { num: 3, upper: 'Ç', lower: 'ç', example: 'Çoynak', words: ['Çoynak', 'Çana', 'Çiroq'], art: 'coy', hint: '3-harf · Yangi harf Ç ç', type: 'yangi', old: 'Ç ç' },
-  { num: 4, upper: 'D', lower: 'd', example: 'Daftar', words: ['Daftar', 'Daraxt', 'Daryo'], art: 'kitob', hint: '4-harf · Undosh tovuş', type: 'undosh' },
-  { num: 5, upper: 'E', lower: 'e', example: 'Eşik', words: ['Eşik', 'Erkak', 'Elak'], art: 'kitob', hint: '5-harf · Unli tovuş', type: 'unli' },
-  { num: 6, upper: 'F', lower: 'f', example: 'Fil', words: ['Fil', 'Fasl', 'Fonar'], art: 'sir', hint: '6-harf · Undosh tovuş', type: 'undosh' },
-  { num: 7, upper: 'G', lower: 'g', example: 'Gul', words: ['Gul', 'Gilam', 'Gilos'], art: 'gul', hint: '7-harf · Undosh tovuş', type: 'undosh' },
-  { num: 8, upper: 'Ğ', lower: 'ğ', example: 'Ğoz', words: ['Ğoz', 'Toğ', 'Boğ'], art: 'tog', hint: '8-harf · Yangi harf Ğ ğ', type: 'yangi', old: 'Ğ ğ' },
-  { num: 9, upper: 'H', lower: 'h', example: 'Havo', words: ['Havo', 'Hovli', 'Hikoya'], art: 'sar', hint: '9-harf · Undosh tovuş', type: 'undosh' },
-  { num: 10, upper: 'I', lower: 'i', example: 'Ilm', words: ['Ilm', 'Ikki', 'Issiq'], art: 'kitob', hint: '10-harf · Unli tovuş', type: 'unli' },
-  { num: 11, upper: 'J', lower: 'j', example: 'Jöja', words: ['Jöja', 'Jayron', 'Jilğa'], art: 'ordak', hint: '11-harf · Undosh tovuş', type: 'undosh' },
-  { num: 12, upper: 'K', lower: 'k', example: 'Kitob', words: ['Kitob', 'Kapalak', 'Kema'], art: 'kitob', hint: '12-harf · Undosh tovuş', type: 'undosh' },
-  { num: 13, upper: 'L', lower: 'l', example: 'Lola', words: ['Lola', 'Limon', 'Laylak'], art: 'gul', hint: '13-harf · Undosh tovuş', type: 'undosh' },
-  { num: 14, upper: 'M', lower: 'm', example: 'Maktab', words: ['Maktab', 'Meva', 'Muşuk'], art: 'kitob', hint: '14-harf · Undosh tovuş', type: 'undosh' },
-  { num: 15, upper: 'N', lower: 'n', example: 'Non', words: ['Non', 'Nur', 'Nok'], art: 'quyos', hint: '15-harf · Undosh tovuş', type: 'undosh' },
-  { num: 16, upper: 'O', lower: 'o', example: 'Olma', words: ['Olma', 'Osmon', 'Ota'], art: 'olma', hint: '16-harf · Unli tovuş', type: 'unli' },
-  { num: 17, upper: 'Ö', lower: 'ö', example: 'Ördak', words: ['Ördak', 'Öqiş', 'Qözi'], art: 'ordak', hint: '17-harf · Yangi harf Ö ö', type: 'yangi', old: 'Ö ö' },
-  { num: 18, upper: 'P', lower: 'p', example: 'Poyezd', words: ['Poyezd', 'Paxta', 'Piyola'], art: 'poyezd', hint: '18-harf · Undosh tovuş', type: 'undosh' },
-  { num: 19, upper: 'Q', lower: 'q', example: 'Qurbaqa', words: ['Qurbaqa', 'Qalam', 'Qor'], art: 'qurbaqa', hint: '19-harf · Undosh tovuş', type: 'undosh' },
-  { num: 20, upper: 'R', lower: 'r', example: 'Raketa', words: ['Raketa', 'Rasm', 'Rang'], art: 'raketa', hint: '20-harf · Undosh tovuş', type: 'undosh' },
-  { num: 21, upper: 'S', lower: 's', example: 'Soat', words: ['Soat', 'Suv', 'Savat'], art: 'quyos', hint: '21-harf · Undosh tovuş', type: 'undosh' },
-  { num: 22, upper: 'Ş', lower: 'ş', example: 'Şar', words: ['Şar', 'Şer', 'Quyoş'], art: 'sir', hint: '22-harf · Yangi harf Ş ş', type: 'yangi', old: 'Ş ş' },
+  { num: 3, upper: 'D', lower: 'd', example: 'Daftar', words: ['Daftar', 'Daraxt', 'Daryo'], art: 'kitob', hint: '3-harf · Undosh tovuş', type: 'undosh' },
+  { num: 4, upper: 'E', lower: 'e', example: 'Eşik', words: ['Eşik', 'Erkak', 'Elak'], art: 'kitob', hint: '4-harf · Unli tovuş', type: 'unli' },
+  { num: 5, upper: 'F', lower: 'f', example: 'Fil', words: ['Fil', 'Fasl', 'Fonar'], art: 'sir', hint: '5-harf · Undosh tovuş', type: 'undosh' },
+  { num: 6, upper: 'G', lower: 'g', example: 'Gul', words: ['Gul', 'Gilam', 'Gilos'], art: 'gul', hint: '6-harf · Undosh tovuş', type: 'undosh' },
+  { num: 7, upper: 'Ğ', lower: 'ğ', example: 'Ğoz', words: ['Ğoz', 'Toğ', 'Boğ'], art: 'tog', hint: '7-harf · Yangi harf Ğ ğ', type: 'yangi', old: 'G‘ g‘' },
+  { num: 8, upper: 'H', lower: 'h', example: 'Havo', words: ['Havo', 'Hovli', 'Hikoya'], art: 'sar', hint: '8-harf · Undosh tovuş', type: 'undosh' },
+  { num: 9, upper: 'I', lower: 'i', example: 'Ilm', words: ['Ilm', 'Ikki', 'Issiq'], art: 'kitob', hint: '9-harf · Unli tovuş', type: 'unli' },
+  { num: 10, upper: 'J', lower: 'j', example: 'Jöja', words: ['Jöja', 'Jayron', 'Jilğa'], art: 'ordak', hint: '10-harf · Undosh tovuş', type: 'undosh' },
+  { num: 11, upper: 'K', lower: 'k', example: 'Kitob', words: ['Kitob', 'Kapalak', 'Kema'], art: 'kitob', hint: '11-harf · Undosh tovuş', type: 'undosh' },
+  { num: 12, upper: 'L', lower: 'l', example: 'Lola', words: ['Lola', 'Limon', 'Laylak'], art: 'gul', hint: '12-harf · Undosh tovuş', type: 'undosh' },
+  { num: 13, upper: 'M', lower: 'm', example: 'Maktab', words: ['Maktab', 'Meva', 'Muşuk'], art: 'kitob', hint: '13-harf · Undosh tovuş', type: 'undosh' },
+  { num: 14, upper: 'N', lower: 'n', example: 'Non', words: ['Non', 'Nur', 'Nok'], art: 'quyos', hint: '14-harf · Undosh tovuş', type: 'undosh' },
+  { num: 15, upper: 'O', lower: 'o', example: 'Olma', words: ['Olma', 'Osmon', 'Ota'], art: 'olma', hint: '15-harf · Unli tovuş', type: 'unli' },
+  { num: 16, upper: 'Ö', lower: 'ö', example: 'Ördak', words: ['Ördak', 'Öqiş', 'Qözi'], art: 'ordak', hint: '16-harf · Yangi harf Ö ö', type: 'yangi', old: 'O‘ o‘' },
+  { num: 17, upper: 'P', lower: 'p', example: 'Poyezd', words: ['Poyezd', 'Paxta', 'Piyola'], art: 'poyezd', hint: '17-harf · Undosh tovuş', type: 'undosh' },
+  { num: 18, upper: 'Q', lower: 'q', example: 'Qurbaqa', words: ['Qurbaqa', 'Qalam', 'Qor'], art: 'qurbaqa', hint: '18-harf · Undosh tovuş', type: 'undosh' },
+  { num: 19, upper: 'R', lower: 'r', example: 'Raketa', words: ['Raketa', 'Rasm', 'Rang'], art: 'raketa', hint: '19-harf · Undosh tovuş', type: 'undosh' },
+  { num: 20, upper: 'S', lower: 's', example: 'Soat', words: ['Soat', 'Suv', 'Savat'], art: 'quyos', hint: '20-harf · Undosh tovuş', type: 'undosh' },
+  { num: 21, upper: 'Ş', lower: 'ş', example: 'Şar', words: ['Şar', 'Şer', 'Quyoş'], art: 'sir', hint: '21-harf · Yangi harf Ş ş', type: 'yangi', old: 'Sh sh' },
+  { num: 22, upper: 'Ç', lower: 'ç', example: 'Çoynak', words: ['Çoynak', 'Çana', 'Çiroq'], art: 'coy', hint: '22-harf · Yangi harf Ç ç', type: 'yangi', old: 'Ch ch' },
   { num: 23, upper: 'T', lower: 't', example: 'Tarozi', words: ['Tarozi', 'Toğ', 'Tuz'], art: 'tarozi', hint: '23-harf · Undosh tovuş', type: 'undosh' },
   { num: 24, upper: 'U', lower: 'u', example: 'Uçqur', words: ['Uçqur', 'Uzum', 'Uy'], art: 'raketa', hint: '24-harf · Unli tovuş', type: 'unli' },
   { num: 25, upper: 'V', lower: 'v', example: 'Vatan', words: ['Vatan', 'Vodiy', 'Varaqa'], art: 'tog', hint: '25-harf · Undosh tovuş', type: 'undosh' },
   { num: 26, upper: 'X', lower: 'x', example: 'Xat', words: ['Xat', 'Xona', 'Xarita'], art: 'kitob', hint: '26-harf · Undosh tovuş', type: 'undosh' },
   { num: 27, upper: 'Y', lower: 'y', example: 'Yulduz', words: ['Yulduz', 'Yomğir', 'Yöl'], art: 'yulduz', hint: '27-harf · Undosh tovuş', type: 'undosh' },
   { num: 28, upper: 'Z', lower: 'z', example: 'Zebra', words: ['Zebra', 'Zina', 'Zafar'], art: 'sir', hint: '28-harf · Undosh tovuş', type: 'undosh' },
-  { num: 29, upper: 'ʼ', lower: 'ʼ', example: 'Maʼno', words: ['Maʼno', 'Aʼlo', 'Sanʼat'], art: 'kitob', hint: '29-belgi · Tutuq belgisi (unli yoki undoshdan keyin)', type: 'belgi', old: 'Tutuq belgisi' }
+  { num: 29, upper: 'ʼ', lower: 'ʼ', example: 'Maʼno', words: ['Maʼno', 'Aʼlo', 'Sanʼat'], art: 'kitob', hint: 'Tutuq belgisi · 28 harfdan keyin', type: 'belgi', old: 'Tutuq belgisi' }
 ];
 
 const EXTRA_LEARNING_WORDS = [
@@ -278,10 +278,10 @@ function buildLetterDuelQuestions(letter, words, count) {
 
 export const EDU_ITEMS = [
   { id: 1, glyph: 'Ş ş', subGlyph: 'Rasm ovi · yangi Ş harfi', title: 'Şer va Şar', category: 'Yangi Alifbo', year: 'Boşlanğiç', desc: 'Vodiy boğida tarkibida Ş harfi bor rasmlarni (Şer, Şar, Quyoş) toping!', accent: '#68b5ff', art: 'sir', bg: 'valley', gameType: 'picture-hunt', config: { letter: 'Ş', old: 'sh' } },
-  { id: 2, glyph: 'A – ʼ', subGlyph: '29 harf yoziş', title: 'Harf Yozib Kör', category: 'Yangi Alifbo', year: 'Boşlanğiç', desc: 'Barcha 29 ta harfni (A dan ʼ belgisigaça) suyuq şisha taxtasida barmoq bilan çizing.', accent: '#5eead4', art: 'coy', bg: 'prism', gameType: 'letter-trace', config: {} },
+  { id: 2, glyph: 'A – ʼ', subGlyph: '28 harf + ʼ yoziş', title: 'Harf Yozib Kör', category: 'Yangi Alifbo', year: 'Boşlanğiç', desc: 'Barcha 28 harfni va ʼ tutuq belgisini suyuq şisha taxtasida barmoq bilan çizing.', accent: '#5eead4', art: 'coy', bg: 'prism', gameType: 'letter-trace', config: {} },
   { id: 3, glyph: 'Ö ö', subGlyph: 'Köl öyini · yangi Ö harfi', title: 'Ördak va Öt', category: 'Yangi Alifbo', year: 'Boşlanğiç', desc: 'Köldagi Ö harfli ördakçalarni tutib uyasiga kuzating!', accent: '#ffd166', art: 'ordak', bg: 'valley', gameType: 'duck-pond', config: { letter: 'Ö' } },
   { id: 4, glyph: 'Ğ ğ', subGlyph: 'Sehrli fonar · yangi Ğ harfi', title: 'Ğoz va Toğ', category: 'Yangi Alifbo', year: 'Boşlanğiç', desc: 'Tungi vodiyda sehrli fonarni yurgizib Ğ harfli rasmlarni yoritib toping!', accent: '#ff8fab', art: 'tog', bg: 'valley', gameType: 'flashlight-hunt', config: { letter: 'Ğ' } },
-  { id: 5, glyph: '29 ta', subGlyph: 'Alifbo · A – ʼ', title: 'Yangi Alifbo', category: 'Alifbo', year: 'Tayyorlov', desc: '1 dan 29 gaça yangi özbek lotin alifbosi (Ç, Ğ, Ö, Ş, ʼ) va tez topiş PvP maşqi!', accent: '#a78bfa', art: 'kitob', bg: 'prism', gameType: 'alphabet-board', config: {} },
+  { id: 5, glyph: '28+1', subGlyph: 'Alifbo · A – ʼ', title: 'Yangi Alifbo', category: 'Alifbo', year: 'Tayyorlov', desc: '28 harf (Ç, Ğ, Ö, Ş) va ʼ tutuq belgisi bilan tez topiş PvP maşqi!', accent: '#a78bfa', art: 'kitob', bg: 'prism', gameType: 'alphabet-board', config: {} },
   { id: 6, glyph: 'A E Ö', subGlyph: 'Musiqiy tovuş', title: 'Unli Ksilofon', category: 'Alifbo', year: 'Boşlanğiç', desc: 'Rasm va sözdagi tuşib qolgan unli harfni şisha klavişda bosing!', accent: '#56ccf2', art: 'sar', bg: 'aurora', gameType: 'xylophone-notes', config: { mode: 'vowels' } },
   { id: 7, glyph: '_AR', subGlyph: 'Şar yoriş · Ş Ç Ö Ğ', title: 'Harf Ovçisi', category: 'Alifbo', year: 'Tayyorlov', desc: 'Kosmik osmonga kötarilayotgan Ş, Ç, Ö, Ğ şarlaridan töğrisini yoring.', accent: '#5eead4', art: 'sar', bg: 'space', gameType: 'balloon-pop', config: { mode: 'reformed' } },
   { id: 8, glyph: 'ŞA+R', subGlyph: 'Qisqa sözlar', title: 'Rasmli Sözlar', category: 'Öqiş', year: 'İlk qadam', desc: 'Rasmga qarab harflarni ketma-ket tering va ilk qisqa sözlarni yiğing.', accent: '#ffd166', art: 'quyos', bg: 'prism', gameType: 'word-builder', config: { level: 1 } },
@@ -305,17 +305,17 @@ export const EDU_ITEMS = [
   { id: 26, glyph: '🔴 🔵 ?', subGlyph: 'Ketma-ketlik', title: 'Mantiqiy Zanjir', category: 'Mantiq', year: 'Tayyorlov', desc: 'Rang, şakl va sonlar ketma-ketligini davom ettiring!', accent: '#a78bfa', art: 'gul', bg: 'aurora', gameType: 'pattern-next', config: {} },
   { id: 27, glyph: '🎨', subGlyph: 'Rang aralaşuvi', title: 'Ranglar Sehrgarligi', category: 'Ijod', year: 'İlk qadam', desc: 'Ikki rangni aralaştirib qaysi yangi rang hosil bölişini toping!', accent: '#ff8fab', art: 'sar', bg: 'valley', gameType: 'color-mixer', config: {} },
   { id: 28, glyph: '👏 1·2·3', subGlyph: 'Böğin sanaş', title: 'Böğin Çapagi', category: 'Öqiş', year: 'Tayyorlov', desc: 'Rasm va sözdagi böğinlar sonini qarsak bilan sanab toping!', accent: '#5eead4', art: 'ordak', bg: 'valley', gameType: 'syllable-clap', config: {} },
-  { id: 29, glyph: 'Unli/Und', subGlyph: '29 ta harf', title: 'Tovuş Ajratiş', category: 'Alifbo', year: 'Tayyorlov', desc: 'Harflarni Unli (A E I O U Ö) va Undosh savatlariga ajrating!', accent: '#ffd166', art: 'kitob', bg: 'prism', gameType: 'vowel-sort', config: {} },
+  { id: 29, glyph: 'Unli/Und', subGlyph: '28 ta harf', title: 'Tovuş Ajratiş', category: 'Alifbo', year: 'Tayyorlov', desc: 'Harflarni Unli (A E I O U Ö) va Undosh savatlariga ajrating!', accent: '#ffd166', art: 'kitob', bg: 'prism', gameType: 'vowel-sort', config: {} },
   { id: 30, glyph: '↔ Zid', subGlyph: 'Maʼno juftlari', title: 'Zid Sözlar', category: 'Öqiş', year: 'Tayyorlov', desc: 'Katta↔Kiçik, Issiq↔Sovuq kabi qarama-qarşi maʼnoli sözlarni toping!', accent: '#56ccf2', art: 'tarozi', bg: 'aurora', gameType: 'opposite-words', config: {} },
   { id: 31, glyph: '🕒 Soat', subGlyph: 'Vaqt örganiş', title: 'Soat Vaqti', category: 'Mantiq', year: 'Tayyorlov', desc: 'Şisha soat strelkalariga qarab aniq soat va yarim soatni toping!', accent: '#68b5ff', art: 'quyos', bg: 'prism', gameType: 'clock-time', config: {} },
   { id: 32, glyph: 'Ç ç', subGlyph: 'Rasm ovi · yangi Ç harfi', title: 'Çoynak va Çana', category: 'Yangi Alifbo', year: 'Boşlanğiç', desc: 'Tarkibida yangi Ç ç harfi qatnaşgan rasmli kartalarni ovlang!', accent: '#5eead4', art: 'coy', bg: 'valley', gameType: 'picture-hunt', config: { letter: 'Ç', old: 'ch' } },
   { id: 33, glyph: 'Ö ö', subGlyph: 'Tungi fonar · yangi Ö harfi', title: 'Örmon Fonari', category: 'Yangi Alifbo', year: 'Boşlanğiç', desc: 'Tungi ördak va qözi vodiysida Ö ö harfli rasmlarni fonar bilan toping!', accent: '#ffd166', art: 'qozi', bg: 'valley', gameType: 'flashlight-hunt', config: { letter: 'Ö' } },
   { id: 34, glyph: '5 · 10 · 15', subGlyph: 'Tez sakraş', title: 'Beşlik Sakraş', category: 'Raqamlar', year: 'Tayyorlov', desc: 'Qurbaqani 5 qadamlik nilufar yaproqlaridan marra tomon sakrating!', accent: '#5eead4', art: 'qurbaqa', bg: 'valley', gameType: 'frog-hops', config: { step: 5 } },
-  { id: 35, glyph: 'Maʼno', subGlyph: '29-belgi · ʼ', title: 'Tutuq ʼ Ustasi', category: 'Yangi Alifbo', year: 'Tayyorlov', desc: 'Maʼno, Aʼlo, Sanʼat kabi sözlardagi tutuq belgisi va maxsus harf şarlarini yoring!', accent: '#a78bfa', art: 'kitob', bg: 'space', gameType: 'balloon-pop', config: { mode: 'tutuq' } },
+  { id: 35, glyph: 'Maʼno', subGlyph: 'Tutuq belgisi · ʼ', title: 'Tutuq ʼ Ustasi', category: 'Yangi Alifbo', year: 'Tayyorlov', desc: 'Maʼno, Aʼlo, Sanʼat kabi sözlardagi tutuq belgisi va maxsus harf şarlarini yoring!', accent: '#a78bfa', art: 'kitob', bg: 'space', gameType: 'balloon-pop', config: { mode: 'tutuq' } },
   { id: 36, glyph: 'QALAM', subGlyph: 'Maktab anjomi', title: 'Maktab Sumkasi', category: 'Öqiş', year: 'Tayyorlov', desc: 'Qalam, Kitob, Sumka, Maktab kabi asosiy maktab sözlarini harflardan yiğing!', accent: '#ff8fab', art: 'kitob', bg: 'prism', gameType: 'word-builder', config: { level: 3 } },
   { id: 37, glyph: '4 + 3', subGlyph: '10 içida tez', title: 'Tez Hisob 10', category: 'Matematika', year: 'İlk qadam', desc: 'Maktabga tayyorlov uçun 10 içidagi eng oson qöşiş va ayiriş meteorlari!', accent: '#68b5ff', art: 'raketa', bg: 'space', gameType: 'rocket-shooter', config: { mode: 'easy10' } },
-  { id: 38, glyph: 'A ↔ Ş', subGlyph: '29 harf xotira', title: 'Alifbo Xotira', category: 'Alifbo', year: 'Boşlanğiç', desc: 'Harf va unga mos rasm-söz juftliklarini xotirada saqlab toping!', accent: '#ffd166', art: 'sir', bg: 'aurora', gameType: 'memory-art', config: { mode: 'alpha' } },
-  { id: 39, glyph: '_ITOB', subGlyph: 'Boş harf ovi', title: 'Boş Harfni Top', category: 'Öqiş', year: 'İlk qadam', desc: 'Rasmga qarab sözning birinçi tuşib qolgan harfini 29 ta harf içidan tanlang!', accent: '#5eead4', art: 'gul', bg: 'valley', gameType: 'first-letter', config: {} },
+  { id: 38, glyph: 'A ↔ Ş', subGlyph: '28 harf xotira', title: 'Alifbo Xotira', category: 'Alifbo', year: 'Boşlanğiç', desc: 'Harf va unga mos rasm-söz juftliklarini xotirada saqlab toping!', accent: '#ffd166', art: 'sir', bg: 'aurora', gameType: 'memory-art', config: { mode: 'alpha' } },
+  { id: 39, glyph: '_ITOB', subGlyph: 'Boş harf ovi', title: 'Boş Harfni Top', category: 'Öqiş', year: 'İlk qadam', desc: 'Rasmga qarab sözning birinçi tuşib qolgan harfini 28 harf içidan tanlang!', accent: '#5eead4', art: 'gul', bg: 'valley', gameType: 'first-letter', config: {} },
   { id: 40, glyph: '🏆 40', subGlyph: 'Super sayohat', title: 'Katta Sayohat', category: 'Sinov', year: 'Tayyorlov', desc: 'Barcha öyinlardan tasodifiy marafon — PvP musobaqa uçun eng zör sinov!', accent: '#ffd166', art: 'yulduz', bg: 'space', gameType: 'final-mix', config: {} }
 ];
 
@@ -762,20 +762,20 @@ function updateAndDrawParticles(ctx, list) {
 }
 
 const PVP_LANG_QUESTIONS = [
-  { q: 'Avvalgi «Ç ç» yangi alifboda nechanchi va qaysi harf?', opts: ['3 · Ç ç', '22 · Ş ş', '8 · Ğ ğ', '17 · Ö ö'], a: '3 · Ç ç' },
-  { q: 'Avvalgi «Ş ş» qaysi harfga özgargan?', opts: ['Ş ş (22)', 'Ç ç (3)', 'S s (21)', 'Ğ ğ (8)'], a: 'Ş ş (22)' },
-  { q: 'Avvalgi «Ğ ğ» qaysi harf bilan yoziladi?', opts: ['Ğ ğ (8)', 'G g (7)', 'Q q (19)', 'H h (9)'], a: 'Ğ ğ (8)' },
-  { q: 'Avvalgi «Ö ö» yangi alifboda qanday yoziladi?', opts: ['Ö ö (17)', 'O o (16)', 'U u (24)', 'I i (10)'], a: 'Ö ö (17)' },
-  { q: 'Alifboning 29-örnida qaysi belgi turadi?', opts: ['ʼ (tutuq)', 'Ng ng', 'Ş ş', 'Ç ç'], a: 'ʼ (tutuq)' },
+  { q: 'Avvalgi «Ç ç» yangi alifboda nechanchi va qaysi harf?', opts: ['22 · Ç ç', '21 · Ş ş', '7 · Ğ ğ', '16 · Ö ö'], a: '22 · Ç ç' },
+  { q: 'Avvalgi «Ş ş» qaysi harfga özgargan?', opts: ['Ş ş (21)', 'Ç ç (22)', 'S s (20)', 'Ğ ğ (7)'], a: 'Ş ş (21)' },
+  { q: 'Avvalgi «Ğ ğ» qaysi harf bilan yoziladi?', opts: ['Ğ ğ (7)', 'G g (6)', 'Q q (18)', 'H h (8)'], a: 'Ğ ğ (7)' },
+  { q: 'Avvalgi «Ö ö» yangi alifboda qanday yoziladi?', opts: ['Ö ö (16)', 'O o (15)', 'U u (24)', 'I i (9)'], a: 'Ö ö (16)' },
+  { q: '28 harfdan keyin qaysi belgi turadi?', opts: ['ʼ (tutuq)', 'Ng ng', 'Ş ş', 'Ç ç'], a: 'ʼ (tutuq)' },
       { q: '«Quyoş» sözi qanday yoziladi?', opts: ['Quyoş', 'Quyos', 'Quyoch', 'Qöyoş'], a: 'Quyoş' },
   { q: '«Ördak» sözining töğri yangi yozuvi:', opts: ['Ördak', 'Ordak', 'Urdak', 'Ğördak'], a: 'Ördak' },
-      { q: '«Çoynak» sözi qaysi harf bilan boshlanadi?', opts: ['Ç', 'Ş', 'C', 'Ğ'], a: 'Ç' },
-      { q: '«Maʼno» sözida 29-belgi qanday qöyiladi?', opts: ['Maʼno', 'Mano', 'Mağno', 'Maçno'], a: 'Maʼno' },
+      { q: '«Çoynak» sözi qaysi harf bilan boshlanadi?', opts: ['Ç', 'Ş', 'T', 'Ğ'], a: 'Ç' },
+      { q: '«Maʼno» sözida tutuq belgisi qanday qöyiladi?', opts: ['Maʼno', 'Mano', 'Mağno', 'Maçno'], a: 'Maʼno' },
   { q: '«Ğoz» sözining bosh harfi qaysi?', opts: ['Ğ', 'G', 'Q', 'Ö'], a: 'Ğ' },
   { q: '«Boğ» sözi oxirida qaysi harf yoziladi?', opts: ['ğ', 'g', 'q', 'ç'], a: 'ğ' },
   { q: '«Shamol» sözining yangi shakli:', opts: ['Şamol', 'Çamol', 'Samol', 'Ğamol'], a: 'Şamol' },
   { q: 'Alifboda 1-örindagi unli harf:', opts: ['A a', 'O o', 'E e', 'I i'], a: 'A a' },
-      { q: '«Aʼlo» sözidagi belgi neçinçi örinda?', opts: ['29 · ʼ', '28 · Z', '17 · Ö', '3 · Ç'], a: '29 · ʼ' },
+      { q: '«Aʼlo» sözidagi belgi qanday ataladi?', opts: ['ʼ · tutuq belgisi', 'Z · oxirgi harf', 'Ö · yangi harf', 'Ç · yangi harf'], a: 'ʼ · tutuq belgisi' },
   { q: 'Qaysi harf UNLI tovush hisoblanadi?', opts: ['Ö ö', 'Ş ş', 'Ç ç', 'Ğ ğ'], a: 'Ö ö' },
   { q: '«Ol-ma» sözida nechta böğin bor?', opts: ['2 ta', '1 ta', '3 ta', '4 ta'], a: '2 ta' },
   { q: '«Ka-pa-lak» sözi nechta böğindan iborat?', opts: ['3 ta', '2 ta', '1 ta', '4 ta'], a: '3 ta' },
@@ -1417,7 +1417,7 @@ export function openEduGame(item, onClose) {
     };
   }
 
-  // ── 3. FULL 29-LETTER INTERACTIVE TRACING STUDIO ─────────────────────────
+  // ── 3. FULL 28-LETTER + ʼ INTERACTIVE TRACING STUDIO ────────────────────
   function gameLetterTrace(cfg = {}) {
     const all29Upper = UZ_ALPHABET.map((l) => l.upper);
     let queue;
@@ -1479,7 +1479,7 @@ export function openEduGame(item, onClose) {
       `;
       modalBody.appendChild(ctrl);
 
-      // Interactive 29-letter selector strip so ALL 29 letters (A..Z + ʼ) can be traced!
+      // Interactive selector strip: all 28 letters plus the ʼ tutuq sign can be traced!
       const picker = document.createElement('div');
       picker.className = 'edu-trace-picker';
       picker.innerHTML = UZ_ALPHABET.map((l) => `
@@ -2132,7 +2132,7 @@ export function openEduGame(item, onClose) {
     nextMeal();
   }
 
-  // ── 8. 29-LETTER INTERACTIVE ALPHABET STUDIO (+ PvP Target Finder) ────────
+  // ── 8. 28-LETTER + ʼ ALPHABET STUDIO (+ PvP Target Finder) ──────────────
   function gameAlphabetBoard() {
     clearActiveGame();
     let selected = UZ_ALPHABET.find((l) => l.upper === 'Ç') || UZ_ALPHABET[0];
@@ -2142,7 +2142,7 @@ export function openEduGame(item, onClose) {
 
     const render = () => {
       if (qIdx >= challengeQueue.length) {
-        showVictory('Alifbo bilimdoni!', '29 ta harf içidan barcha söralgan harflarni aniq topdingiz!');
+        showVictory('Alifbo bilimdoni!', '28 harf içidan barcha söralgan harflarni aniq topdingiz!');
         return;
       }
       const target = challengeQueue[qIdx];
@@ -2219,14 +2219,14 @@ export function openEduGame(item, onClose) {
     ];
     const reformedBank = [
       { w: '_AR', a: 'Ş', art: 'sar', pool: ['Ş', 'Ç', 'Ö', 'Ğ', 'S'] },
-      { w: '_OYNAK', a: 'Ç', art: 'coy', pool: ['Ç', 'Ş', 'C', 'Ğ', 'Ö'] },
+      { w: '_OYNAK', a: 'Ç', art: 'coy', pool: ['Ç', 'Ş', 'T', 'Ğ', 'Ö'] },
       { w: '_RDAK', a: 'Ö', art: 'ordak', pool: ['Ö', 'O', 'Ş', 'Ğ', 'U'] },
       { w: 'TO_', a: 'Ğ', art: 'tog', pool: ['Ğ', 'G', 'Ş', 'Ç', 'Ö'] },
       { w: 'QUYO_', a: 'Ş', art: 'quyos', pool: ['Ş', 'S', 'Ç', 'Ğ', 'Ö'] },
       { w: '_OZ', a: 'Ğ', art: 'ordak', pool: ['Ğ', 'G', 'Q', 'Ç', 'Ş'] },
       { w: 'Q_ZI', a: 'Ö', art: 'qozi', pool: ['Ö', 'O', 'U', 'Ğ', 'Ş'] },
       { w: 'BO_', a: 'Ğ', art: 'olma', pool: ['Ğ', 'G', 'Q', 'Ç', 'Ö'] },
-      { w: '_ANA', a: 'Ç', art: 'coy', pool: ['Ç', 'Ş', 'C', 'T', 'Ğ'] },
+      { w: '_ANA', a: 'Ç', art: 'coy', pool: ['Ç', 'Ş', 'S', 'T', 'Ğ'] },
       { w: '_AMOL', a: 'Ş', art: 'sar', pool: ['Ş', 'S', 'Ç', 'Ğ', 'Ö'] },
       { w: 'MA_NO', a: 'ʼ', art: 'kitob', pool: ['ʼ', 'Ğ', 'Ö', 'Ç', 'Ş'] },
       { w: 'T_RT', a: 'Ö', art: 'tarozi', pool: ['Ö', 'O', 'U', 'A', 'Ğ'] }
@@ -3859,7 +3859,7 @@ export function openEduGame(item, onClose) {
     nextClock();
   }
 
-  // ── 25. FIRST LETTER FINDER (29-Letter Initial Sound Game) ───────────────
+  // ── 25. FIRST LETTER FINDER (28-Letter Initial Sound Game) ──────────────
   function gameFirstLetter() {
     clearActiveGame();
     const bank = [

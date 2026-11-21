@@ -3500,7 +3500,7 @@ window.gsap = gsap;
       };
     };
 
-    // ── 5b. View 3: 29-Letter Alphabet Studio ────────────────────────────
+    // ── 5b. View 3: 28-Letter + ʼ Alphabet Studio ───────────────────────
     viewBuilders.alphabet = () => createAlphabetView();
 
     // ── 6. Boot ───────────────────────────────────────────────────────────

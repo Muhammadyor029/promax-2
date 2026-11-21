@@ -815,45 +815,45 @@ function startExercise(id) {
 // ───────────────────────── SAYT YO'RIQNOMASI (ALIFBO BÖLIMIDA) ─────────────────────────
 const GUIDE_DATA = {
   uz: {
-    lead: `ALIF VESNA KIDS — 29 harf, ${KIDS_ITEMS.length} ta rangli öyin. Yiğgan yulduzçalaringiz: ${getKidsProgress().stars} ★`,
+    lead: `ALIF VESNA KIDS — 28 harf + ʼ, ${KIDS_ITEMS.length} ta rangli öyin. Yiğgan yulduzçalaringiz: ${getKidsProgress().stars} ★`,
     cards: [
       { title: '1. Sehrli sfera', tag: '3D tanlov', items: ['Şarni aylantirib öyin yoki harf tanlang.', 'Kartani ikki marta bosib «Öynaş →» tugmasini bosing.'] },
       { title: `2. Öyinlar (${KIDS_ITEMS.length})`, tag: 'Rasm ovi · söz qurish · xotira', items: ['Har bir öyinda yulduzça toplaysiz, progress paneli töladi.', 'Savollar takrorlanmaydi, tugmalar kattalashib yorqin yonadi.'] },
       { title: '3. PvP duel', tag: '1 vs 1', items: ['«⚔️ PvP» bilan ikki öyinchi bir ekranda bellashadi.', 'Birinchi töğri javob bergan öyinchi yulduzça oladi.'] },
-      { title: '4. Yangi alifbo', tag: '29 harf · Ç Ğ Ö Ş ʼ', items: ['3. Ç, 8. Ğ, 17. Ö, 22. Ş va 29. ʼ (tutuq belgisi).', 'Harflar jadvalidan ham öyin ochish mumkin.'] }
+      { title: '4. Yangi alifbo', tag: '28 harf + ʼ · Ç Ğ Ö Ş', items: ['7. Ğ, 16. Ö, 21. Ş, 22. Ç va ʼ (tutuq belgisi).', 'Harflar jadvalidan ham öyin ochish mumkin.'] }
     ],
     footLeft: 'Yopiş: ESC yoki «Yopiş».',
     footRight: st('credit')
   },
   kaa: {
-    lead: `ALIF VESNA KIDS — 29 hárip, ${KIDS_ITEMS.length} reńli oyın.`,
+    lead: `ALIF VESNA KIDS — 28 hárip + ʼ, ${KIDS_ITEMS.length} reńli oyın.`,
     cards: [
       { title: '1. Sehirli shar', tag: '3D saylaw', items: ['Shardı aylandırıp oyın yamasa hárip saylań.', 'Kartanı eki márte basıp «Oynaw →» túymesin basıń.'] },
       { title: `2. Oyınlar (${KIDS_ITEMS.length})`, tag: 'Súwret awı · sóz qurıw · yad', items: ['Hár oyında juldızsha toplaydı.', 'Sorawlar qaytalanbaydı, túymeler japıraq.'] },
       { title: '3. PvP jarıs', tag: '1 vs 1', items: ['«⚔️ PvP» arqalı eki oyınshı jarısadı.', 'Dáslep durıs juwap bergen juldızsha aladı.'] },
-      { title: '4. Jańa álippe', tag: '29 hárip · Ç Ğ Ö Ş ʼ', items: ['3. Ç, 8. Ğ, 17. Ö, 22. Ş hám 29. ʼ.', 'Hárip kestesinen de oyın ashıw mumkin.'] }
+      { title: '4. Jańa álippe', tag: '28 hárip + ʼ · Ç Ğ Ö Ş', items: ['7. Ğ, 16. Ö, 21. Ş, 22. Ç hám ʼ (tutuq belgisi).', 'Hárip kestesinen de oyın ashıw mumkin.'] }
     ],
     footLeft: 'Jabıw: ESC yamasa «Jabıw».',
     footRight: st('credit')
   },
   ru: {
-    lead: `ALIF VESNA KIDS — 29 букв, ${KIDS_ITEMS.length} красочных игр.`,
+    lead: `ALIF VESNA KIDS — 28 букв + ʼ, ${KIDS_ITEMS.length} красочных игр.`,
     cards: [
       { title: '1. Волшебная сфера', tag: '3D-выбор', items: ['Поверните шар и выберите игру или букву.', 'Нажмите на карточку дважды и выберите «Играть →».'] },
       { title: `2. Игры (${KIDS_ITEMS.length})`, tag: 'Поиск картинок · слова · память', items: ['За каждый правильный ответ вы получаете звезду.', 'Вопросы не повторяются, кнопки ярко подсвечиваются.'] },
       { title: '3. PvP-дуэль', tag: '1 на 1', items: ['Кнопка «⚔️ PvP» запускает дуэль на одном экране.', 'Звезду получает тот, кто ответил первым.'] },
-      { title: '4. Новый алфавит', tag: '29 букв · Ç Ğ Ö Ş ʼ', items: ['Порядок: 3. Ç, 8. Ğ, 17. Ö, 22. Ş и 29. ʼ.', 'Игру можно открыть и из таблицы букв.'] }
+      { title: '4. Новый алфавит', tag: '28 букв + ʼ · Ç Ğ Ö Ş', items: ['Порядок: 7. Ğ, 16. Ö, 21. Ş, 22. Ç и ʼ (тутук-белги).', 'Игру можно открыть и из таблицы букв.'] }
     ],
     footLeft: 'Закрыть: ESC или «Закрыть».',
     footRight: st('credit')
   },
   en: {
-    lead: `ALIF VESNA KIDS — 29 letters, ${KIDS_ITEMS.length} colorful games.`,
+    lead: `ALIF VESNA KIDS — 28 letters + ʼ, ${KIDS_ITEMS.length} colorful games.`,
     cards: [
       { title: '1. Magic sphere', tag: '3D picker', items: ['Rotate the globe to pick a game or letter.', 'Tap a card twice and press Play →.'] },
       { title: `2. Games (${KIDS_ITEMS.length})`, tag: 'Picture hunt · words · memory', items: ['Every correct answer earns a shiny star.', 'Questions never repeat and buttons light up.'] },
       { title: '3. PvP duel', tag: '1 vs 1', items: ['Use «⚔️ PvP» for a two-player duel on one screen.', 'The first correct answer wins a star.'] },
-      { title: '4. New alphabet', tag: '29 letters · Ç Ğ Ö Ş ʼ', items: ['Order: 3. Ç, 8. Ğ, 17. Ö, 22. Ş and 29. ʼ.', 'Games can also be opened from the letter table.'] }
+      { title: '4. New alphabet', tag: '28 letters + ʼ · Ç Ğ Ö Ş', items: ['Order: 7. Ğ, 16. Ö, 21. Ş, 22. Ç and ʼ (tutuq sign).', 'Games can also be opened from the letter table.'] }
     ],
     footLeft: 'Press ESC or Close to collapse.',
     footRight: st('credit')

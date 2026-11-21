@@ -1,4 +1,4 @@
-// VESNA — Interactive 29-Letter Reformed Uzbek Latin Alphabet Section
+// VESNA — Interactive 28-Letter + ʼ Reformed Uzbek Latin Alphabet Section
 // Supports 3 switchable layout concepts so the user can preview and keep one.
 
 import { UZ_ALPHABET, EDU_ITEMS, openEduGame, getLetterWords, LETTER_GAME_MODES } from './edu-engine.js';
@@ -54,44 +54,44 @@ function shuffleArr<T>(arr: T[]): T[] {
 function buildCheckForLetter(entry: AlphabetEntry): AlphabetCheckSchema {
   if (entry.upper === 'Ç') {
     return {
-      title: '3-harf tekşiruvi',
-      prompt: '3-örindagi harf qaysi?',
-      options: shuffleArr(['Ç ç', 'Ş ş', 'C c', 'Ğ ğ']),
+      title: '22-harf tekşiruvi',
+      prompt: '22-örindagi harf qaysi?',
+      options: shuffleArr(['Ç ç', 'Ş ş', 'T t', 'Ö ö']),
       answer: 'Ç ç',
-      explain: 'Töğri! 3-örinda «Ç ç» turadi (masalan: Çoynak).'
+      explain: 'Töğri! 22-örinda «Ç ç» turadi (Ch o‘rnida; masalan: Çoynak).'
     };
   }
   if (entry.upper === 'Ğ') {
     return {
-      title: '8-harf tekşiruvi',
+      title: '7-harf tekşiruvi',
       prompt: '«Ğ ğ» harfi alifboda neçinçi örinda turadi?',
-      options: shuffleArr(['8 · Ğ ğ', '7 · G g', '22 · Ş ş', '17 · Ö ö']),
-      answer: '8 · Ğ ğ',
-      explain: 'Töğri! «Ğ ğ» alifboda 8-örinda turadi (masalan: Ğoz, Toğ).'
+      options: shuffleArr(['7 · Ğ ğ', '6 · G g', '21 · Ş ş', '16 · Ö ö']),
+      answer: '7 · Ğ ğ',
+      explain: 'Töğri! «Ğ ğ» alifboda 7-örinda turadi (masalan: Ğoz, Toğ).'
     };
   }
   if (entry.upper === 'Ö') {
     return {
-      title: '17-harf tekşiruvi',
-      prompt: '17-örinda qaysi harf turadi?',
+      title: '16-harf tekşiruvi',
+      prompt: '16-örinda qaysi harf turadi?',
       options: shuffleArr(['Ö ö', 'O o', 'U u', 'Ğ ğ']),
       answer: 'Ö ö',
-      explain: 'Töğri! «Ö ö» 17-örinda turadi (Ördak).'
+      explain: 'Töğri! «Ö ö» 16-örinda turadi (Ördak).'
     };
   }
   if (entry.upper === 'Ş') {
     return {
-      title: '22-harf tekşiruvi',
-      prompt: '«Quyoş» sözidagi 22-harf qaysi?',
+      title: '21-harf tekşiruvi',
+      prompt: '«Quyoş» sözidagi 21-harf qaysi?',
       options: shuffleArr(['Ş ş', 'S s', 'Ç ç', 'J j']),
       answer: 'Ş ş',
-      explain: 'Töğri! 22-örinda «Ş ş» turadi (Quyoş, Şar, Şer).'
+      explain: 'Töğri! 21-örinda «Ş ş» turadi (Quyoş, Şar, Şer).'
     };
   }
   if (entry.type === 'belgi') {
     return {
-      title: '29-belgi tekşiruvi',
-      prompt: '29-örindagi «ʼ» belgisi qaysi sözda töğri işlatilgan?',
+      title: 'Tutuq belgisi tekşiruvi',
+      prompt: '«ʼ» tutuq belgisi qaysi sözda töğri işlatilgan?',
       options: shuffleArr(['Maʼno', 'Anor', 'Şar', 'Çoynak']),
       answer: 'Maʼno',
       explain: 'Töğri! «ʼ» — tutuq belgisi bölib, Maʼno, Aʼlo, Sanʼat kabi sözlarda qöllanadi.'
@@ -162,10 +162,10 @@ export function createAlphabetView() {
 
   let activeIdea: IdeaId = SAVED_IDEA;
   let activeFilter: FilterId = 'all';
-  let selectedIdx = 2; // Start on #3 Ç ç so reformed letters are immediately clear
+  let selectedIdx = 21; // Start on #22 Ç ç so reformed letters are immediately clear
   let matrixSubTab: 'trace' | 'check' = 'trace';
   let converterText = 'Çoynak, Şar, Ördak, Ğoz va Maʼno';
-  let expandedCardIdx: number | null = 2;
+  let expandedCardIdx: number | null = 21;
   let quizIdx = 0;
   let quizStreak = 0;
   let quizFeedback: { text: string; ok: boolean } | null = null;
@@ -180,14 +180,14 @@ export function createAlphabetView() {
   let traceCanvasCleanup: (() => void) | null = null;
 
   const CARD_QUIZ_BANK = [
-    { q: '3-örinda turgan yangi harf qaysi?', opts: ['Ç ç', 'Ş ş', 'Ö ö', 'Ğ ğ'], a: 'Ç ç' },
-    { q: '29-örinda alifboga nima qöşilgan?', opts: ['ʼ (tutuq belgisi)', 'Ng ng', 'Ş ş', 'Ç ç'], a: 'ʼ (tutuq belgisi)' },
-    { q: '17-örinda qaysi harf turadi?', opts: ['17 · Ö ö', '16 · O o', '8 · Ğ ğ', '22 · Ş ş'], a: '17 · Ö ö' },
-    { q: '22-örindagi harf qaysi?', opts: ['Ş ş (22)', 'Ç ç (3)', 'S s (21)', 'Ğ ğ (8)'], a: 'Ş ş (22)' },
-    { q: '8-örindagi harf qaysi?', opts: ['Ğ ğ (8)', 'G g (7)', 'Q q (19)', 'Ö ö (17)'], a: 'Ğ ğ (8)' },
+    { q: '22-örinda turgan yangi harf qaysi?', opts: ['Ç ç', 'Ş ş', 'Ö ö', 'Ğ ğ'], a: 'Ç ç' },
+    { q: '28 harfdan keyin alifboga nima qöşilgan?', opts: ['ʼ (tutuq belgisi)', 'Ng ng', 'Ş ş', 'Ç ç'], a: 'ʼ (tutuq belgisi)' },
+    { q: '16-örinda qaysi harf turadi?', opts: ['16 · Ö ö', '15 · O o', '7 · Ğ ğ', '21 · Ş ş'], a: '16 · Ö ö' },
+    { q: '21-örindagi harf qaysi?', opts: ['Ş ş (21)', 'Ç ç (22)', 'S s (20)', 'Ğ ğ (7)'], a: 'Ş ş (21)' },
+    { q: '7-örindagi harf qaysi?', opts: ['Ğ ğ (7)', 'G g (6)', 'Q q (18)', 'Ö ö (16)'], a: 'Ğ ğ (7)' },
     { q: '«Quyosh» sözining yangi alifbodagi töğri yozuvi:', opts: ['Quyoş', 'Quyos', 'Quyoch', 'Qöyoş'], a: 'Quyoş' },
-    { q: '«Maʼno» sözida 29-belgi qanday qöyiladi?', opts: ['Maʼno', 'Mano', 'Mağno', 'Maçno'], a: 'Maʼno' },
-    { q: '«Choynak» sözi qaysi harf bilan boşlanadi?', opts: ['Ç', 'Ş', 'C', 'Ğ'], a: 'Ç' },
+    { q: '«Maʼno» sözida tutuq belgisi qanday qöyiladi?', opts: ['Maʼno', 'Mano', 'Mağno', 'Maçno'], a: 'Maʼno' },
+    { q: '«Choynak» sözi qaysi harf bilan boşlanadi?', opts: ['Ç', 'Ş', 'T', 'Ğ'], a: 'Ç' },
     { q: '«Toğ» sözi oxirida qaysi harf yoziladi?', opts: ['ğ', 'g', 'q', 'ç'], a: 'ğ' },
     { q: 'Alifboda 1-örindagi unli harf qaysi?', opts: ['A a', 'O o', 'E e', 'I i'], a: 'A a' }
   ];
@@ -344,7 +344,7 @@ export function createAlphabetView() {
     const accent = accentForEntry(entry);
 
     const ideaTabs: Array<{ id: IdeaId; label: string; desc: string }> = [
-      { id: 'matrix', label: '1-ğoya · Studiya', desc: '29 jadval + yon maşq' },
+      { id: 'matrix', label: '1-ğoya · Studiya', desc: '28 harf + ʼ · jadval + yon maşq' },
       { id: 'strip', label: '2-ğoya · Lenta', desc: 'Taqqoslaş + ögirgiç' },
       { id: 'cards', label: '3-ğoya · Kartalar', desc: 'Guruhlar + tez test' }
     ];
@@ -359,8 +359,8 @@ export function createAlphabetView() {
     header.className = 'alpha-studio-head';
     header.innerHTML = `
       <div class="alpha-head-title-wrap">
-        <h1 class="alpha-head-title">Yangi Özbek Alifbosi <span class="alpha-count-tag">29 ta</span></h1>
-        <p class="alpha-head-sub">1. A a — 29. ʼ (tutuq belgisi) · Ç, Ğ, Ö, Ş tartibi</p>
+        <h1 class="alpha-head-title">Yangi Özbek Alifbosi <span class="alpha-count-tag">28 harf + ʼ</span></h1>
+        <p class="alpha-head-sub">1. A a — 28. Z z · ʼ (tutuq belgisi) · Ç, Ğ, Ö, Ş o‘rinlari</p>
       </div>
       <div class="alpha-idea-switcher" role="tablist" aria-label="Alifbo dizayn ğoyalari">
         ${ideaTabs
@@ -530,7 +530,7 @@ export function createAlphabetView() {
       cell.innerHTML = `
         <span class="alpha-cell-num">${String(l.num).padStart(2, '0')}</span>
         <span class="alpha-cell-glyph">${l.type === 'belgi' ? 'ʼ' : `${l.upper} <small>${l.lower}</small>`}</span>
-        <span class="alpha-cell-word">${l.old ? l.old : l.example}</span>
+        <span class="alpha-cell-word">${l.example}</span>
       `;
       cell.addEventListener('click', () => {
         selectedIdx = idx;
@@ -783,7 +783,7 @@ export function createAlphabetView() {
     });
   }
 
-  // ── IDEA 3: Quick Test & Full 29-Letter Interactive Shelf ────────────────
+  // ── IDEA 3: Quick Test & Full 28-Letter + ʼ Interactive Shelf ───────────
   function renderCardsIdea(shell: HTMLElement) {
     // Quick 1-click Quiz Challenge + Complete 29-item Interactive List
     const lowerGrid = document.createElement('div');
@@ -841,7 +841,7 @@ export function createAlphabetView() {
     refCard.className = 'alpha-ref-card';
     const refTitle = document.createElement('div');
     refTitle.className = 'alpha-ref-head';
-    refTitle.innerHTML = '<strong>Töliq 29 talik tartib</strong><span>Bosing → yozib köring</span>';
+    refTitle.innerHTML = '<strong>Töliq 28 harf + ʼ tartibi</strong><span>Bosing → yozib köring</span>';
     refCard.appendChild(refTitle);
 
     const refList = document.createElement('div');
@@ -853,7 +853,7 @@ export function createAlphabetView() {
       row.innerHTML = `
         <span class="alpha-ref-num">${l.num}.</span>
         <strong class="alpha-ref-glyph">${l.type === 'belgi' ? 'ʼ' : `${l.upper} ${l.lower}`}</strong>
-        <span class="alpha-ref-ex">${l.old ? l.old : l.example}</span>
+        <span class="alpha-ref-ex">${l.example}</span>
       `;
       row.addEventListener('click', () => {
         expandedCardIdx = i;

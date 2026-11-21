@@ -1337,7 +1337,7 @@ html[data-theme="light"] .guide-foot {
   transform: rotate(0deg) scale(1);
 }
 
-/* ── Dedicated 29-Letter Alphabet Studio (#view-alphabet) ───────────────── */
+/* ── Dedicated 28-Letter + ʼ Alphabet Studio (#view-alphabet) ──────────── */
 .view-scroll {
   overflow-y: auto;
   overflow-x: hidden;
@@ -2796,7 +2796,7 @@ html[data-theme="light"] .edu-duel-side.p2 .edu-duel-side-head small {
   }
 }
 
-/* ── 29-Letter Trace Picker, Board Challenge & Expanded Games UI ────────── */
+/* ── 28-Letter + ʼ Trace Picker, Board Challenge & Expanded Games UI ────── */
 .edu-trace-toolbar {
   display: flex;
   align-items: center;
