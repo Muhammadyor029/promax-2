@@ -1,6 +1,6 @@
-/* ALIF.12 — qoʼshimcha qatlam:
-   tillar (uz/kaa/ru/en), kontakt, sozlamalar, robot-yordamchi, koʼz dam olish taymeri,
-   toʼlqin effekti (sayt soʼnadi va qaytadi), koʼz maşqlari, xatolarni koʼrsatish.
+/* ALIF.12 — qöşimça qatlam:
+   tillar (uz/kaa/ru/en), kontakt, sozlamalar, robot-yordamchi, köz dam oliş taymeri,
+   tölqin effekti (sayt sönadi va qaytadi), köz maşqlari, xatolarni körsatish.
    Asosiy 3D kod (index.html) bilan faqat DOM va 'alif:robot-click' hodisasi orqali boğlanadi. */
 
 import { toggleTheme, onThemeChange } from './theme.ts';
@@ -16,9 +16,9 @@ const CONFIG = {
   restOptions: [20, 40, 60],         // soniya
   defaultInterval: 20,
   defaultRest: 40,
-  idleCutoffMs: 45000,               // shuncha vaqt harakat boʼlmasa, ekran vaqti sanalmaydi
+  idleCutoffMs: 45000,               // shuncha vaqt harakat bölmasa, ekran vaqti sanalmaydi
   snoozeMin: 5,
-  promptAutoMs: 12000                // robot xabaridan keyin toʼlqin oʼzi boshlanadi
+  promptAutoMs: 12000                // robot xabaridan keyin tölqin özi başlanadi
 };
 const DEMO = /[?&]demo\b/.test(location.search); // ?demo — taqdimot uçun: 30 s da eslatma, 15 s dam olish
 
@@ -29,7 +29,7 @@ const I18N = {
     nav_sphere: 'Sehrli sfera', nav_games: 'Öyinlar', nav_letters: 'Harflar', nav_alphabet: 'Yöriqnoma', nav_contact: 'Boğlaniş',
     hint_spin: 'AYLANTIRIB TANLANG', play_arrow: 'Boşlaş →', close: 'Yopiş', scroll: 'SURİŞ',
     menu_intro: 'Bolalar uçun rangli öyinlar',
-    gallery_left: 'ALIF · 29 HARF', gallery_right: 'OʼYIN · RANG · 3D',
+    gallery_left: 'ALIF · 29 HARF', gallery_right: 'ÖYIN · RANG · 3D',
     tag1: 'Bolalar uçun', tag2: 'Yangi alifbo', tag3: '40 ta öyin',
     set_every: 'Köz uçun dam oliş eslatmasi', set_rest: 'Dam oliş davomiyligi', min: 'daq', sec: 's',
     rest_now: 'Hozir dam olamiz', eye_now: 'Köz maşqi',
@@ -179,7 +179,7 @@ const easeInOut = (t) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) 
 const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
-// ───────────────────────── XATOLARNI KO'RSATISH (telefonda tashxis uçun) ─────────────────────────
+// ───────────────────────── XATOLARNI KÖRSATISH (telefonda tashxis uçun) ─────────────────────────
 const toast = document.createElement('div');
 toast.className = 'alif-toast';
 document.body.appendChild(toast);
@@ -320,11 +320,11 @@ function renderChips() {
 
 // ───────────────────────── (Kontakt olib tashlandi) ─────────────────────────
 
-// ───────────────────────── rAF / vaqtni toʼxtatish (dam olish paytida) ─────────────────────────
+// ───────────────────────── rAF / vaqtni töxtatish (dam olish paytida) ─────────────────────────
 const realRAF = window.requestAnimationFrame.bind(window);
 const realCancel = window.cancelAnimationFrame.bind(window);
 const realNow = performance.now.bind(performance);
-let timeOffset = 0;      // toʼxtatilgan vaqt yigʼindisi (ms)
+let timeOffset = 0;      // töxtatilgan vaqt yiğindisi (ms)
 let pausedAt = 0;
 let paused = false;
 const heldQueue = new Map();
@@ -464,7 +464,7 @@ function hop() {
   mascot.classList.add('is-hop');
 }
 
-// koʼzlari kursor/barmoqqa ergashadi
+// közlari kursor/barmoqqa ergashadi
 let eyeX = 0, eyeY = 0, tgtX = 0, tgtY = 0, lastSentX = 99, lastSentY = 99;
 function aimAt(px, py) {
   const r = mascot.getBoundingClientRect();
@@ -490,7 +490,7 @@ window.addEventListener('touchstart', (e) => { if (e.touches[0]) aimAt(e.touches
   }
   realRAF(eyeLoop);
 })();
-// koʼz qisish
+// köz qisiş
 (function blinkLoop() {
   setTimeout(() => {
     if (!mascot.classList.contains('is-sleep')) {
@@ -631,7 +631,7 @@ async function startRest(origin, opts = {}) {
   el.bar.style.width = '0%';
   setTimeout(() => { mascot.classList.add('is-center', 'is-sleep'); }, 450);
   await runWave('in', origin, 1500);
-  // butun ekran yopildi: maskani olib tashlaymiz, saytni toʼxtatamiz
+  // butun ekran yopildi: maskani olib tashlaymiz, saytni töxtatamiz
   veil.classList.remove('mode-in', 'mode-out');
   pauseSite();
   state = 'resting';
@@ -815,10 +815,10 @@ function startExercise(id) {
 // ───────────────────────── SAYT YO'RIQNOMASI (ALIFBO BÖLIMIDA) ─────────────────────────
 const GUIDE_DATA = {
   uz: {
-    lead: `ALIF VESNA KIDS — 29 harf, ${KIDS_ITEMS.length} ta rangli öyin. Yigʼgan yulduzçalaringiz: ${getKidsProgress().stars} ★`,
+    lead: `ALIF VESNA KIDS — 29 harf, ${KIDS_ITEMS.length} ta rangli öyin. Yiğgan yulduzçalaringiz: ${getKidsProgress().stars} ★`,
     cards: [
       { title: '1. Sehrli sfera', tag: '3D tanlov', items: ['Şarni aylantirib öyin yoki harf tanlang.', 'Kartani ikki marta bosib «Öynaş →» tugmasini bosing.'] },
-      { title: `2. Öyinlar (${KIDS_ITEMS.length})`, tag: 'Rasm ovi · soʼz qurish · xotira', items: ['Har bir öyinda yulduzça toplaysiz, progress paneli toʼladi.', 'Savollar takrorlanmaydi, tugmalar kattalashib yorqin yonadi.'] },
+      { title: `2. Öyinlar (${KIDS_ITEMS.length})`, tag: 'Rasm ovi · söz qurish · xotira', items: ['Har bir öyinda yulduzça toplaysiz, progress paneli töladi.', 'Savollar takrorlanmaydi, tugmalar kattalashib yorqin yonadi.'] },
       { title: '3. PvP duel', tag: '1 vs 1', items: ['«⚔️ PvP» bilan ikki öyinchi bir ekranda bellashadi.', 'Birinchi töğri javob bergan öyinchi yulduzça oladi.'] },
       { title: '4. Yangi alifbo', tag: '29 harf · Ç Ğ Ö Ş ʼ', items: ['3. Ç, 8. Ğ, 17. Ö, 22. Ş va 29. ʼ (tutuq belgisi).', 'Harflar jadvalidan ham öyin ochish mumkin.'] }
     ],

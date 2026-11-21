@@ -1,6 +1,6 @@
 # ALIF VESNA KIDS
 
-Yangi oʼzbek alifbosi (29 harf: Ç, Ğ, Ö, Ş, ʼ) asosidagi bolalar öyinlari, yorqin dizayn va 3D sfera.
+Yangi özbek alifbosi (29 harf: Ç, Ğ, Ö, Ş, ʼ) asosidagi bolalar öyinlari, yorqin dizayn va 3D sfera.
 
 ## Run locally
 

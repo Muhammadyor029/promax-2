@@ -14,7 +14,7 @@ const S = {
     menu_intro: 'Bolalar uçun öyinlar', set_grade: 'Sinf', set_every: 'Har', set_rest: 'Dam vaqti',
     theme_mode: 'Kun / tun', guide_btn: 'Yöriqnoma', guide_title: 'ALIF VESNA KIDS yöriqnomasi',
     guide_sub: 'Öquvçilar va öqituçilar uçun', rest_now: 'Hozir dam olaylik', eye_now: 'Köz maşqi',
-    gallery_left: 'ALIFBO', gallery_right: 'OʼYIN · RANG', gallery_hint: 'AYLANTIRIB TANLANG',
+    gallery_left: 'ALIFBO', gallery_right: 'ÖYIN · RANG', gallery_hint: 'AYLANTIRIB TANLANG',
     tag1: 'Boğcha', tag2: 'Alifbo va öyinlar', tag3: 'Tez öyin',
     play: 'Boşlaş', close: 'Yopiş', replay: 'Qayta', exit: 'Çıqiş', check: 'Tekşiriş', next: 'Keyingi',
     finish: 'Yakunlaş', back: 'Orqaga', score: 'Ball', stars: 'Yulduz', question: 'Savol', of: '/',
