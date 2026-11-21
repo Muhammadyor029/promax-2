@@ -24,7 +24,7 @@ function applyDomTheme(theme: AlifTheme): void {
   root.classList.toggle('is-day', theme === 'light');
   const meta = document.querySelector('meta[name="theme-color"]');
   if (meta) {
-    meta.setAttribute('content', theme === 'light' ? '#dce8fa' : '#080a12');
+    meta.setAttribute('content', theme === 'light' ? '#eef4ff' : '#120b2e');
   }
 }
 
