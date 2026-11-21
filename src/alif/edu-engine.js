@@ -73,7 +73,7 @@ function ensureGameHelpers() {
     hintBtn.id = 'edu-hint-btn';
     hintBtn.className = 'pill-btn edu-hint-btn';
     hintBtn.textContent = '💡 Maslahat';
-    hintBtn.setAttribute('aria-label', 'Oʼyin uchun maslahat');
+    hintBtn.setAttribute('aria-label', 'Öyin uchun maslahat');
     hintBtn.addEventListener('click', showGameHint);
     topRight.appendChild(hintBtn);
   }
@@ -94,7 +94,7 @@ function ensureGameHelpers() {
     swapBtn.type = 'button';
     swapBtn.id = 'edu-swap-btn';
     swapBtn.className = 'edu-swap-btn';
-    swapBtn.textContent = '🎲 Boshqa oʼyin';
+    swapBtn.textContent = '🎲 Boshqa öyin';
     swapBtn.addEventListener('click', () => {
       const current = document.getElementById('edu-title')?.textContent || '';
       const pool = KIDS_GAMES.filter((item) => item.gameType !== 'final-mix' && item.title !== current);

@@ -26,11 +26,11 @@ const DEMO = /[?&]demo\b/.test(location.search); // ?demo — taqdimot uçun: 30
 // Qoraqalpoq (kaa) matnlari TEKSHIRILISHI KERAK (ona tili egasi bilan).
 const I18N = {
   uz: {
-    nav_sphere: 'Sehrli sfera', nav_games: 'Oʼyinlar', nav_letters: 'Harflar', nav_alphabet: 'Yöriqnoma', nav_contact: 'Boğlaniş',
+    nav_sphere: 'Sehrli sfera', nav_games: 'Öyinlar', nav_letters: 'Harflar', nav_alphabet: 'Yöriqnoma', nav_contact: 'Boğlaniş',
     hint_spin: 'AYLANTIRIB TANLANG', play_arrow: 'Boşlaş →', close: 'Yopiş', scroll: 'SURİŞ',
-    menu_intro: 'Bolalar uçun rangli oʼyinlar',
+    menu_intro: 'Bolalar uçun rangli öyinlar',
     gallery_left: 'ALIF · 29 HARF', gallery_right: 'OʼYIN · RANG · 3D',
-    tag1: 'Bolalar uçun', tag2: 'Yangi alifbo', tag3: '40 ta oʼyin',
+    tag1: 'Bolalar uçun', tag2: 'Yangi alifbo', tag3: '40 ta öyin',
     set_every: 'Köz uçun dam oliş eslatmasi', set_rest: 'Dam oliş davomiyligi', min: 'daq', sec: 's',
     rest_now: 'Hozir dam olamiz', eye_now: 'Köz maşqi',
     theme_mode: 'Kungi / Tungi rejim', theme_day: 'Kun', theme_night: 'Tun',
@@ -815,12 +815,12 @@ function startExercise(id) {
 // ───────────────────────── SAYT YO'RIQNOMASI (ALIFBO BÖLIMIDA) ─────────────────────────
 const GUIDE_DATA = {
   uz: {
-    lead: `ALIF VESNA KIDS — 29 harf, ${KIDS_ITEMS.length} ta rangli oʼyin. Yigʼgan yulduzçalaringiz: ${getKidsProgress().stars} ★`,
+    lead: `ALIF VESNA KIDS — 29 harf, ${KIDS_ITEMS.length} ta rangli öyin. Yigʼgan yulduzçalaringiz: ${getKidsProgress().stars} ★`,
     cards: [
-      { title: '1. Sehrli sfera', tag: '3D tanlov', items: ['Şarni aylantirib oʼyin yoki harf tanlang.', 'Kartani ikki marta bosib «Öynaş →» tugmasini bosing.'] },
-      { title: `2. Oʼyinlar (${KIDS_ITEMS.length})`, tag: 'Rasm ovi · soʼz qurish · xotira', items: ['Har bir oʼyinda yulduzça toplaysiz, progress paneli toʼladi.', 'Savollar takrorlanmaydi, tugmalar kattalashib yorqin yonadi.'] },
+      { title: '1. Sehrli sfera', tag: '3D tanlov', items: ['Şarni aylantirib öyin yoki harf tanlang.', 'Kartani ikki marta bosib «Öynaş →» tugmasini bosing.'] },
+      { title: `2. Öyinlar (${KIDS_ITEMS.length})`, tag: 'Rasm ovi · soʼz qurish · xotira', items: ['Har bir öyinda yulduzça toplaysiz, progress paneli toʼladi.', 'Savollar takrorlanmaydi, tugmalar kattalashib yorqin yonadi.'] },
       { title: '3. PvP duel', tag: '1 vs 1', items: ['«⚔️ PvP» bilan ikki öyinchi bir ekranda bellashadi.', 'Birinchi töğri javob bergan öyinchi yulduzça oladi.'] },
-      { title: '4. Yangi alifbo', tag: '29 harf · Ç Ğ Ö Ş ʼ', items: ['3. Ç, 8. Ğ, 17. Ö, 22. Ş va 29. ʼ (tutuq belgisi).', 'Harflar jadvalidan ham oʼyin ochish mumkin.'] }
+      { title: '4. Yangi alifbo', tag: '29 harf · Ç Ğ Ö Ş ʼ', items: ['3. Ç, 8. Ğ, 17. Ö, 22. Ş va 29. ʼ (tutuq belgisi).', 'Harflar jadvalidan ham öyin ochish mumkin.'] }
     ],
     footLeft: 'Yopiş: ESC yoki «Yopiş».',
     footRight: st('credit')

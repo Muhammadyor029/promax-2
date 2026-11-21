@@ -9,13 +9,13 @@ const KIDS_COUNT = 40;
 
 const S = {
   uz: {
-    app_title: 'ALIF VESNA KIDS', app_subtitle: 'bogʼcha · alifbo va oʼyinlar',
-    nav_sphere: 'Oʼyin xaritasi', nav_games: 'Oʼyinlar', nav_letters: 'Harflar', nav_alphabet: 'Yöriqnoma',
-    menu_intro: 'Bolalar uçun oʼyinlar', set_grade: 'Sinf', set_every: 'Har', set_rest: 'Dam vaqti',
+    app_title: 'ALIF VESNA KIDS', app_subtitle: 'boğcha · alifbo va öyinlar',
+    nav_sphere: 'Öyin xaritasi', nav_games: 'Öyinlar', nav_letters: 'Harflar', nav_alphabet: 'Yöriqnoma',
+    menu_intro: 'Bolalar uçun öyinlar', set_grade: 'Sinf', set_every: 'Har', set_rest: 'Dam vaqti',
     theme_mode: 'Kun / tun', guide_btn: 'Yöriqnoma', guide_title: 'ALIF VESNA KIDS yöriqnomasi',
     guide_sub: 'Öquvçilar va öqituçilar uçun', rest_now: 'Hozir dam olaylik', eye_now: 'Köz maşqi',
     gallery_left: 'ALIFBO', gallery_right: 'OʼYIN · RANG', gallery_hint: 'AYLANTIRIB TANLANG',
-    tag1: 'Boğcha', tag2: 'Alifbo va oʼyinlar', tag3: 'Tez oʼyin',
+    tag1: 'Boğcha', tag2: 'Alifbo va öyinlar', tag3: 'Tez öyin',
     play: 'Boşlaş', close: 'Yopiş', replay: 'Qayta', exit: 'Çıqiş', check: 'Tekşiriş', next: 'Keyingi',
     finish: 'Yakunlaş', back: 'Orqaga', score: 'Ball', stars: 'Yulduz', question: 'Savol', of: '/',
     grade: 'Sinf', subject: 'Fan', correct: 'Töğri', wrong: 'Xato', try_again: 'Yana urining',
@@ -606,10 +606,10 @@ export function makeQuestions(item, count = 6, rng = Math.random, ui = currentLa
 
 const SCENE = {
   uz: {
-    subtitle: `Boğcha · Alifbo, oʼyin, rang · ${KIDS_COUNT} oʼyin`,
-    short: `Boğcha · ${KIDS_COUNT} oʼyin`,
+    subtitle: `Boğcha · Alifbo, öyin, rang · ${KIDS_COUNT} öyin`,
+    short: `Boğcha · ${KIDS_COUNT} öyin`,
     hero1: 'Yangi alifbo va fanlar',
-    hero2: 'bilan Boğcha oʼyinlari',
+    hero2: 'bilan Boğcha öyinlari',
     about: '29 harf (Ç, Ğ, Ö, Ş, ʼ) va barcha fanlar yangi özbek alifbosida.',
     sections: 'Bölimlar',
     sectionsRows: 'Ona tili va adabiyot|Matematika|Tillar|Mantiq va öyinlar',
@@ -617,21 +617,21 @@ const SCENE = {
     chapter1Body: 'Har bir sinf uchun misol, yechim va bosqichli tushuntirish beriladi.',
     quote1: '“Tushunib örganilgan bilim bir umr esda qoladi.”',
     quote1Note: '— ALIF VESNA KIDS öquv daftari',
-    stats: `${KIDS_COUNT} ta oʼyin`,
+    stats: `${KIDS_COUNT} ta öyin`,
     statsRows: `Matematika|Ona tili va tillar|Mantiq|PvP duellar`,
     mathBody: 'Hisob, geometriya, nisbat va tezlik masalalari yechimlari bilan.',
     chapter2: '2-qism · Amaliyot',
     chapter2Body: 'Har bir savoldan keyin töğri javob va qisqa yechim körsatiladi.',
     signs: 'Yangi belgilar',
     signsRows: 'Ç ç — Çoynak, Çana|Ğ ğ — Ğoz, Toğ|Ö ö — Ördak, Öt|Ş ş, ʼ — Şir, Şamol, Maʼno',
-    quote2: '“Har kuni besh daqiqa oʼyin — mustahkam bilim kaliti.”',
+    quote2: '“Har kuni besh daqiqa öyin — mustahkam bilim kaliti.”',
     quote2Note: '— ALIF VESNA KIDS',
     start: 'Boshlash',
-    startRows: `Alifbo va oʼyinlar|${KIDS_COUNT} ta oʼyin|Boğcha`,
+    startRows: `Alifbo va öyinlar|${KIDS_COUNT} ta öyin|Boğcha`,
     credit: 'Raxmanaliyev tomonidan tayyorlangan'
   },
   kaa: {
-    subtitle: `Bala baqsha · Alifbo, oʼyin, rang · ${KIDS_COUNT} oyın`,
+    subtitle: `Bala baqsha · Alifbo, öyin, rang · ${KIDS_COUNT} oyın`,
     short: `Bala baqsha · ${KIDS_COUNT} oyın`,
     hero1: 'Jańa álippe hám pánler',
     hero2: 'menen Bala baqsha oyınları',
