@@ -316,7 +316,8 @@ export const EDU_ITEMS = [
   { id: 37, glyph: '4 + 3', subGlyph: '10 içida tez', title: 'Tez Hisob 10', category: 'Matematika', year: 'İlk qadam', desc: 'Maktabga tayyorlov uçun 10 içidagi eng oson qöşiş va ayiriş meteorlari!', accent: '#68b5ff', art: 'raketa', bg: 'space', gameType: 'rocket-shooter', config: { mode: 'easy10' } },
   { id: 38, glyph: 'A ↔ Ş', subGlyph: '28 harf xotira', title: 'Alifbo Xotira', category: 'Alifbo', year: 'Boşlanğiç', desc: 'Harf va unga mos rasm-söz juftliklarini xotirada saqlab toping!', accent: '#ffd166', art: 'sir', bg: 'aurora', gameType: 'memory-art', config: { mode: 'alpha' } },
   { id: 39, glyph: '_ITOB', subGlyph: 'Boş harf ovi', title: 'Boş Harfni Top', category: 'Öqiş', year: 'İlk qadam', desc: 'Rasmga qarab sözning birinçi tuşib qolgan harfini 28 harf içidan tanlang!', accent: '#5eead4', art: 'gul', bg: 'valley', gameType: 'first-letter', config: {} },
-  { id: 40, glyph: '🏆 40', subGlyph: 'Super sayohat', title: 'Katta Sayohat', category: 'Sinov', year: 'Tayyorlov', desc: 'Barcha öyinlardan tasodifiy marafon — PvP musobaqa uçun eng zör sinov!', accent: '#ffd166', art: 'yulduz', bg: 'space', gameType: 'final-mix', config: {} }
+  { id: 40, glyph: '🏆 41', subGlyph: 'Super sayohat', title: 'Katta Sayohat', category: 'Sinov', year: 'Tayyorlov', desc: 'Barcha öyinlardan tasodifiy marafon — PvP musobaqa uçun eng zör sinov!', accent: '#ffd166', art: 'yulduz', bg: 'space', gameType: 'final-mix', config: {} },
+  { id: 41, glyph: '🎡', subGlyph: 'Isim Gildiragi', title: 'Gildirak Tanlovi', category: 'Tanlov', year: 'Tayyorlov', desc: 'Ismlaringizni yozing, chiroyli gildirakni aylantiring va kim tanlanishini ko‘ring!', accent: '#ffd166', art: 'yulduz', bg: 'prism', gameType: 'name-wheel', config: {} }
 ];
 
 // ── Silent SFX No-Op (audio disabled) ───────────────────────────────────────
@@ -4156,6 +4157,140 @@ export function openEduGame(item, onClose) {
     else gameOppositeWords();
   }
 
+  function gameNameWheel() {
+    clearActiveGame();
+    const palette = ['#5eead4', '#68b5ff', '#a78bfa', '#ff8fab', '#ffd166', '#56ccf2', '#b8f7a0', '#ffb86b', '#f9a8d4', '#8be9fd', '#c4b5fd', '#fde68a'];
+    const esc = (value) => String(value).replace(/[&<>"']/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch]);
+    let names = [];
+    let rotation = 0;
+    let spinning = false;
+
+    modalBody.innerHTML = `
+      <div class="edu-wheel-app">
+        <div class="edu-wheel-head">
+          <span class="edu-wheel-kicker">🎡 Gildirak Tanlovi</span>
+          <h3 class="edu-wheel-title">Kim tanlanadi?</h3>
+          <p class="edu-wheel-lead">Ismlarni yozing, gildirakni aylantiring — o‘q tushgan ism ğolib!</p>
+        </div>
+        <div class="edu-wheel-grid">
+          <div class="edu-wheel-stage">
+            <div class="edu-wheel-pointer" aria-hidden="true"></div>
+            <div class="edu-wheel-ring" id="edu-wheel-disc">
+              <div class="edu-wheel-labels" id="edu-wheel-labels"></div>
+              <div class="edu-wheel-center"><span>🎯</span><small>TANLOV</small></div>
+            </div>
+            <button type="button" class="edu-btn-primary edu-wheel-spin" id="edu-wheel-spin">🎡 Aylantir</button>
+          </div>
+          <div class="edu-wheel-panel">
+            <label class="edu-wheel-label" for="edu-wheel-input">Ismlar <small>har satrda bitta</small></label>
+            <textarea id="edu-wheel-input" class="edu-wheel-input" rows="7" spellcheck="false" placeholder="Ali&#10;Vali&#10;Sara&#10;Bahodir">Ali
+Vali
+Sara
+Bahodir</textarea>
+            <div class="edu-wheel-actions">
+              <button type="button" class="pill-btn" id="edu-wheel-apply">✓ Ismlarni qo‘şish</button>
+              <button type="button" class="pill-btn" id="edu-wheel-clear">🗑 Tozalash</button>
+            </div>
+            <div class="edu-wheel-count" id="edu-wheel-count">0 ism</div>
+            <div class="edu-wheel-chips" id="edu-wheel-chips"></div>
+            <div class="edu-wheel-result" id="edu-wheel-result" aria-live="polite">🎯 Gildirak tayyor</div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    const disc = modalBody.querySelector('#edu-wheel-disc');
+    const labelsEl = modalBody.querySelector('#edu-wheel-labels');
+    const input = modalBody.querySelector('#edu-wheel-input');
+    const countEl = modalBody.querySelector('#edu-wheel-count');
+    const chipsEl = modalBody.querySelector('#edu-wheel-chips');
+    const resultEl = modalBody.querySelector('#edu-wheel-result');
+    const spinBtn = modalBody.querySelector('#edu-wheel-spin');
+    activeCleanup = () => gsap.killTweensOf(disc);
+
+    const renderWheel = () => {
+      gsap.killTweensOf(disc);
+      rotation = 0;
+      gsap.set(disc, { rotation: 0 });
+      const n = names.length;
+      countEl.textContent = `${n} ism`;
+      chipsEl.innerHTML = n
+        ? names.map((name, i) => `<span class="edu-wheel-chip" style="--chip:${palette[i % palette.length]}" title="${esc(name)}">${esc(name)}</span>`).join('')
+        : '<span class="edu-wheel-empty">Ismlarni yozib qo‘şing</span>';
+      resultEl.classList.remove('is-win');
+      spinBtn.disabled = n < 2;
+      resultEl.textContent = n >= 2 ? `${n} ism tayyor · Aylantiring!` : 'Kamida 2 ta ism yozing';
+      if (!n) {
+        disc.style.background = 'conic-gradient(#26314f 0deg 360deg)';
+        labelsEl.innerHTML = '';
+        return;
+      }
+      const seg = 360 / n;
+      const stops = names.map((_, i) => `${palette[i % palette.length]} ${i * seg}deg ${(i + 1) * seg}deg`).join(', ');
+      disc.style.background = `conic-gradient(from ${-90 - seg / 2}deg, ${stops})`;
+      const radius = n > 10 ? 112 : n > 7 ? 128 : 142;
+      labelsEl.innerHTML = names.map((name, i) => {
+        const mid = i * seg;
+        return `<span class="edu-wheel-name" style="--a:${mid}deg;--r:${radius}px" title="${esc(name)}">${esc(name)}</span>`;
+      }).join('');
+    };
+
+    const applyNames = () => {
+      if (spinning) return;
+      const seen = new Set();
+      names = input.value
+        .split(/[\n,]+/)
+        .map((name) => name.trim())
+        .filter(Boolean)
+        .slice(0, 16)
+        .filter((name) => {
+          const key = name.toLocaleLowerCase('uz');
+          if (seen.has(key)) return false;
+          seen.add(key);
+          return true;
+        });
+      renderWheel();
+    };
+
+    const spin = () => {
+      if (spinning || names.length < 2) return;
+      spinning = true;
+      spinBtn.disabled = true;
+      resultEl.classList.remove('is-win');
+      resultEl.textContent = '🎡 Gildirak aylanyapti...';
+      const winner = Math.floor(Math.random() * names.length);
+      const seg = 360 / names.length;
+      const jitter = (Math.random() - 0.5) * seg * 0.5;
+      const target = (360 - winner * seg + jitter + 360) % 360;
+      const current = ((rotation % 360) + 360) % 360;
+      const delta = (target - current + 360) % 360;
+      rotation += 360 * (5 + Math.floor(Math.random() * 3)) + delta;
+      gsap.to(disc, {
+        rotation,
+        duration: 4.2,
+        ease: 'power3.out',
+        onComplete: () => {
+          spinning = false;
+          spinBtn.disabled = false;
+          resultEl.classList.add('is-win');
+          resultEl.innerHTML = `🏆 Tanlangan: <strong>${esc(names[winner])}</strong>`;
+          addStar(1);
+          playSound('win');
+        }
+      });
+    };
+
+    modalBody.querySelector('#edu-wheel-apply').addEventListener('click', applyNames);
+    modalBody.querySelector('#edu-wheel-clear').addEventListener('click', () => {
+      input.value = '';
+      applyNames();
+      input.focus();
+    });
+    input.addEventListener('input', applyNames);
+    spinBtn.addEventListener('click', spin);
+    applyNames();
+  }
+
   function launchGame(cur) {
     switch (cur.gameType) {
       case 'pvp-duel': gamePvpDuel(cur.config); break;
@@ -4186,6 +4321,7 @@ export function openEduGame(item, onClose) {
       case 'clock-time': gameClockTime(); break;
       case 'first-letter': gameFirstLetter(); break;
       case 'final-mix': gameFinalMix(); break;
+      case 'name-wheel': gameNameWheel(); break;
       default: gameAppleBasket({ max: 10 });
     }
   }

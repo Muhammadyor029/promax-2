@@ -5,7 +5,7 @@ export const LANGS = [
   { code: 'en', name: 'English', short: 'EN' }
 ];
 
-const KIDS_COUNT = 40;
+const KIDS_COUNT = 41;
 
 const S = {
   uz: {
@@ -94,7 +94,7 @@ const S = {
     menu_intro: 'Игры для детей', set_grade: 'Класс', set_every: 'Каждые', set_rest: 'Отдых',
     theme_mode: 'День / ночь', guide_btn: 'Инструкция', guide_title: 'Инструкция ALIF VESNA KIDS',
     guide_sub: 'Для учеников и учителей', rest_now: 'Отдохнём', eye_now: 'Упражнение для глаз',
-    gallery_left: 'АЛФАВИТ · 29', gallery_right: 'ИГРА · ЦВЕТ', gallery_hint: 'ВРАЩАЙТЕ И ВЫБИРАЙТЕ',
+    gallery_left: 'АЛФАВИТ · 28 + ʼ', gallery_right: 'ИГРА · ЦВЕТ', gallery_hint: 'ВРАЩАЙТЕ И ВЫБИРАЙТЕ',
     tag1: 'Дошкольники', tag2: 'Алфавит и игры', tag3: 'Быстрая игра',
     play: 'Начать', close: 'Закрыть', replay: 'Заново', exit: 'Выход', check: 'Проверить', next: 'Далее',
     finish: 'Завершить', back: 'Назад', score: 'Баллы', stars: 'Звёзды', question: 'Вопрос', of: '/',

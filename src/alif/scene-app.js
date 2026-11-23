@@ -8,6 +8,7 @@ window.gsap = gsap;
     import { createCrystalField } from './crystal-bg.ts';
     import { getTheme, isDayMode, onThemeChange } from './theme.ts';
     import { initMotionSensor, getMotionParallax } from './motion-sensor.ts';
+    import { isLowEndDevice } from './perf.ts';
     // gsap imported from module
     // Shrift yuklanguncha (max 1.5s) kutamiz, canvas matnlari töğri chiqsin
     try {
@@ -17,20 +18,6 @@ window.gsap = gsap;
       ]);
     } catch (_) {}
     window.__alifBoot = 'modules-ok';
-    initMotionSensor();
-    initLivingBackground();
-    const syncDockPill = initLiquidGlassNavbar();
-
-    // ── 1. Media Data & Helpers ───────────────────────────────────────────
-    const ITEMS = EDU_ITEMS;
-
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isTouchDevice = () => ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
-    const getCapDpr = (desktopMax = 1.5) => (
-      isSoftwareGl
-        ? 1
-        : Math.min(window.devicePixelRatio || 1, window.innerWidth >= 1440 ? 1.25 : (isTouchDevice() ? 1.5 : desktopMax))
-    );
 
     const isSoftwareGl = (() => {
       try {
@@ -46,6 +33,23 @@ window.gsap = gsap;
         return false;
       }
     })();
+    const lowEnd = isLowEndDevice() || isSoftwareGl;
+    document.body.classList.toggle('is-low-end', lowEnd);
+
+    initMotionSensor();
+    initLivingBackground();
+    const syncDockPill = initLiquidGlassNavbar();
+
+    // ── 1. Media Data & Helpers ───────────────────────────────────────────
+    const ITEMS = EDU_ITEMS;
+
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isTouchDevice = () => ('ontouchstart' in window) || navigator.maxTouchPoints > 0;
+    const getCapDpr = (desktopMax = 1.5) => (
+      lowEnd
+        ? 1
+        : Math.min(window.devicePixelRatio || 1, window.innerWidth >= 1440 ? 1.25 : (isTouchDevice() ? 1.5 : desktopMax))
+    );
 
     function createEduCardCanvas(item, w = 480, h = 270) {
       const c = document.createElement('canvas');
@@ -61,6 +65,8 @@ window.gsap = gsap;
       let rafId = 0;
       let timerId = 0;
       let lastTime = 0;
+      let lastDraw = 0;
+      const minFrameMs = lowEnd && !isSoftwareGl ? 1000 / 30 : 0;
 
       function afterDraw(cb) {
         const gl = renderer.getContext();
@@ -87,8 +93,13 @@ window.gsap = gsap;
       }
 
       function tick(now) {
-        if (!running) return;
+        if (!running || document.hidden) return;
         const t = typeof now === 'number' ? now : performance.now();
+        if (minFrameMs && lastDraw && t - lastDraw < minFrameMs - 1) {
+          rafId = requestAnimationFrame(tick);
+          return;
+        }
+        lastDraw = t;
         const dt = lastTime ? Math.min((t - lastTime) / 1000, 0.05) : 1 / 60;
         lastTime = t;
         onFrame(dt, t / 1000);
@@ -102,9 +113,10 @@ window.gsap = gsap;
 
       return {
         start() {
-          if (running) return;
+          if (running || document.hidden) return;
           running = true;
           lastTime = performance.now();
+          lastDraw = 0;
           rafId = requestAnimationFrame(tick);
         },
         stop() {
@@ -164,7 +176,13 @@ window.gsap = gsap;
     window.addEventListener('alif:gamemodal', () => {
       if (!activeViewDriver) return;
       if (isEduGameOpen()) activeViewDriver.stop();
-      else activeViewDriver.start();
+      else if (!document.hidden) activeViewDriver.start();
+    });
+
+    document.addEventListener('visibilitychange', () => {
+      if (!activeViewDriver) return;
+      if (document.hidden) activeViewDriver.stop();
+      else if (!isEduGameOpen()) activeViewDriver.start();
     });
 
     window.addEventListener('keydown', (e) => {
@@ -286,7 +304,7 @@ window.gsap = gsap;
       const N = galleryItems.length;
       const touch = isTouchDevice();
 
-      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: !touch, powerPreference: 'high-performance' });
+      const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: !touch && !lowEnd, powerPreference: lowEnd ? 'default' : 'high-performance' });
       renderer.outputColorSpace = THREE.SRGBColorSpace;
       renderer.setClearColor(0x0c0c0d, 0);
       renderer.setPixelRatio(getCapDpr());
@@ -1001,13 +1019,15 @@ window.gsap = gsap;
             sphereGroup.quaternion.normalize();
           }
 
-          // Smoothly animate loaded cards with throttled GPU uploads (keeps 60fps silky)
-          if (!reducedMotion && N > 0 && !isEduGameOpen()) {
+          const skipCardAnimation = lowEnd && isDragging;
+          const activeEvery = lowEnd ? 120 : 46;
+          const ambientEvery = lowEnd ? 320 : 115;
+          if (!reducedMotion && !skipCardAnimation && N > 0 && !isEduGameOpen()) {
             const nowMs = performance.now();
             const activeIdx = expandedIndex !== null ? expandedIndex : hoveredIndex;
             if (activeIdx !== null) {
               const ap = planes[activeIdx];
-              if (ap && ap.card && ap.texture && (!ap.lastAnimMs || nowMs - ap.lastAnimMs > 46)) {
+              if (ap && ap.card && ap.texture && (!ap.lastAnimMs || nowMs - ap.lastAnimMs > activeEvery)) {
                 ap.lastAnimMs = nowMs;
                 drawEduCardFrame(ap.card.ctx, ap.card.w, ap.card.h, ap.item, elapsed, 1);
                 ap.texture.needsUpdate = true;
@@ -1019,7 +1039,7 @@ window.gsap = gsap;
               const idx = (makeLoopDriver.__galAnimCursor + step) % N;
               if (idx === activeIdx) continue;
               const p = planes[idx];
-              if (p && p.hasFrame && p.card && p.texture && (!p.lastAnimMs || nowMs - p.lastAnimMs > 115)) {
+              if (p && p.hasFrame && p.card && p.texture && (!p.lastAnimMs || nowMs - p.lastAnimMs > ambientEvery)) {
                 p.lastAnimMs = nowMs;
                 drawEduCardFrame(p.card.ctx, p.card.w, p.card.h, p.item, elapsed, 0);
                 p.texture.needsUpdate = true;
@@ -1182,7 +1202,7 @@ window.gsap = gsap;
       const projItems = ITEMS;
       const touch = isTouchDevice();
 
-      const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+      const renderer = new THREE.WebGLRenderer({ antialias: !lowEnd, powerPreference: lowEnd ? 'default' : 'high-performance' });
       renderer.setClearColor(isDayMode() ? 0xe4edfa : 0x05070e, 1);
       renderer.outputColorSpace = THREE.SRGBColorSpace;
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -1203,8 +1223,8 @@ window.gsap = gsap;
         const vw = window.innerWidth;
         if (rt) rt.dispose();
         rt = new THREE.WebGLRenderTarget(rw, rh, {
-          samples: (isSoftwareGl || touch || vw >= 1440) ? 0 : 2,
-          type: canFloatRt ? THREE.HalfFloatType : THREE.UnsignedByteType,
+          samples: (lowEnd || isSoftwareGl || touch || vw >= 1440) ? 0 : 2,
+          type: lowEnd ? THREE.UnsignedByteType : (canFloatRt ? THREE.HalfFloatType : THREE.UnsignedByteType),
           minFilter: THREE.LinearFilter,
           magFilter: THREE.LinearFilter
         });
@@ -2280,7 +2300,7 @@ window.gsap = gsap;
       const scrollArrow = document.getElementById('about-scroll-arrow');
       const touch = isTouchDevice();
 
-      const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
+      const renderer = new THREE.WebGLRenderer({ antialias: !lowEnd, powerPreference: lowEnd ? 'default' : 'high-performance' });
       renderer.setClearColor(isDayMode() ? 0xe4edfa : 0x05070e, 1);
       renderer.outputColorSpace = THREE.SRGBColorSpace;
       renderer.toneMapping = THREE.NoToneMapping;
@@ -2299,7 +2319,7 @@ window.gsap = gsap;
         const rh = Math.max(1, Math.floor(window.innerHeight * dpr));
         if (bgTarget) bgTarget.dispose();
         bgTarget = new THREE.WebGLRenderTarget(rw, rh, {
-          type: canHalfFloat ? THREE.HalfFloatType : THREE.UnsignedByteType,
+          type: lowEnd ? THREE.UnsignedByteType : (canHalfFloat ? THREE.HalfFloatType : THREE.UnsignedByteType),
           minFilter: THREE.LinearFilter,
           magFilter: THREE.LinearFilter
         });

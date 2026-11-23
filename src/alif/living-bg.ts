@@ -12,7 +12,8 @@ let routeOpaque = false;
 let notifyRouteChange: (() => void) | null = null;
 
 export function setLivingBgRoute(route: AlifRoute): void {
-  routeOpaque = route === 'projects' || route === 'about';
+  const lowEnd = document.body.classList.contains('is-low-end');
+  routeOpaque = route === 'projects' || route === 'about' || (lowEnd && route === 'gallery');
   if (notifyRouteChange) notifyRouteChange();
 }
 
@@ -26,7 +27,7 @@ export function initLivingBackground(): void {
 
   initMotionSensor();
   const reduced = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-  const lowEnd = isLowEndDevice();
+  const lowEnd = document.body.classList.contains('is-low-end') || isLowEndDevice();
 
   let renderer: THREE.WebGLRenderer;
   try {
