@@ -26,7 +26,7 @@ const DEMO = /[?&]demo\b/.test(location.search); // ?demo — taqdimot uçun: 30
 // Qoraqalpoq (kaa) matnlari TEKSHIRILISHI KERAK (ona tili egasi bilan).
 const I18N = {
   uz: {
-    nav_sphere: 'Sehrli sfera', nav_games: 'Öyinlar', nav_letters: 'Harflar', nav_alphabet: 'Yöriqnoma', nav_contact: 'Boğlaniş',
+    nav_sphere: '3D sfera', nav_games: 'Öyinlar', nav_letters: 'Harflar', nav_alphabet: 'Yöriqnoma', nav_contact: 'Boğlaniş',
     hint_spin: 'AYLANTIRIB TANLANG', play_arrow: 'Boşlaş →', close: 'Yopiş', scroll: 'SURİŞ',
     menu_intro: 'Bolalar uçun rangli öyinlar',
     gallery_left: 'ALIF · 28 HARF + ʼ', gallery_right: 'ÖYIN · RANG · 3D',
@@ -815,7 +815,7 @@ const GUIDE_DATA = {
   uz: {
     lead: `ALIF VESNA KIDS — 28 harf + ʼ, ${KIDS_ITEMS.length} ta rangli öyin. Yiğgan yulduzçalaringiz: ${getKidsProgress().stars} ★`,
     cards: [
-      { title: '1. Sehrli sfera', tag: '3D tanlov', items: ['Şarni aylantirib öyin yoki harf tanlang.', 'Kartani ikki marta bosib «Öynaş →» tugmasini bosing.'] },
+      { title: '1. 3D sfera', tag: '3D tanlov', items: ['Şarni aylantirib öyin yoki harf tanlang.', 'Kartani ikki marta bosib «Öynaş →» tugmasini bosing.'] },
       { title: `2. Öyinlar (${KIDS_ITEMS.length})`, tag: 'Rasm ovi · söz qurish · xotira', items: ['Har bir öyinda yulduzça toplaysiz, progress paneli töladi.', 'Savollar takrorlanmaydi, tugmalar kattalashib yorqin yonadi.'] },
       { title: '3. PvP duel', tag: '1 vs 1', items: ['«⚔️ PvP» bilan ikki öyinchi bir ekranda bellashadi.', 'Birinchi töğri javob bergan öyinchi yulduzça oladi.'] },
       { title: '4. Yangi alifbo', tag: '28 harf + ʼ · Ç Ğ Ö Ş', items: ['7. Ğ, 16. Ö, 21. Ş, 22. Ç va ʼ (tutuq belgisi).', 'Harflar jadvalidan ham öyin ochish mumkin.'] }
