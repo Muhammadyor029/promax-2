@@ -10,7 +10,7 @@
   "display": "standalone",
   "display_override": ["standalone", "minimal-ui"],
   "orientation": "any",
-  "background_color": "#f2f1ec",
+  "background_color": "transparent",
   "theme_color": "#120b2e",
   "categories": ["education", "games"],
   "icons": [

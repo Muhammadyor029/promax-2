@@ -1354,9 +1354,12 @@ html[data-theme='light'] .pwa-install-help {
   }
 }
 
+.site-credit {
+  display: none !important;
+}
+
 @media (display-mode: standalone), (display-mode: fullscreen) {
-  .pwa-install,
-  .site-credit {
+  .pwa-install {
     display: none !important;
   }
 

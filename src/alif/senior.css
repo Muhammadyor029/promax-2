@@ -99,6 +99,7 @@
   .pvp-timer { display: none; }
 }
 .site-credit {
+  display: none !important;
   position: fixed;
   right: 12px;
   bottom: 10px;

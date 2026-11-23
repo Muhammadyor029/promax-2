@@ -251,8 +251,6 @@ function applyLang() {
   renderGuide();
   const guideNavBtn = $('#nav-guide');
   if (guideNavBtn) guideNavBtn.title = t('guide_btn');
-  const creditEl = $('#site-credit');
-  if (creditEl) creditEl.textContent = st('credit');
   window.dispatchEvent(new CustomEvent('alif:lang', { detail: { lang } }));
 }
 function setLang(code) {
