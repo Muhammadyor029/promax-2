@@ -19,42 +19,42 @@ interface MathTopic {
 }
 
 const TOPIC_I18N: Record<Lang, { head: string; sub: string; tag: string; section: string; games: string; gamesSub: string; next: string; retry: string; topics: Array<{title:string;sub:string;desc:string;prompts:Array<{q:string;options:string[];answer:string;explain:string}>}> }> = {
-  uz: { head: 'Matematika studiyasi', sub: 'Sanash, qo?shish, ayirish va mantiqni o?yin orqali o?rganing.', tag: "bo'lim", section: "Matematika bo'limi", games: "Matematika o?yinlari", gamesSub: "bo'limiga mos mashqlar", next: 'Keyingisi...', retry: 'Yana urinib ko?ring.',
+  uz: { head: 'Matematika studiyasi', sub: 'Sana?, q??i?, ayiri? va mantiqni ?yin orqali ?rgani?.', tag: "b?lim", section: "Matematika b?limi", games: "Matematika ?yinlari", gamesSub: "b?limiga mos ma?qlar", next: 'Keyingisi...', retry: 'Yana urinib k?ri?.',
     topics: [
-      { title:'Raqamlar va sanash', sub:'1?20, tartib, taqqoslash', desc:"Raqamlarni tanish, sanash, tartiblash va kattalikni solishtirishni o'rganamiz.", prompts:[
+      { title:'Raqamlar va sana?', sub:'1?20, tartib, taqqosla?', desc:"Raqamlarni tani?, sana?, tartibla? va kattalikni soli?tiri?ni ?rganamiz.", prompts:[
         { q:'Qaysi son 6 dan katta?', options:['4','5','9','3'], answer:'9', explain:'9 soni 6 dan katta.' },
-        { q:'1 dan keyin qaysi son keladi?', options:['0','2','3','5'], answer:'2', explain:'Sanash tartibi: 1, 2, 3...' },
+        { q:'1 dan keyin qaysi son keladi?', options:['0','2','3','5'], answer:'2', explain:'Sana? tartibi: 1, 2, 3...' },
         { q:'10 va 12 orasida qaysi son bor?', options:['9','11','13','8'], answer:'11', explain:'10 dan keyin 11, keyin 12 keladi.' }
       ]},
-      { title:"Qo'shish", sub:"birlashtirish va yig'indi", desc:"Narsalarni birlashtirib qo'shishni, 10 ga to'ldirishni va tez hisoblashni mashq qilamiz.", prompts:[
-        { q:'3 + 4 nechaga teng?', options:['6','7','8','5'], answer:'7', explain:"3 ga 4 ni qo'shsak 7 bo'ladi." },
-        { q:"10 ga to'ldirish uchun 7 ga nechani qo'shamiz?", options:['2','3','4','5'], answer:'3', explain:'7 + 3 = 10.' },
-        { q:'5 + 5 nechaga teng?', options:['9','10','11','8'], answer:'10', explain:'5 + 5 = 10.' }
+      { title:"Q??i?", sub:"birla?tiri? va yi?indi", desc:"Narsalarni birla?tirib q??i?ni, 10 ga t?ldiri?ni va tez hisobla?ni ma?q qilamiz.", prompts:[
+        { q:'3 + 4 ne?aga te??', options:['6','7','8','5'], answer:'7', explain:"3 ga 4 ni q??sak 7 b?ladi." },
+        { q:"10 ga t?ldiri? u?un 7 ga ne?ani q??amiz?", options:['2','3','4','5'], answer:'3', explain:'7 + 3 = 10.' },
+        { q:'5 + 5 ne?aga te??', options:['9','10','11','8'], answer:'10', explain:'5 + 5 = 10.' }
       ]},
-      { title:'Ayirish', sub:'qolganini topish', desc:"Narsalarni ayirib, nechta qolganini topishni o'rganamiz.", prompts:[
-        { q:'9 ? 4 nechaga teng?', options:['3','4','5','6'], answer:'5', explain:'9 dan 4 ni olsak 5 qoladi.' },
-        { q:'8 ? 2 nechaga teng?', options:['5','6','7','4'], answer:'6', explain:'8 dan 2 ni olsak 6 qoladi.' },
-        { q:'10 ? 3 nechaga teng?', options:['6','7','8','5'], answer:'7', explain:'10 dan 3 ni olsak 7 qoladi.' }
+      { title:'Ayiri?', sub:'qol?anini topi?', desc:"Narsalarni ayirib, ne?ta qol?anini topi?ni ?rganamiz.", prompts:[
+        { q:'9 ? 4 ne?aga te??', options:['3','4','5','6'], answer:'5', explain:'9 dan 4 ni olsak 5 qoladi.' },
+        { q:'8 ? 2 ne?aga te??', options:['5','6','7','4'], answer:'6', explain:'8 dan 2 ni olsak 6 qoladi.' },
+        { q:'10 ? 3 ne?aga te??', options:['6','7','8','5'], answer:'7', explain:'10 dan 3 ni olsak 7 qoladi.' }
       ]},
-      { title:'Shakl va mantiq', sub:'naqsh, soat, juftlik', desc:'Shakllar, ketma-ketlik, juftlik va vaqt orqali mantiqiy fikrlashni kuchaytiramiz.', prompts:[
-        { q:'Qaysi biri uchburchak?', options:['?','?','?','?'], answer:'?', explain:'? ? uchburchak shakli.' },
-        { q:'2, 4, 6, ... keyingi son?', options:['7','8','9','10'], answer:'8', explain:"Har safar 2 qo'shiladi: 6 + 2 = 8." },
+      { title:'?akl va mantiq', sub:'naq?, soat, juftlik', desc:'?akllar, ketma-ketlik, juftlik va vaqt orqali mantiqiy fikrla?ni ku?aytiramiz.', prompts:[
+        { q:'Qaysi biri u?bur?ak?', options:['?','?','?','?'], answer:'?', explain:'? ? u?bur?ak ?ekli.' },
+        { q:'2, 4, 6, ... keyingi son?', options:['7','8','9','10'], answer:'8', explain:"Har safar 2 q??iladi: 6 + 2 = 8." },
         { q:'Qaysi biri juft?', options:['1','3','4','5'], answer:'4', explain:'4 juft son.' }
       ]},
-      { title:'Tez hisob', sub:'tezkor mashq va sinov', desc:"Qo'shish-ayirishni tez va aniq yechish uchun qisqa mashqlar.", prompts:[
-        { q:'6 + 3 nechaga teng?', options:['8','9','10','7'], answer:'9', explain:'6 + 3 = 9.' },
-        { q:'10 ? 5 nechaga teng?', options:['4','5','6','3'], answer:'5', explain:'10 ? 5 = 5.' },
-        { q:'4 + 4 nechaga teng?', options:['6','7','8','9'], answer:'8', explain:'4 + 4 = 8.' }
+      { title:'Tez hisob', sub:'tezkor ma?q va sinov', desc:"Q??i?-ayirishni tez va aniq ye?i? u?un qisqa ma?qlar.", prompts:[
+        { q:'6 + 3 ne?aga te??', options:['8','9','10','7'], answer:'9', explain:'6 + 3 = 9.' },
+        { q:'10 ? 5 ne?aga te??', options:['4','5','6','3'], answer:'5', explain:'10 ? 5 = 5.' },
+        { q:'4 + 4 ne?aga te??', options:['6','7','8','9'], answer:'8', explain:'4 + 4 = 8.' }
       ]}
     ]},
-  kaa: { head:'Matematika studiyas?', sub:"Sanaw, qos?w, al?w h?m mantiqt? oy?n arqal? ?yreni?.", tag:"b?lim", section:"Matematika b?limi", games:"Matematika oy?nlar?", gamesSub:"b?limine s?ykes mashqlar", next:'Keyingisi...', retry:'J?ne ur?n?p k?ri?.',
+  kaa: { head:'Matematika studiyas?', sub:"Sanaw, qos?w, al?w h?m mantiqt? oy?n arqal? ?yreni?.", tag:"b?lim", section:"Matematika b?limi", games:"Matematika oy?nlar?", gamesSub:"b?limine s?ykes ma?qlar", next:'Keyingisi...', retry:'J?ne ur?n?p k?ri?.',
     topics:[
       { title:'Sanlar h?m sanaw', sub:'1?20, t?rtip, sal?st?r?w', desc:"Sanlard? taniw, sanaw, t?rtiplew h?m sal?st?r?wd? ?yrenemiz.", prompts:[
         { q:'Qays? san 6 dan ?lken?', options:['4','5','9','3'], answer:'9', explain:'9 san? 6 dan ?lken.' },
         { q:'1 den keyin qays? san keledi?', options:['0','2','3','5'], answer:'2', explain:'Sanaw t?rtipi: 1, 2, 3...' },
         { q:'10 h?m 12 aras?nda qays? san bar?', options:['9','11','13','8'], answer:'11', explain:'10 nan keyin 11, keyin 12 keledi.' }
       ]},
-      { title:'Qos?w', sub:'biriktiriw h?m j?y?nd?', desc:"Zatlard? biriktirip qos?wd?, 10 ?a tolt?r?wd? h?m tez esaplawd? mashq q?lam?z.", prompts:[
+      { title:'Qos?w', sub:'biriktiriw h?m j?y?nd?', desc:"Zatlard? biriktirip qos?wd?, 10 ?a tolt?r?wd? h?m tez esaplawd? ma?q q?lam?z.", prompts:[
         { q:'3 + 4 neshege te??', options:['6','7','8','5'], answer:'7', explain:"3 ke 4 ti qossaq 7 bolad?." },
         { q:"10 ?a tolt?r?w ush?n 7 ge nesheni qosam?z?", options:['2','3','4','5'], answer:'3', explain:'7 + 3 = 10.' },
         { q:'5 + 5 neshege te??', options:['9','10','11','8'], answer:'10', explain:'5 + 5 = 10.' }
@@ -64,12 +64,12 @@ const TOPIC_I18N: Record<Lang, { head: string; sub: string; tag: string; section
         { q:'8 ? 2 neshege te??', options:['5','6','7','4'], answer:'6', explain:'8 den 2 ni alsaq 6 qalad?.' },
         { q:'10 ? 3 neshege te??', options:['6','7','8','5'], answer:'7', explain:'10 nan 3 ti alsaq 7 qalad?.' }
       ]},
-      { title:'Forma h?m mantiq', sub:'naqsh, saat, jupl?q', desc:"Formalardan, izbe-izlikten, jupl?qtan h?m waq?ttan paydalan?p mantiqt? k?shleytiremiz.", prompts:[
+      { title:'Forma h?m mantiq', sub:'naq?, saat, jupl?q', desc:"Formalardan, izbe-izlikten, jupl?qtan h?m waq?ttan paydalan?p mantiqt? k?shleytiremiz.", prompts:[
         { q:'Qays?s? ?shm?yeshlik?', options:['?','?','?','?'], answer:'?', explain:'? ? ?shm?yeshlik.' },
         { q:'2, 4, 6, ... keyingi san?', options:['7','8','9','10'], answer:'8', explain:"H?r sapar 2 qos?lad?: 6 + 2 = 8." },
         { q:'Qays?s? jup san?', options:['1','3','4','5'], answer:'4', explain:'4 jup san.' }
       ]},
-      { title:'Tez esap', sub:'tez mashq h?m s?naq', desc:"Qos?w-al?wd? tez h?m an?q sheshiw ush?n q?sqa mashqlar.", prompts:[
+      { title:'Tez esap', sub:'tez ma?q h?m s?naq', desc:"Qos?w-al?wd? tez h?m an?q sheshiw ush?n q?sqa ma?qlar.", prompts:[
         { q:'6 + 3 neshege te??', options:['8','9','10','7'], answer:'9', explain:'6 + 3 = 9.' },
         { q:'10 ? 5 neshege te??', options:['4','5','6','3'], answer:'5', explain:'10 ? 5 = 5.' },
         { q:'4 + 4 neshege te??', options:['6','7','8','9'], answer:'8', explain:'4 + 4 = 8.' }
