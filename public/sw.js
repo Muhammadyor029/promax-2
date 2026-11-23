@@ -1,4 +1,4 @@
-const CACHE = 'alif-kids-v1';
+const CACHE = 'vesna-kids-v2';
 const CORE = ['/', '/index.html', '/manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {

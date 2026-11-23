@@ -1399,15 +1399,15 @@ body.is-low-end .pwa-install {
   backdrop-filter: none !important;
 }
 
-body.is-low-end .dock,
-body.is-low-end .dock-menu-panel,
-body.is-low-end .lang-pop,
-body.is-low-end .gal-overview,
-body.is-low-end .edu-stage,
-body.is-low-end .gal-caption,
-body.is-low-end .gal-hint,
-body.is-low-end .about-scroll-hint,
-body.is-low-end .pill-btn {
+html:not([data-theme='light']) body.is-low-end .dock,
+html:not([data-theme='light']) body.is-low-end .dock-menu-panel,
+html:not([data-theme='light']) body.is-low-end .lang-pop,
+html:not([data-theme='light']) body.is-low-end .gal-overview,
+html:not([data-theme='light']) body.is-low-end .edu-stage,
+html:not([data-theme='light']) body.is-low-end .gal-caption,
+html:not([data-theme='light']) body.is-low-end .gal-hint,
+html:not([data-theme='light']) body.is-low-end .about-scroll-hint,
+html:not([data-theme='light']) body.is-low-end .pill-btn {
   background: linear-gradient(155deg, rgba(62, 45, 120, 0.94), rgba(36, 27, 78, 0.96)) !important;
 }
 
@@ -1421,6 +1421,26 @@ html[data-theme='light'] body.is-low-end .gal-hint,
 html[data-theme='light'] body.is-low-end .about-scroll-hint,
 html[data-theme='light'] body.is-low-end .pill-btn {
   background: linear-gradient(155deg, rgba(255,255,255,0.96), rgba(236,245,255,0.96)) !important;
+  color: #2b2252 !important;
+  border-color: rgba(124,92,255,0.18) !important;
+}
+
+html[data-theme='light'] body.is-low-end .dock .dock-brand,
+html[data-theme='light'] body.is-low-end .dock .dock-tab,
+html[data-theme='light'] body.is-low-end .dock .dock-icon,
+html[data-theme='light'] body.is-low-end .dock .dock-menu-btn,
+html[data-theme='light'] body.is-low-end .dock .dock-tab-label,
+html[data-theme='light'] body.is-low-end .dock .dock-icon-label {
+  color: #4c2a85 !important;
+}
+
+html[data-theme='light'] body.is-low-end .dock .dock-active-pill {
+  background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,224,240,0.72) 100%) !important;
+  border-color: rgba(124,92,255,0.2) !important;
+}
+
+html[data-theme='light'] body.is-low-end .dock .dock-sep {
+  background: rgba(124,92,255,0.18) !important;
 }
 
 body.is-low-end .gal-cursor-label,

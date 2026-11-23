@@ -1,6 +1,6 @@
 const TEXTS = {
   uz: {
-    title: 'ALIF KIDS ni o‘rnating',
+    title: 'VESNA KIDS ni o‘rnating',
     sub: 'Tez ochiladi, oflayn ham ishlaydi',
     button: 'O‘rnatish',
     close: 'Yopish',
@@ -8,7 +8,7 @@ const TEXTS = {
     done: 'Yo‘riqnoma ko‘rsatildi'
   },
   kaa: {
-    title: 'ALIF KIDS ti ornatıń',
+    title: 'VESNA KIDS ti ornatıń',
     sub: 'Tez ashıladı, oflayn da isleydi',
     button: 'Ornatıw',
     close: 'Jabıw',
@@ -16,7 +16,7 @@ const TEXTS = {
     done: 'Kórsergish kórsetildi'
   },
   ru: {
-    title: 'Установите ALIF KIDS',
+    title: 'Установите VESNA KIDS',
     sub: 'Быстрый запуск и работа офлайн',
     button: 'Установить',
     close: 'Закрыть',
@@ -24,7 +24,7 @@ const TEXTS = {
     done: 'Инструкция показана'
   },
   en: {
-    title: 'Install ALIF KIDS',
+    title: 'Install VESNA KIDS',
     sub: 'Opens fast and works offline',
     button: 'Install',
     close: 'Close',
@@ -61,7 +61,7 @@ const registerServiceWorker = () => {
 if (document.readyState === 'complete') registerServiceWorker();
 else window.addEventListener('load', registerServiceWorker);
 
-if (!standalone && store.get('alif-pwa-installed') !== '1') {
+if (!standalone && store.get('vesna-pwa-installed') !== '1') {
   const host = document.createElement('div');
   host.innerHTML = `
     <div class="pwa-install" id="pwa-install" role="status" hidden>
@@ -93,7 +93,7 @@ if (!standalone && store.get('alif-pwa-installed') !== '1') {
   window.addEventListener('beforeinstallprompt', (event) => {
     event.preventDefault();
     deferred = event;
-    if (store.get('alif-pwa-dismissed') !== '1') banner.hidden = false;
+    if (store.get('vesna-pwa-dismissed') !== '1') banner.hidden = false;
   });
 
   installBtn.addEventListener('click', async () => {
@@ -106,16 +106,16 @@ if (!standalone && store.get('alif-pwa-installed') !== '1') {
     const choice = await deferred.userChoice;
     deferred = null;
     banner.hidden = true;
-    if (choice.outcome === 'accepted') store.set('alif-pwa-installed', '1');
+    if (choice.outcome === 'accepted') store.set('vesna-pwa-installed', '1');
   });
 
   closeBtn.addEventListener('click', () => {
-    store.set('alif-pwa-dismissed', '1');
+    store.set('vesna-pwa-dismissed', '1');
     banner.hidden = true;
   });
 
   window.addEventListener('appinstalled', () => {
-    store.set('alif-pwa-installed', '1');
+    store.set('vesna-pwa-installed', '1');
     banner.hidden = true;
   });
 }

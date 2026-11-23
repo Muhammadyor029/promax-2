@@ -1,4 +1,4 @@
-/* ALIF.12 — qöşimça qatlam:
+/* VESNA.KIDS — qöşimça qatlam:
    tillar (uz/kaa/ru/en), kontakt, sozlamalar, robot-yordamchi, köz dam oliş taymeri,
    tölqin effekti (sayt sönadi va qaytadi), köz maşqlari, xatolarni körsatish.
    Asosiy 3D kod (index.html) bilan faqat DOM va 'alif:robot-click' hodisasi orqali boğlanadi. */
@@ -29,12 +29,12 @@ const I18N = {
     nav_sphere: '3D sfera', nav_games: 'Öyinlar', nav_letters: 'Harflar', nav_math: 'Matematika', nav_alphabet: 'Yöriqnoma', nav_contact: 'Boğlaniş',
     hint_spin: 'AYLANTIRIB TANLANG', play_arrow: 'Boşlaş →', close: 'Yopiş', scroll: 'SURİŞ',
     menu_intro: 'Bolalar uçun rangli öyinlar',
-    gallery_left: 'ALIF · 28 HARF + ʼ', gallery_right: 'ÖYIN · RANG · 3D',
+    gallery_left: 'VESNA · 28 HARF + ʼ', gallery_right: 'ÖYIN · RANG · 3D',
     tag1: 'Bolalar uçun', tag2: 'Yangi alifbo', tag3: '41 ta öyin',
     set_every: 'Köz uçun dam oliş eslatmasi', set_rest: 'Dam oliş davomiyligi', min: 'daq', sec: 's',
     rest_now: 'Hozir dam olamiz', eye_now: 'Köz maşqi',
     theme_mode: 'Kungi / Tungi rejim', theme_day: 'Kun', theme_night: 'Tun',
-    guide_btn: 'Yöriqnoma', guide_title: 'ALIF VESNA KIDS — Yöriqnoma', guide_sub: 'Boğcha va 1-sinf öquvçilari uçun',
+    guide_btn: 'Yöriqnoma', guide_title: 'VESNA KIDS — Yöriqnoma', guide_sub: 'Boğcha va 1-sinf öquvçilari uçun',
     greet: ['Salom! Men Vesna. Meni bosib kör!', 'Birga öynaymizmi?'],
     again: 'Yana salom! Davom etamizmi?',
     prompt_now: 'Hozir dam olamiz', prompt_later: '5 daqiqadan keyin',
@@ -62,12 +62,12 @@ const I18N = {
     nav_sphere: 'Sehirli shar', nav_games: 'Oyınlar', nav_letters: 'Háripner', nav_math: 'Matematika', nav_alphabet: 'Bağanısh', nav_contact: 'Baylanıs',
     hint_spin: 'AYLANDIRIP SAYLAŃ', play_arrow: 'Baslaw →', close: 'Jabıw', scroll: 'SÚRIŃ',
     menu_intro: 'Balalar ushın reńli oyınlar',
-    gallery_left: 'ALIF · 28 HÁRIP + ʼ', gallery_right: 'OYIN · REŃ · 3D',
+    gallery_left: 'VESNA · 28 HÁRIP + ʼ', gallery_right: 'OYIN · REŃ · 3D',
     tag1: 'Balalar ushın', tag2: 'Jańa álippe', tag3: '40 oyın',
     set_every: 'Kóz dem alıw eskertiwi', set_rest: 'Dem alıw dawamlılığı', min: 'min', sec: 's',
     rest_now: 'Házir dem alamız', eye_now: 'Kóz shınıǵıwı',
     theme_mode: 'Kún / Tún rejimi', theme_day: 'Kún', theme_night: 'Tún',
-    guide_btn: 'Bağanısh', guide_title: 'ALIF VESNA KIDS — Bağanısh', guide_sub: 'Bala baqsha hám 1-klass oqıwshıları ushın',
+    guide_btn: 'Bağanısh', guide_title: 'VESNA KIDS — Bağanısh', guide_sub: 'Bala baqsha hám 1-klass oqıwshıları ushın',
     greet: ['Sálem! Men Vesna. Maǵan bas!', 'Birge oynayıqpa?'],
     again: 'Taǵı sálem! Dawam etemizbe?',
     prompt_now: 'Házir dem alamız', prompt_later: '5 minuttan keyin',
@@ -86,10 +86,10 @@ const I18N = {
     ex_far_t: 'Uzaqqa qara', ex_far_d: 'Derezeden eń uzaqtaǵı nárseǵe qara.',
     ex_near: 'Jaqın', ex_farw: 'Uzaq', ex_stop: 'Toqtat', ex_done: 'Aferin!',
     contact_title: 'Baylanıs',
-    contact_lead: 'Sorawıńız barma yamasa ALIF VESNA KIDS ni mektebińizde sınap kórgińiz keledi me? Jazıń!',
+    contact_lead: 'Sorawıńız barma yamasa VESNA KIDS ni mektebińizde sınap kórgińiz keledi me? Jazıń!',
     contact_email: 'Poshta jazıw', contact_tg: 'Telegram',
     f_school: 'Mektep atı', f_name: 'Atıńız', f_phone: 'Telefon yamasa Telegram', f_msg: 'Xabar', f_send: 'Jiberiw',
-    mail_subject: 'ALIF VESNA KIDS haqqında', err_boot: 'Sayt tolıq júklenbedi. Betti jańalań.', reload: 'Jańalaw'
+    mail_subject: 'VESNA KIDS haqqında', err_boot: 'Sayt tolıq júklenbedi. Betti jańalań.', reload: 'Jańalaw'
   },
   ru: {
     nav_sphere: 'Волшебная сфера', nav_games: 'Игры', nav_letters: 'Буквы', nav_math: 'Matematika', nav_alphabet: 'Инструкция', nav_contact: 'Контакты',
@@ -100,7 +100,7 @@ const I18N = {
     set_every: 'Напоминание об отдыхе для глаз', set_rest: 'Длительность отдыха', min: 'мин', sec: 'с',
     rest_now: 'Отдохнём сейчас', eye_now: 'Зарядка для глаз',
     theme_mode: 'Дневной / Ночной режим', theme_day: 'День', theme_night: 'Ночь',
-    guide_btn: 'Инструкция', guide_title: 'ALIF VESNA KIDS — Инструкция', guide_sub: 'Для дошкольников и первоклассников',
+    guide_btn: 'Инструкция', guide_title: 'VESNA KIDS — Инструкция', guide_sub: 'Для дошкольников и первоклассников',
     greet: ['Привет! Я Весна. Нажми на меня!', 'Давай играть вместе?'],
     again: 'Снова привет! Продолжим?',
     prompt_now: 'Отдохнём сейчас', prompt_later: 'Через 5 минут',
@@ -119,10 +119,10 @@ const I18N = {
     ex_far_t: 'Смотри вдаль', ex_far_d: 'Найди за окном самый далёкий предмет и смотри на него.',
     ex_near: 'Близко', ex_farw: 'Далеко', ex_stop: 'Остановить', ex_done: 'Молодец!',
     contact_title: 'Контакты',
-    contact_lead: 'Есть вопрос или хотите попробовать ALIF VESNA KIDS в вашей школе? Напишите нам!',
+    contact_lead: 'Есть вопрос или хотите попробовать VESNA KIDS в вашей школе? Напишите нам!',
     contact_email: 'Написать на почту', contact_tg: 'Telegram',
     f_school: 'Название школы', f_name: 'Ваше имя', f_phone: 'Телефон или Telegram', f_msg: 'Сообщение', f_send: 'Отправить',
-    mail_subject: 'Про ALIF VESNA KIDS', err_boot: 'Сайт загрузился не полностью. Обновите страницу.', reload: 'Обновить'
+    mail_subject: 'Про VESNA KIDS', err_boot: 'Сайт загрузился не полностью. Обновите страницу.', reload: 'Обновить'
   },
   en: {
     nav_sphere: 'Magic sphere', nav_games: 'Games', nav_letters: 'Letters', nav_math: 'Math', nav_alphabet: 'Guide', nav_contact: 'Contact',
@@ -133,7 +133,7 @@ const I18N = {
     set_every: 'Eye-rest reminder', set_rest: 'Rest length', min: 'min', sec: 's',
     rest_now: 'Rest now', eye_now: 'Eye exercise',
     theme_mode: 'Day / Night mode', theme_day: 'Day', theme_night: 'Night',
-    guide_btn: 'Guide', guide_title: 'ALIF VESNA KIDS — User Guide', guide_sub: 'For kindergarten and first-grade kids',
+    guide_btn: 'Guide', guide_title: 'VESNA KIDS — User Guide', guide_sub: 'For kindergarten and first-grade kids',
     greet: ["Hi! I'm Vesna. Tap me!", "Shall we play together?"],
     again: 'Hi again! Shall we continue?',
     prompt_now: 'Rest now', prompt_later: 'In 5 minutes',
@@ -349,7 +349,7 @@ const SVG_NS = 'http://www.w3.org/2000/svg';
 const mascot = document.createElement('div');
 mascot.className = 'mascot';
 mascot.setAttribute('role', 'button');
-mascot.setAttribute('aria-label', 'Alif robot');
+mascot.setAttribute('aria-label', 'Vesna robot');
 mascot.tabIndex = 0;
 mascot.innerHTML = `
 <svg viewBox="0 0 120 130" aria-hidden="true">
@@ -814,7 +814,7 @@ function startExercise(id) {
 // ───────────────────────── SAYT YO'RIQNOMASI (ALIFBO BÖLIMIDA) ─────────────────────────
 const GUIDE_DATA = {
   uz: {
-    lead: `ALIF VESNA KIDS — 28 harf + ʼ, ${KIDS_ITEMS.length} ta rangli öyin. Yiğgan yulduzçalaringiz: ${getKidsProgress().stars} ★`,
+    lead: `VESNA KIDS — 28 harf + ʼ, ${KIDS_ITEMS.length} ta rangli öyin. Yiğgan yulduzçalaringiz: ${getKidsProgress().stars} ★`,
     cards: [
       { title: '1. 3D sfera', tag: '3D tanlov', items: ['Şarni aylantirib öyin yoki harf tanlang.', 'Kartani ikki marta bosib «Öynaş →» tugmasini bosing.'] },
       { title: `2. Öyinlar (${KIDS_ITEMS.length})`, tag: 'Rasm ovi · söz qurish · xotira', items: ['Har bir öyinda yulduzça toplaysiz, progress paneli töladi.', 'Savollar takrorlanmaydi, tugmalar kattalashib yorqin yonadi.'] },
@@ -825,7 +825,7 @@ const GUIDE_DATA = {
     footRight: st('credit')
   },
   kaa: {
-    lead: `ALIF VESNA KIDS — 28 hárip + ʼ, ${KIDS_ITEMS.length} reńli oyın.`,
+    lead: `VESNA KIDS — 28 hárip + ʼ, ${KIDS_ITEMS.length} reńli oyın.`,
     cards: [
       { title: '1. Sehirli shar', tag: '3D saylaw', items: ['Shardı aylandırıp oyın yamasa hárip saylań.', 'Kartanı eki márte basıp «Oynaw →» túymesin basıń.'] },
       { title: `2. Oyınlar (${KIDS_ITEMS.length})`, tag: 'Súwret awı · sóz qurıw · yad', items: ['Hár oyında juldızsha toplaydı.', 'Sorawlar qaytalanbaydı, túymeler japıraq.'] },
@@ -836,7 +836,7 @@ const GUIDE_DATA = {
     footRight: st('credit')
   },
   ru: {
-    lead: `ALIF VESNA KIDS — 28 букв + ʼ, ${KIDS_ITEMS.length} красочных игр.`,
+    lead: `VESNA KIDS — 28 букв + ʼ, ${KIDS_ITEMS.length} красочных игр.`,
     cards: [
       { title: '1. Волшебная сфера', tag: '3D-выбор', items: ['Поверните шар и выберите игру или букву.', 'Нажмите на карточку дважды и выберите «Играть →».'] },
       { title: `2. Игры (${KIDS_ITEMS.length})`, tag: 'Поиск картинок · слова · память', items: ['За каждый правильный ответ вы получаете звезду.', 'Вопросы не повторяются, кнопки ярко подсвечиваются.'] },
@@ -847,7 +847,7 @@ const GUIDE_DATA = {
     footRight: st('credit')
   },
   en: {
-    lead: `ALIF VESNA KIDS — 28 letters + ʼ, ${KIDS_ITEMS.length} colorful games.`,
+    lead: `VESNA KIDS — 28 letters + ʼ, ${KIDS_ITEMS.length} colorful games.`,
     cards: [
       { title: '1. Magic sphere', tag: '3D picker', items: ['Rotate the globe to pick a game or letter.', 'Tap a card twice and press Play →.'] },
       { title: `2. Games (${KIDS_ITEMS.length})`, tag: 'Picture hunt · words · memory', items: ['Every correct answer earns a shiny star.', 'Questions never repeat and buttons light up.'] },

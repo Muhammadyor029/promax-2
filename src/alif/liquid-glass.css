@@ -3089,3 +3089,44 @@ html[data-theme="light"] .edu-color-swatch {
 }
 
 
+
+html:not([data-theme='light']) body.is-low-end .dock {
+  background: linear-gradient(155deg, rgba(62, 45, 120, 0.94), rgba(36, 27, 78, 0.96)) !important;
+}
+
+html[data-theme='light'] body.is-low-end .dock,
+html[data-theme='light'] body.is-low-end .dock-menu-panel,
+html[data-theme='light'] body.is-low-end .lang-pop {
+  background: linear-gradient(155deg, rgba(255,255,255,0.96), rgba(236,245,255,0.96)) !important;
+  color: #2b2252 !important;
+  border-color: rgba(124,92,255,0.18) !important;
+}
+
+html[data-theme='light'] body.is-low-end .dock .dock-brand,
+html[data-theme='light'] body.is-low-end .dock .dock-tab,
+html[data-theme='light'] body.is-low-end .dock .dock-icon,
+html[data-theme='light'] body.is-low-end .dock .dock-menu-btn,
+html[data-theme='light'] body.is-low-end .dock .dock-tab-label,
+html[data-theme='light'] body.is-low-end .dock .dock-icon-label,
+html[data-theme='light'] body.is-low-end .dock .dock-lang {
+  color: #4c2a85 !important;
+}
+
+html[data-theme='light'] body.is-low-end .dock .dock-tab.is-active {
+  background: transparent !important;
+}
+
+html[data-theme='light'] body.is-low-end .dock .dock-active-pill {
+  background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, rgba(255,224,240,0.72) 100%) !important;
+  border-color: rgba(124,92,255,0.2) !important;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 2px 10px rgba(124,92,255,0.12) !important;
+}
+
+html[data-theme='light'] body.is-low-end .dock .dock-sep {
+  background: rgba(124,92,255,0.18) !important;
+}
+
+html[data-theme='light'] body.is-low-end .dock .dock-glass-refract,
+html[data-theme='light'] body.is-low-end .dock::before {
+  opacity: 0.35 !important;
+}

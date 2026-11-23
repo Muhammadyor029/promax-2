@@ -9,10 +9,10 @@ const KIDS_COUNT = 41;
 
 const S = {
   uz: {
-    app_title: 'ALIF VESNA KIDS', app_subtitle: 'boğcha · alifbo va öyinlar',
+    app_title: 'VESNA KIDS', app_subtitle: 'boğcha · alifbo va öyinlar',
     nav_sphere: 'Öyin xaritasi', nav_games: 'Öyinlar', nav_letters: 'Harflar', nav_math: 'Matematika', nav_alphabet: 'Yöriqnoma',
     menu_intro: 'Bolalar uçun öyinlar', set_grade: 'Sinf', set_every: 'Har', set_rest: 'Dam vaqti',
-    theme_mode: 'Kun / tun', guide_btn: 'Yöriqnoma', guide_title: 'ALIF VESNA KIDS yöriqnomasi',
+    theme_mode: 'Kun / tun', guide_btn: 'Yöriqnoma', guide_title: 'VESNA KIDS yöriqnomasi',
     guide_sub: 'Öquvçilar va öqituçilar uçun', rest_now: 'Hozir dam olaylik', eye_now: 'Köz maşqi',
     gallery_left: 'ALIFBO', gallery_right: 'ÖYIN · RANG', gallery_hint: 'AYLANTIRIB TANLANG',
     tag1: 'Boğcha', tag2: 'Alifbo va öyinlar', tag3: 'Tez öyin',
@@ -49,10 +49,10 @@ const S = {
     lang_uz: 'özbekçe', lang_kaa: 'qaraqalpaqça', lang_ru: 'rusça', lang_en: 'inglizçe'
   },
   kaa: {
-    app_title: 'ALIF VESNA KIDS', app_subtitle: 'bala baqsha · álippe hám oyınlar',
+    app_title: 'VESNA KIDS', app_subtitle: 'bala baqsha · álippe hám oyınlar',
     nav_sphere: 'Fanlar kartası', nav_games: 'Mashıqlar', nav_letters: 'Harflar', nav_math: 'Matematika', nav_alphabet: 'Bağanısh',
     menu_intro: 'Balalar ushın oyınlar', set_grade: 'Klass', set_every: 'Hár', set_rest: 'Dem waqtı',
-    theme_mode: 'Kún / tún', guide_btn: 'Bağanısh', guide_title: 'ALIF VESNA KIDS bağanıshı',
+    theme_mode: 'Kún / tún', guide_btn: 'Bağanısh', guide_title: 'VESNA KIDS bağanıshı',
     guide_sub: 'Oqıwshılar hám oqıtıwshılar ushın', rest_now: 'Házir dem alaylıq', eye_now: 'Kóz mashıqı',
     gallery_left: 'ÁLIPPE', gallery_right: 'OYIN · REŃ', gallery_hint: 'AYLANDIRIP TAŃLAŃ',
     tag1: 'Bala baqsha', tag2: 'Álippe hám oyınlar', tag3: 'Tez oyın',
@@ -89,10 +89,10 @@ const S = {
     lang_uz: 'ózbekşe', lang_kaa: 'qaraqalpaqşa', lang_ru: 'rusşa', lang_en: 'inglisşe'
   },
   ru: {
-    app_title: 'ALIF VESNA KIDS', app_subtitle: 'дошкольники · алфавит и игры',
+    app_title: 'VESNA KIDS', app_subtitle: 'дошкольники · алфавит и игры',
     nav_sphere: 'Карта предметов', nav_games: 'Упражнения', nav_letters: 'Предметы', nav_math: 'Matematika', nav_alphabet: 'Инструкция',
     menu_intro: 'Игры для детей', set_grade: 'Класс', set_every: 'Каждые', set_rest: 'Отдых',
-    theme_mode: 'День / ночь', guide_btn: 'Инструкция', guide_title: 'Инструкция ALIF VESNA KIDS',
+    theme_mode: 'День / ночь', guide_btn: 'Инструкция', guide_title: 'Инструкция VESNA KIDS',
     guide_sub: 'Для учеников и учителей', rest_now: 'Отдохнём', eye_now: 'Упражнение для глаз',
     gallery_left: 'АЛФАВИТ · 28 + ʼ', gallery_right: 'ИГРА · ЦВЕТ', gallery_hint: 'ВРАЩАЙТЕ И ВЫБИРАЙТЕ',
     tag1: 'Дошкольники', tag2: 'Алфавит и игры', tag3: 'Быстрая игра',
@@ -129,10 +129,10 @@ const S = {
     lang_uz: 'узбекском', lang_kaa: 'каракалпакском', lang_ru: 'русском', lang_en: 'английском'
   },
   en: {
-    app_title: 'ALIF VESNA KIDS', app_subtitle: 'kids · alphabet and games',
+    app_title: 'VESNA KIDS', app_subtitle: 'kids · alphabet and games',
     nav_sphere: 'Subject map', nav_games: 'Practice', nav_letters: 'Subjects', nav_math: 'Math', nav_alphabet: 'Guide',
     menu_intro: 'Games for kids', set_grade: 'Grade', set_every: 'Every', set_rest: 'Break',
-    theme_mode: 'Day / night', guide_btn: 'Guide', guide_title: 'ALIF VESNA KIDS guide',
+    theme_mode: 'Day / night', guide_btn: 'Guide', guide_title: 'VESNA KIDS guide',
     guide_sub: 'For students and teachers', rest_now: 'Take a break', eye_now: 'Eye exercise',
     gallery_left: 'ALPHABET', gallery_right: 'PLAY · COLOR', gallery_hint: 'ROTATE TO CHOOSE',
     tag1: 'Kids', tag2: 'Alphabet and games', tag3: 'Quick game',
@@ -616,7 +616,7 @@ const SCENE = {
     chapter1: '1-qism · Fanlar',
     chapter1Body: 'Har bir sinf uchun misol, yechim va bosqichli tushuntirish beriladi.',
     quote1: '“Tushunib örganilgan bilim bir umr esda qoladi.”',
-    quote1Note: '— ALIF VESNA KIDS öquv daftari',
+    quote1Note: '— VESNA KIDS öquv daftari',
     stats: `${KIDS_COUNT} ta öyin`,
     statsRows: `Matematika|Ona tili va tillar|Mantiq|PvP duellar`,
     mathBody: 'Hisob, geometriya, nisbat va tezlik masalalari yechimlari bilan.',
@@ -625,7 +625,7 @@ const SCENE = {
     signs: 'Yangi belgilar',
     signsRows: 'Ğ ğ — Ğoz, Toğ|Ö ö — Ördak, Öt|Ş ş — Şer, Şamol|Ç ç — Çoynak, Çana|ʼ — Maʼno, Aʼlo',
     quote2: '“Har kuni besh daqiqa öyin — mustahkam bilim kaliti.”',
-    quote2Note: '— ALIF VESNA KIDS',
+    quote2Note: '— VESNA KIDS',
     start: 'Boshlash',
     startRows: `Alifbo va öyinlar|${KIDS_COUNT} ta öyin|Boğcha`,
     credit: 'Raxmanaliyev tomonidan tayyorlangan'
@@ -641,7 +641,7 @@ const SCENE = {
     chapter1: '1-bólim · Pánler',
     chapter1Body: 'Hár klass ushın másele, sheshiw hám basqıshlı túsiniktirme beriledi.',
     quote1: '“Túsiniw menen úyrengen bilim ómirlik esde qaladı.”',
-    quote1Note: '— ALIF VESNA KIDS oqıw daftarı',
+    quote1Note: '— VESNA KIDS oqıw daftarı',
     stats: `${KIDS_COUNT} oyın`,
     statsRows: `Matematika|Ana tili hám tiller|Mantiq|PvP dueller`,
     mathBody: 'Esaplaw, geometriya, nisbet hám tezlik máseleleri sheshiwi menen.',
@@ -650,7 +650,7 @@ const SCENE = {
     signs: 'Jańa belgiler',
     signsRows: 'Ğ ğ — Ğoz, Toğ|Ö ö — Ördak, Öt|Ş ş — Şer, Şamol|Ç ç — Çoynak, Çana|ʼ — Maʼno, Aʼlo',
     quote2: '“Hár kúni bes minut oyın — berik bilim açqıshı.”',
-    quote2Note: '— ALIF VESNA KIDS',
+    quote2Note: '— VESNA KIDS',
     start: 'Baslaw',
     startRows: `Álippe hám oyınlar|${KIDS_COUNT} oyın|Bala baqsha`,
     credit: 'Raxmanaliyev tárepinen tayarlanǵan'
@@ -666,7 +666,7 @@ const SCENE = {
     chapter1: 'Часть 1 · Предметы',
     chapter1Body: 'Для каждого класса — задача, решение и пошаговое объяснение.',
     quote1: '«Знание, понятое через понимание, остаётся на всю жизнь.»',
-    quote1Note: '— Тетрадь ALIF VESNA KIDS',
+    quote1Note: '— Тетрадь VESNA KIDS',
     stats: `${KIDS_COUNT} игр`,
     statsRows: `Математика|Узбекский и языки|Логика|PvP-дуэли`,
     mathBody: 'Счёт, геометрия, отношения и скорость с решением каждой задачи.',
@@ -675,7 +675,7 @@ const SCENE = {
     signs: 'Новые буквы',
     signsRows: 'Ğ ğ — Ğoz, Toğ|Ö ö — Ördak, Öt|Ş ş — Şer, Şamol|Ç ç — Çoynak, Çana|ʼ — Maʼno, Aʼlo',
     quote2: '«Пять минут практики каждый день — ключ к прочным знаниям.»',
-    quote2Note: '— ALIF VESNA KIDS',
+    quote2Note: '— VESNA KIDS',
     start: 'Начать',
     startRows: `Алфавит и игры|${KIDS_COUNT} игр|Дошкольники`,
     credit: 'Подготовил Рахманалиев'
@@ -691,7 +691,7 @@ const SCENE = {
     chapter1: 'Part 1 · Subjects',
     chapter1Body: 'Every grade gets a problem, solution and step-by-step explanation.',
     quote1: '“Knowledge learned with understanding stays for life.”',
-    quote1Note: '— ALIF VESNA KIDS notebook',
+    quote1Note: '— VESNA KIDS notebook',
     stats: `${KIDS_COUNT} games`,
     statsRows: `Maths|Uzbek & languages|Logic|PvP duels`,
     mathBody: 'Arithmetic, geometry, ratios and speed with every solution shown.',
@@ -700,7 +700,7 @@ const SCENE = {
     signs: 'New letters',
     signsRows: 'Ğ ğ — Ğoz, Toğ|Ö ö — Ördak, Öt|Ş ş — Şer, Şamol|Ç ç — Çoynak, Çana|ʼ — Maʼno, Aʼlo',
     quote2: '“Five minutes of practice a day is the key to lasting knowledge.”',
-    quote2Note: '— ALIF VESNA KIDS',
+    quote2Note: '— VESNA KIDS',
     start: 'Start',
     startRows: `Alphabet & games|${KIDS_COUNT} games|Kids`,
     credit: 'Prepared by Rakhmanaliyev'

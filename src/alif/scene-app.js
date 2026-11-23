@@ -1493,7 +1493,7 @@ window.gsap = gsap;
         ctx.textBaseline = 'middle';
         if (!isPhone) {
           ctx.textAlign = 'center';
-          ctx.fillText(`ALIF VESNA KIDS — ${st('subtitle')}`, vw / 2, ch / 2);
+          ctx.fillText(`VESNA KIDS — ${st('subtitle')}`, vw / 2, ch / 2);
         } else {
           ctx.textAlign = 'left';
           ctx.fillText('VESNA', 8, ch / 2);
