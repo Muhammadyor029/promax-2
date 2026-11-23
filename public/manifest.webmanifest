@@ -2,7 +2,7 @@
   "id": "/",
   "name": "ALIF VESNA KIDS — Öyinli alifbo",
   "short_name": "VESNA KIDS",
-  "description": "ALIF VESNA KIDS logosi, yangi özbek alifbosi, 41 ta rangli öyin va gildirak tanlovi.",
+  "description": "Platforma — ta'lim platformasi: yangi özbek alifbosi, 41 ta rangli öyin va gildirak tanlovi.",
   "lang": "uz",
   "dir": "ltr",
   "start_url": "/",
@@ -10,7 +10,7 @@
   "display": "standalone",
   "display_override": ["standalone", "minimal-ui"],
   "orientation": "any",
-  "background_color": "transparent",
+  "background_color": "#f2f1ec",
   "theme_color": "#120b2e",
   "categories": ["education", "games"],
   "icons": [
