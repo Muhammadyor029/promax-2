@@ -26,7 +26,7 @@ const DEMO = /[?&]demo\b/.test(location.search); // ?demo — taqdimot uçun: 30
 // Qoraqalpoq (kaa) matnlari TEKSHIRILISHI KERAK (ona tili egasi bilan).
 const I18N = {
   uz: {
-    nav_sphere: '3D sfera', nav_games: 'Öyinlar', nav_letters: 'Harflar', nav_alphabet: 'Yöriqnoma', nav_contact: 'Boğlaniş',
+    nav_sphere: '3D sfera', nav_games: 'Öyinlar', nav_letters: 'Harflar', nav_math: 'Matematika', nav_alphabet: 'Yöriqnoma', nav_contact: 'Boğlaniş',
     hint_spin: 'AYLANTIRIB TANLANG', play_arrow: 'Boşlaş →', close: 'Yopiş', scroll: 'SURİŞ',
     menu_intro: 'Bolalar uçun rangli öyinlar',
     gallery_left: 'ALIF · 28 HARF + ʼ', gallery_right: 'ÖYIN · RANG · 3D',
@@ -59,7 +59,7 @@ const I18N = {
     mail_subject: 'VESNA haqida', err_boot: 'Sayt töliq yuklanmadi. Sahifani yangilang.', reload: 'Yangilaş'
   },
   kaa: {
-    nav_sphere: 'Sehirli shar', nav_games: 'Oyınlar', nav_letters: 'Háripner', nav_alphabet: 'Bağanısh', nav_contact: 'Baylanıs',
+    nav_sphere: 'Sehirli shar', nav_games: 'Oyınlar', nav_letters: 'Háripner', nav_math: 'Matematika', nav_alphabet: 'Bağanısh', nav_contact: 'Baylanıs',
     hint_spin: 'AYLANDIRIP SAYLAŃ', play_arrow: 'Baslaw →', close: 'Jabıw', scroll: 'SÚRIŃ',
     menu_intro: 'Balalar ushın reńli oyınlar',
     gallery_left: 'ALIF · 28 HÁRIP + ʼ', gallery_right: 'OYIN · REŃ · 3D',
@@ -92,7 +92,7 @@ const I18N = {
     mail_subject: 'ALIF VESNA KIDS haqqında', err_boot: 'Sayt tolıq júklenbedi. Betti jańalań.', reload: 'Jańalaw'
   },
   ru: {
-    nav_sphere: 'Волшебная сфера', nav_games: 'Игры', nav_letters: 'Буквы', nav_alphabet: 'Инструкция', nav_contact: 'Контакты',
+    nav_sphere: 'Волшебная сфера', nav_games: 'Игры', nav_letters: 'Буквы', nav_math: 'Matematika', nav_alphabet: 'Инструкция', nav_contact: 'Контакты',
     hint_spin: 'ВРАЩАЙТЕ И ВЫБИРАЙТЕ', play_arrow: 'Начать →', close: 'Закрыть', scroll: 'ЛИСТАЙТЕ',
     menu_intro: 'Яркие игры для детей',
     gallery_left: 'АЛФАВИТ · 28 + ʼ', gallery_right: 'ИГРА · ЦВЕТ · 3D',
@@ -125,7 +125,7 @@ const I18N = {
     mail_subject: 'Про ALIF VESNA KIDS', err_boot: 'Сайт загрузился не полностью. Обновите страницу.', reload: 'Обновить'
   },
   en: {
-    nav_sphere: 'Magic sphere', nav_games: 'Games', nav_letters: 'Letters', nav_alphabet: 'Guide', nav_contact: 'Contact',
+    nav_sphere: 'Magic sphere', nav_games: 'Games', nav_letters: 'Letters', nav_math: 'Math', nav_alphabet: 'Guide', nav_contact: 'Contact',
     hint_spin: 'SPIN AND PICK', play_arrow: 'Start →', close: 'Close', scroll: 'SCROLL',
     menu_intro: 'Colorful games for kids',
     gallery_left: 'ALPHABET · 28 + ʼ', gallery_right: 'PLAY · COLOR · 3D',

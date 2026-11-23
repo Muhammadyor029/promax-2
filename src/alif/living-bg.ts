@@ -6,14 +6,14 @@ import { initMotionSensor, getMotionParallax } from './motion-sensor.ts';
 import { getTheme, onThemeChange } from './theme.ts';
 import { isLowEndDevice } from './perf.ts';
 
-export type AlifRoute = 'gallery' | 'projects' | 'alphabet' | 'about';
+export type AlifRoute = 'gallery' | 'projects' | 'alphabet' | 'math' | 'about';
 
 let routeOpaque = false;
 let notifyRouteChange: (() => void) | null = null;
 
 export function setLivingBgRoute(route: AlifRoute): void {
   const lowEnd = document.body.classList.contains('is-low-end');
-  routeOpaque = route === 'projects' || route === 'about' || (lowEnd && route === 'gallery');
+  routeOpaque = route === 'projects' || route === 'about' || route === 'math' || (lowEnd && route === 'gallery');
   if (notifyRouteChange) notifyRouteChange();
 }
 

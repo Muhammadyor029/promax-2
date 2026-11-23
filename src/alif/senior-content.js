@@ -10,7 +10,7 @@ const KIDS_COUNT = 41;
 const S = {
   uz: {
     app_title: 'ALIF VESNA KIDS', app_subtitle: 'boğcha · alifbo va öyinlar',
-    nav_sphere: 'Öyin xaritasi', nav_games: 'Öyinlar', nav_letters: 'Harflar', nav_alphabet: 'Yöriqnoma',
+    nav_sphere: 'Öyin xaritasi', nav_games: 'Öyinlar', nav_letters: 'Harflar', nav_math: 'Matematika', nav_alphabet: 'Yöriqnoma',
     menu_intro: 'Bolalar uçun öyinlar', set_grade: 'Sinf', set_every: 'Har', set_rest: 'Dam vaqti',
     theme_mode: 'Kun / tun', guide_btn: 'Yöriqnoma', guide_title: 'ALIF VESNA KIDS yöriqnomasi',
     guide_sub: 'Öquvçilar va öqituçilar uçun', rest_now: 'Hozir dam olaylik', eye_now: 'Köz maşqi',
@@ -50,7 +50,7 @@ const S = {
   },
   kaa: {
     app_title: 'ALIF VESNA KIDS', app_subtitle: 'bala baqsha · álippe hám oyınlar',
-    nav_sphere: 'Fanlar kartası', nav_games: 'Mashıqlar', nav_letters: 'Harflar', nav_alphabet: 'Bağanısh',
+    nav_sphere: 'Fanlar kartası', nav_games: 'Mashıqlar', nav_letters: 'Harflar', nav_math: 'Matematika', nav_alphabet: 'Bağanısh',
     menu_intro: 'Balalar ushın oyınlar', set_grade: 'Klass', set_every: 'Hár', set_rest: 'Dem waqtı',
     theme_mode: 'Kún / tún', guide_btn: 'Bağanısh', guide_title: 'ALIF VESNA KIDS bağanıshı',
     guide_sub: 'Oqıwshılar hám oqıtıwshılar ushın', rest_now: 'Házir dem alaylıq', eye_now: 'Kóz mashıqı',
@@ -90,7 +90,7 @@ const S = {
   },
   ru: {
     app_title: 'ALIF VESNA KIDS', app_subtitle: 'дошкольники · алфавит и игры',
-    nav_sphere: 'Карта предметов', nav_games: 'Упражнения', nav_letters: 'Предметы', nav_alphabet: 'Инструкция',
+    nav_sphere: 'Карта предметов', nav_games: 'Упражнения', nav_letters: 'Предметы', nav_math: 'Matematika', nav_alphabet: 'Инструкция',
     menu_intro: 'Игры для детей', set_grade: 'Класс', set_every: 'Каждые', set_rest: 'Отдых',
     theme_mode: 'День / ночь', guide_btn: 'Инструкция', guide_title: 'Инструкция ALIF VESNA KIDS',
     guide_sub: 'Для учеников и учителей', rest_now: 'Отдохнём', eye_now: 'Упражнение для глаз',
@@ -130,7 +130,7 @@ const S = {
   },
   en: {
     app_title: 'ALIF VESNA KIDS', app_subtitle: 'kids · alphabet and games',
-    nav_sphere: 'Subject map', nav_games: 'Practice', nav_letters: 'Subjects', nav_alphabet: 'Guide',
+    nav_sphere: 'Subject map', nav_games: 'Practice', nav_letters: 'Subjects', nav_math: 'Math', nav_alphabet: 'Guide',
     menu_intro: 'Games for kids', set_grade: 'Grade', set_every: 'Every', set_rest: 'Break',
     theme_mode: 'Day / night', guide_btn: 'Guide', guide_title: 'ALIF VESNA KIDS guide',
     guide_sub: 'For students and teachers', rest_now: 'Take a break', eye_now: 'Eye exercise',

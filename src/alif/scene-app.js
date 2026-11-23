@@ -4,6 +4,7 @@ window.gsap = gsap;
     import { EDU_ITEMS, drawEduCardFrame, openEduGame, closeEduGame, isEduGameOpen, onBgReady } from './edu-engine.js';
     import { t as ct, st } from './senior-content.js';
     import { createAlphabetView } from './alphabet-view.ts';
+    import { createMathView } from './math-view.ts';
     import { initLivingBackground, initLiquidGlassNavbar, setLivingBgRoute, spawnBgPulse } from './living-bg.ts';
     import { createCrystalField } from './crystal-bg.ts';
     import { getTheme, isDayMode, onThemeChange } from './theme.ts';
@@ -200,7 +201,7 @@ window.gsap = gsap;
 
     function parseHash() {
       const h = (window.location.hash || '#gallery').replace('#', '').toLowerCase();
-      return (h === 'projects' || h === 'alphabet' || h === 'about' || h === 'gallery') ? h : 'gallery';
+      return (h === 'projects' || h === 'alphabet' || h === 'math' || h === 'about' || h === 'gallery') ? h : 'gallery';
     }
 
     function updateDockTabs(route) {
@@ -3530,6 +3531,9 @@ window.gsap = gsap;
 
     // ── 5b. View 3: 28-Letter + ʼ Alphabet Studio ───────────────────────
     viewBuilders.alphabet = () => createAlphabetView();
+
+    // ?? 5c. View 4: Matematika Studio ???????????????????????????????????????
+    viewBuilders.math = () => createMathView();
 
     // ── 6. Boot ───────────────────────────────────────────────────────────
     async function boot() {
