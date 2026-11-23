@@ -90,6 +90,11 @@ if (!standalone && store.get('vesna-pwa-installed') !== '1') {
   closeBtn.setAttribute('aria-label', t.close);
   help.textContent = t.help;
 
+  const dismissed = store.get('vesna-pwa-dismissed') === '1';
+  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
+  const mobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent) || window.matchMedia('(max-width: 900px)').matches;
+  if (!dismissed && mobile) banner.hidden = false;
+
   window.addEventListener('beforeinstallprompt', (event) => {
     event.preventDefault();
     deferred = event;
