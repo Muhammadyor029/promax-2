@@ -132,12 +132,12 @@ export function createCrystalField(options: {
         float halo = pow(max(0.0, 1.0 - r * 2.0), 2.1);
         float alpha = (core * 0.95 + halo * 0.45) * vTwinkle * vDepthAlpha * uOpacity;
 
-        vec3 nightCol = mix(vec3(0.55, 0.88, 1.0), vec3(0.95, 0.98, 1.0), vTint);
-        vec3 dayCol = mix(vec3(0.08, 0.42, 0.86), vec3(0.05, 0.62, 0.76), vTint);
+        vec3 nightCol = mix(vec3(0.78, 0.72, 1.0), vec3(0.88, 0.95, 1.0), vTint);
+        vec3 dayCol = mix(vec3(0.42, 0.62, 0.98), vec3(0.98, 0.56, 0.78), vTint);
         vec3 col = mix(nightCol, dayCol, uDayMix);
-        col += vec3(0.35) * core * (1.0 - uDayMix * 0.5);
 
-        gl_FragColor = vec4(col, alpha * mix(0.88, 0.58, uDayMix));
+        if (alpha < 0.008) discard;
+        gl_FragColor = vec4(col, alpha * mix(0.72, 0.52, uDayMix));
       }
     `,
     transparent: true,

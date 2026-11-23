@@ -9,14 +9,14 @@
 }
 
 html[data-theme='dark'] {
-  --bg: #120b2e;
+  --bg: #24184f;
   --ink: #fff7ff;
-  --mute: #cbc2ef;
-  --pill: rgba(255, 255, 255, 0.1);
-  --pill-h: rgba(255, 255, 255, 0.18);
-  --line: rgba(255, 255, 255, 0.16);
-  --glass-bg: linear-gradient(155deg, rgba(255, 255, 255, 0.14) 0%, rgba(30, 20, 75, 0.72) 55%, rgba(14, 9, 40, 0.86) 100%);
-  --glass-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.28), 0 24px 64px rgba(4, 2, 18, 0.62);
+  --mute: #ddd3ff;
+  --pill: rgba(255, 255, 255, 0.14);
+  --pill-h: rgba(255, 255, 255, 0.22);
+  --line: rgba(255, 255, 255, 0.22);
+  --glass-bg: linear-gradient(155deg, rgba(255,255,255,0.22) 0%, rgba(168,140,255,0.18) 34%, rgba(74,52,140,0.52) 100%);
+  --glass-shadow: inset 0 1px 0 rgba(255,255,255,0.42), inset 0 -1px 0 rgba(255,255,255,0.1), 0 20px 56px rgba(52,34,112,0.34);
 }
 
 html[data-theme='light'] {
@@ -34,10 +34,10 @@ html[data-theme='dark'],
 html[data-theme='dark'] body {
   color: var(--ink);
   background:
-    radial-gradient(circle at 12% 18%, rgba(124, 92, 255, 0.42), transparent 44%),
-    radial-gradient(circle at 86% 14%, rgba(255, 79, 154, 0.24), transparent 40%),
-    radial-gradient(circle at 78% 84%, rgba(79, 172, 254, 0.24), transparent 44%),
-    linear-gradient(145deg, #0d0825 0%, #1b1146 48%, #101a3d 100%);
+    radial-gradient(circle at 12% 18%, rgba(167, 139, 250, 0.34), transparent 42%),
+    radial-gradient(circle at 86% 14%, rgba(244, 114, 182, 0.2), transparent 38%),
+    radial-gradient(circle at 78% 84%, rgba(125, 211, 252, 0.22), transparent 44%),
+    linear-gradient(145deg, #2a1d59 0%, #35246f 48%, #243063 100%);
 }
 
 html[data-theme='light'],
@@ -51,8 +51,8 @@ html[data-theme='light'] body {
 }
 
 html[data-theme='dark'] .site-bg {
-  opacity: 0.42;
-  filter: saturate(1.35) brightness(0.72);
+  opacity: 0.9;
+  filter: saturate(1.15) brightness(1.02);
 }
 
 html[data-theme='light'] .site-bg {
@@ -61,7 +61,7 @@ html[data-theme='light'] .site-bg {
 }
 
 html[data-theme='dark'] .site-bg::after {
-  background: linear-gradient(180deg, rgba(8, 5, 26, 0.34) 0%, rgba(8, 5, 26, 0.72) 100%);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(53, 36, 111, 0.12) 100%);
 }
 
 html[data-theme='light'] .site-bg::after {
@@ -92,8 +92,10 @@ html[data-theme='dark'] .about-guide-panel,
 html[data-theme='dark'] .edu-stage {
   color: var(--ink);
   background: var(--glass-bg);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.24);
   box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
 }
 
 html[data-theme='light'] .dock,
@@ -104,8 +106,10 @@ html[data-theme='light'] .about-guide-panel,
 html[data-theme='light'] .edu-stage {
   color: var(--ink);
   background: var(--glass-bg);
-  border: 1px solid rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.86);
   box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(22px) saturate(150%);
+  -webkit-backdrop-filter: blur(22px) saturate(150%);
 }
 
 .dock {
@@ -236,7 +240,7 @@ html[data-theme='dark'] .gal-counter,
 html[data-theme='dark'] .gal-hint,
 html[data-theme='dark'] .gal-caption-inner {
   color: #fff;
-  text-shadow: 0 3px 18px rgba(6, 3, 26, 0.7);
+  text-shadow: 0 3px 18px rgba(52, 34, 112, 0.35);
 }
 
 html[data-theme='light'] .gal-side-inner,
@@ -1404,7 +1408,19 @@ body.is-low-end .gal-caption,
 body.is-low-end .gal-hint,
 body.is-low-end .about-scroll-hint,
 body.is-low-end .pill-btn {
-  background: linear-gradient(155deg, rgba(20, 27, 48, 0.96), rgba(8, 10, 18, 0.98)) !important;
+  background: linear-gradient(155deg, rgba(62, 45, 120, 0.94), rgba(36, 27, 78, 0.96)) !important;
+}
+
+html[data-theme='light'] body.is-low-end .dock,
+html[data-theme='light'] body.is-low-end .dock-menu-panel,
+html[data-theme='light'] body.is-low-end .lang-pop,
+html[data-theme='light'] body.is-low-end .gal-overview,
+html[data-theme='light'] body.is-low-end .edu-stage,
+html[data-theme='light'] body.is-low-end .gal-caption,
+html[data-theme='light'] body.is-low-end .gal-hint,
+html[data-theme='light'] body.is-low-end .about-scroll-hint,
+html[data-theme='light'] body.is-low-end .pill-btn {
+  background: linear-gradient(155deg, rgba(255,255,255,0.96), rgba(236,245,255,0.96)) !important;
 }
 
 body.is-low-end .gal-cursor-label,
