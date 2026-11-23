@@ -64,7 +64,7 @@ const TOPIC_I18N: Record<Lang, { head: string; sub: string; tag: string; section
         { q:"8 ? 2 neshege te??", options:['5','6','7','4'], answer:'6', explain:'8 den 2 ni alsaq 6 qalad?.' },
         { q:"10 ? 3 neshege te??", options:['6','7','8','5'], answer:'7', explain:'10 nan 3 ti alsaq 7 qalad?.' }
       ]},
-      { title:'Forma h?m mantiq', sub:'naqsh, saat, jupl?q', desc:"Formalardan, izbe-izlikten, jupl?qtan h?m waq?ttan paydalan?p mantiqt? k??eytiremiz.", prompts:[
+      { title:'Forma h?m mantiq', sub:'naqsh, saat, jupl?q', desc:"Formalardan, izbe-izlikten, jupl?qtan h?m waq?ttan paydalan?p mantiqt? k?shleytiremiz.", prompts:[
         { q:"Qays?s? ?shm?yeshlik?", options:['?','?','?','?'], answer:'?', explain:'? ? ?shm?yeshlik.' },
         { q:'2, 4, 6, ... keyingi san?', options:['7','8','9','10'], answer:'8', explain:"H?r sapar 2 qos?lad?: 6 + 2 = 8." },
         { q:"Qays?s? jup san?", options:['1','3','4','5'], answer:'4', explain:'4 jup san.' }
