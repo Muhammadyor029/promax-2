@@ -240,6 +240,7 @@ let lang = detectLang();
 function t(key) { return (I18N[lang] && I18N[lang][key]) ?? I18N.uz[key] ?? key; }
 
 function applyLang() {
+  window.__alifLang = lang;
   setContentLang(lang);
   document.documentElement.lang = lang === 'kaa' ? 'kk-Latn' : lang;
   document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });

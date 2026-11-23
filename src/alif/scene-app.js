@@ -390,7 +390,7 @@ window.gsap = gsap;
         wordmarkMesh.material.color.setHex(day ? 0x0f172a : 0xededeb);
         planes.forEach((p) => {
           if (p.card && p.texture) {
-            drawEduCardFrame(p.card.ctx, p.card.w, p.card.h, p.item, 0, 0);
+            drawEduCardFrame(p.card.ctx, p.card.w, p.card.h, p.item, p.index * 0.55, 0);
             p.texture.needsUpdate = true;
           } else if (p.mat) {
             p.mat.color.setHex(day ? 0xdbeafe : 0x1b1b1d);
@@ -1030,7 +1030,7 @@ window.gsap = gsap;
               const ap = planes[activeIdx];
               if (ap && ap.card && ap.texture && (!ap.lastAnimMs || nowMs - ap.lastAnimMs > activeEvery)) {
                 ap.lastAnimMs = nowMs;
-                drawEduCardFrame(ap.card.ctx, ap.card.w, ap.card.h, ap.item, elapsed, 1);
+                drawEduCardFrame(ap.card.ctx, ap.card.w, ap.card.h, ap.item, elapsed * 1.35 + ap.index * 0.7, 1);
                 ap.texture.needsUpdate = true;
               }
             }
@@ -1042,7 +1042,7 @@ window.gsap = gsap;
               const p = planes[idx];
               if (p && p.hasFrame && p.card && p.texture && (!p.lastAnimMs || nowMs - p.lastAnimMs > ambientEvery)) {
                 p.lastAnimMs = nowMs;
-                drawEduCardFrame(p.card.ctx, p.card.w, p.card.h, p.item, elapsed, 0);
+                drawEduCardFrame(p.card.ctx, p.card.w, p.card.h, p.item, elapsed * 1.2 + p.index * 0.55, 0);
                 p.texture.needsUpdate = true;
                 updated++;
               }
