@@ -1164,6 +1164,12 @@ window.gsap = gsap;
         <div class="proj-filter-row" id="proj-filter-chips" aria-label="Öyin filtrlari"></div>
       `;
       section.appendChild(filterBar);
+      const dockEl = document.querySelector('.dock');
+      const syncFilterTop = () => {
+        if (!dockEl) return;
+        filterBar.style.top = `${Math.round(dockEl.getBoundingClientRect().bottom + 10)}px`;
+      };
+      syncFilterTop();
       const searchInput = filterBar.querySelector('#proj-search-input');
       const countEl = filterBar.querySelector('.proj-filter-count');
       const chipRow = filterBar.querySelector('#proj-filter-chips');
@@ -2242,6 +2248,7 @@ window.gsap = gsap;
         renderer.setSize(window.innerWidth, window.innerHeight);
         makeRenderTarget();
         postMat.uniforms.tDiffuse.value = rt.texture;
+        syncFilterTop();
         syncCamera();
         layoutGrid();
       }
@@ -2251,6 +2258,7 @@ window.gsap = gsap;
         el: section,
         enter() {
           onResize();
+          syncFilterTop();
           playEntrance();
           activeViewDriver = driver;
           if (!isEduGameOpen()) driver.start();
