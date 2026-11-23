@@ -1,18 +1,24 @@
 {
   "id": "/",
-  "name": "VESNA KIDS — Öyinli alifbo",
+  "name": "VESNA KIDS ? ?yinli alifbo",
   "short_name": "VESNA KIDS",
-  "description": "Ta'lim platformasi: yangi özbek alifbosi, 41 ta rangli öyin va gildirak tanlovi.",
+  "description": "Ta'lim platformasi: yangi o'zbek alifbosi, 41 ta rangli ?yin va g'ildirak tanlovi.",
   "lang": "uz",
   "dir": "ltr",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "display_override": ["standalone", "minimal-ui"],
+  "display_override": [
+    "standalone",
+    "minimal-ui"
+  ],
   "orientation": "any",
   "background_color": "#f2f1ec",
   "theme_color": "#120b2e",
-  "categories": ["education", "games"],
+  "categories": [
+    "education",
+    "games"
+  ],
   "icons": [
     {
       "src": "/assets/pwa-192.png",

@@ -1,34 +1,34 @@
 const TEXTS = {
   uz: {
-    title: 'VESNA KIDS ni o‘rnating',
+    title: 'VESNA KIDS ni o?rnating',
     sub: 'Tez ochiladi, oflayn ham ishlaydi',
-    button: 'O‘rnatish',
+    button: 'O?rnatish',
     close: 'Yopish',
-    help: 'Chrome: ⋮ → “O‘rnatish” yoki “Ilovani qo‘shish”. Safari: “Ulashish” → “Ekranga qo‘shish”.',
-    done: 'Yo‘riqnoma ko‘rsatildi'
+    help: 'Chrome: menyu ? ?O?rnatish? yoki ?Ilovani qo?shish?. Safari: ?Ulashish? ? ?Ekranga qo?shish?.',
+    done: 'Yo?riqnoma ko?rsatildi'
   },
   kaa: {
-    title: 'VESNA KIDS ti ornatıń',
-    sub: 'Tez ashıladı, oflayn da isleydi',
-    button: 'Ornatıw',
-    close: 'Jabıw',
-    help: 'Chrome: ⋮ → “Ornatıw”. Safari: “Bólisiw” → “Ekranǵa qosıw”.',
-    done: 'Kórsergish kórsetildi'
+    title: 'VESNA KIDS ti ornat??',
+    sub: 'Tez ash?lad?, oflayn da isleydi',
+    button: 'Ornat?w',
+    close: 'Jab?w',
+    help: 'Chrome: menyu ? ?Ornat?w?. Safari: ?B?lisiw? ? ?Ekranga qos?w?.',
+    done: 'K?rsetpe k?rsetildi'
   },
   ru: {
-    title: 'Установите VESNA KIDS',
-    sub: 'Быстрый запуск и работа офлайн',
-    button: 'Установить',
-    close: 'Закрыть',
-    help: 'Chrome: ⋮ → «Установить» или «Добавить приложение». Safari: «Поделиться» → «На экран домой».',
-    done: 'Инструкция показана'
+    title: '?????????? VESNA KIDS',
+    sub: '?????? ??????????? ? ???????? ??????',
+    button: '??????????',
+    close: '???????',
+    help: 'Chrome: ???? ? ???????????? ??? ????????? ???????????. Safari: ???????????? ? ??? ????? ??????.',
+    done: '?????????? ????????'
   },
   en: {
     title: 'Install VESNA KIDS',
     sub: 'Opens fast and works offline',
     button: 'Install',
     close: 'Close',
-    help: 'Chrome: ⋮ → “Install” or “Add to Home screen”. Safari: “Share” → “Add to Home Screen”.',
+    help: 'Chrome: menu ? ?Install? or ?Add to Home screen?. Safari: ?Share? ? ?Add to Home Screen?.',
     done: 'Instructions shown'
   }
 };
@@ -86,7 +86,7 @@ if (!standalone && store.get('vesna-pwa-installed') !== '1') {
   document.getElementById('pwa-install-title').textContent = t.title;
   document.getElementById('pwa-install-sub').textContent = t.sub;
   installBtn.textContent = t.button;
-  closeBtn.textContent = '×';
+  closeBtn.textContent = '?';
   closeBtn.setAttribute('aria-label', t.close);
   help.textContent = t.help;
 
