@@ -1,8 +1,8 @@
 {
   "id": "/",
-  "name": "VESNA KIDS ? O'yinli alifbo",
+  "name": "VESNA KIDS ? O?yinli alifbo va matematika",
   "short_name": "VESNA KIDS",
-  "description": "Ta'lim platformasi: yangi o'zbek alifbosi, 41 ta rangli o'yin va g'ildirak tanlovi.",
+  "description": "Bolalar uchun o?yinli alifbo, 41 ta interaktiv o?yin, matematika mashqlari va chiroyli 3D tajriba.",
   "lang": "uz",
   "dir": "ltr",
   "start_url": "/",
