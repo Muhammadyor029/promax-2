@@ -18,7 +18,8 @@ export function drawApple(ctx, x, y, r, time = 0, highlighted = false) {
     ctx.fill();
   }
   // Apple body (two overlapping circles)
-  const g = ctx.createRadialGradient(-r * 0.28, -r * 0.3, r * 0.12, 0, 0, r * 1.15);
+  const r0 = Math.max(0.1, r * 0.12), r1 = Math.max(r0 + 0.1, r * 1.15);
+  const g = ctx.createRadialGradient(-r * 0.28, -r * 0.3, r0, 0, 0, r1);
   g.addColorStop(0, '#ff8f8f');
   g.addColorStop(0.45, '#e84a5f');
   g.addColorStop(1, '#9e1c2f');
@@ -78,7 +79,8 @@ export function drawBalloon(ctx, x, y, r, color = '#8fa0ff', label = '', time = 
   ctx.fill();
 
   // Balloon body
-  const grad = ctx.createRadialGradient(-r * 0.32, -r * 0.35, r * 0.1, 0, 0, r * 1.25);
+  const gr0 = Math.max(0.1, r * 0.1), gr1 = Math.max(gr0 + 0.1, r * 1.25);
+  const grad = ctx.createRadialGradient(-r * 0.32, -r * 0.35, gr0, 0, 0, gr1);
   grad.addColorStop(0, '#ffffff');
   grad.addColorStop(0.22, color);
   grad.addColorStop(1, '#181822');
@@ -381,7 +383,8 @@ export function drawIllustration(ctx, kind, cx, cy, size, time = 0, accent = '#8
         ctx.stroke();
       }
       ctx.restore();
-      const sg = ctx.createRadialGradient(-r * 0.15, -r * 0.15, r * 0.1, 0, 0, r * 0.55);
+      const sr0 = Math.max(0.1, r * 0.1), sr1 = Math.max(sr0 + 0.1, r * 0.55);
+      const sg = ctx.createRadialGradient(-r * 0.15, -r * 0.15, sr0, 0, 0, sr1);
       sg.addColorStop(0, '#fff4b8');
       sg.addColorStop(1, '#f3a83b');
       ctx.fillStyle = sg;

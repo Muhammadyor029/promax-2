@@ -398,7 +398,7 @@ export function drawEduCardFrame(ctx, w, h, item, time = 0, active = 0) {
   ctx.restore();
 
   // 3. Luminous corner bloom behind illustration
-  const glowR = w * (0.48 + 0.10 * active);
+  const glowR = Math.max(7, w * (0.48 + 0.10 * active));
   const rad = ctx.createRadialGradient(w * 0.78, h * 0.40, 6, w * 0.78, h * 0.40, glowR);
   rad.addColorStop(0, hexAlpha(item.accent, day ? 0.28 + 0.16 * active : 0.34 + 0.20 * active));
   rad.addColorStop(0.55, hexAlpha(item.accent, 0.08));
