@@ -1,53 +1,41 @@
 const TEXTS = {
   uz: {
-    title: 'VESNA KIDS ni o?rnating',
-    sub: 'Tez ochiladi, oflayn ham ishlaydi',
-    button: 'O?rnatish',
-    close: 'Yopish',
-    help: 'Chrome: menyu ? ?O?rnatish? yoki ?Ilovani qo?shish?. Safari: ?Ulashish? ? ?Ekranga qo?shish?.',
-    done: 'Yo?riqnoma ko?rsatildi'
+    title: "VESNA KIDS ni o'rnating",
+    sub: "Tez ochiladi, oflayn ham ishlaydi",
+    button: "O'rnatish",
+    close: "Yopish",
+    help: "Chrome: menyu ? O'rnatish yoki Ilovani qo'shish. Safari: Ulashish ? Ekranga qo'shish.",
+    done: "Yo'riqnoma ko'rsatildi"
   },
   kaa: {
-    title: 'VESNA KIDS ti ornat??',
-    sub: 'Tez ash?lad?, oflayn da isleydi',
-    button: 'Ornat?w',
-    close: 'Jab?w',
-    help: 'Chrome: menyu ? ?Ornat?w?. Safari: ?B?lisiw? ? ?Ekranga qos?w?.',
-    done: 'K?rsetpe k?rsetildi'
+    title: "VESNA KIDS ti ornat??",
+    sub: "Tez ash?lad?, oflayn da isleydi",
+    button: "Ornat?w",
+    close: "Jab?w",
+    help: "Chrome: menyu ? Ornat?w. Safari: B?lisiw ? Ekranga qos?w.",
+    done: "K?rsetpe k?rsetildi"
   },
   ru: {
-    title: '?????????? VESNA KIDS',
-    sub: '?????? ??????????? ? ???????? ??????',
-    button: '??????????',
-    close: '???????',
-    help: 'Chrome: ???? ? ???????????? ??? ????????? ???????????. Safari: ???????????? ? ??? ????? ??????.',
-    done: '?????????? ????????'
+    title: "?????????? VESNA KIDS",
+    sub: "?????? ??????????? ? ???????? ??????",
+    button: "??????????",
+    close: "???????",
+    help: "Chrome: ???? ? ?????????? ??? ???????? ??????????. Safari: ?????????? ? ?? ????? ?????.",
+    done: "?????????? ????????"
   },
   en: {
-    title: 'Install VESNA KIDS',
-    sub: 'Opens fast and works offline',
-    button: 'Install',
-    close: 'Close',
-    help: 'Chrome: menu ? ?Install? or ?Add to Home screen?. Safari: ?Share? ? ?Add to Home Screen?.',
-    done: 'Instructions shown'
+    title: "Install VESNA KIDS",
+    sub: "Opens fast and works offline",
+    button: "Install",
+    close: "Close",
+    help: "Chrome: menu ? Install or Add to Home screen. Safari: Share ? Add to Home Screen.",
+    done: "Instructions shown"
   }
 };
 
 const store = {
-  get(key) {
-    try {
-      return localStorage.getItem(key);
-    } catch {
-      return null;
-    }
-  },
-  set(key, value) {
-    try {
-      localStorage.setItem(key, value);
-    } catch {
-      return;
-    }
-  }
+  get(key) { try { return localStorage.getItem(key); } catch { return null; } },
+  set(key, value) { try { localStorage.setItem(key, value); } catch { return; } }
 };
 
 const lang = document.documentElement.lang || 'uz';
@@ -65,7 +53,7 @@ if (!standalone && store.get('vesna-pwa-installed') !== '1') {
   const host = document.createElement('div');
   host.innerHTML = `
     <div class="pwa-install" id="pwa-install" role="status" hidden>
-      <span class="pwa-install-mark" aria-hidden="true">A</span>
+      <span class="pwa-install-mark" aria-hidden="true">V</span>
       <div class="pwa-install-copy">
         <strong id="pwa-install-title"></strong>
         <span id="pwa-install-sub"></span>
@@ -91,7 +79,6 @@ if (!standalone && store.get('vesna-pwa-installed') !== '1') {
   help.textContent = t.help;
 
   const dismissed = store.get('vesna-pwa-dismissed') === '1';
-  const ios = /iphone|ipad|ipod/i.test(navigator.userAgent);
   const mobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent) || window.matchMedia('(max-width: 900px)').matches;
   if (!dismissed && mobile) banner.hidden = false;
 
