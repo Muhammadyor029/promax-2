@@ -5,7 +5,7 @@ import { isDayMode, onThemeChange } from './theme.ts';
 type Lang = 'uz' | 'kaa' | 'ru' | 'en';
 function getLang(): Lang { const l = (window as any).__alifLang; return l === 'kaa' || l === 'ru' || l === 'en' ? l : 'uz'; }
 
-type MathTopicId = 'raqam' | 'qoshish' | 'ayirish' | 'mantiq' | 'tez';
+type MathTopicId = 'raqam' | 'qoshish' | 'ayirish' | 'mantiq' | 'karra' | 'tez';
 
 interface MathTopic {
   id: MathTopicId;
@@ -41,6 +41,11 @@ const TOPIC_I18N: Record<Lang, { head: string; sub: string; tag: string; section
         { q:'2, 4, 6, ... keyingi son?', options:['7','8','9','10'], answer:'8', explain:"Har safar 2 qo'shiladi: 6 + 2 = 8." },
         { q:'Qaysi biri juft?', options:['1','3','4','5'], answer:'4', explain:'4 juft son.' }
       ]},
+      { title:'Karra', sub:"2, 5, 10 va jadval", desc:"Karra jadvalini naqsh, sakrash bilan sanash va almashtirish (2?3=3?2) orqali tez yodlaymiz.", prompts:[
+        { q:"2 ? 4 nechaga teng?", options:['6','8','10','4'], answer:'8', explain:"2, 4, 6, 8 ? 2 dan sakrab sanadik." },
+        { q:"5 ? 3 nechaga teng?", options:['10','15','20','8'], answer:'15', explain:"5, 10, 15." },
+        { q:"3 ? 4 va 4 ? 3 haqida nima to'g'ri?", options:["Bir xil","Har xil","Faqat 3?4 katta","Ikkalasi 10"], answer:'Bir xil', explain:"Almashtirish xossasi: 3?4 = 4?3 = 12." }
+      ]},
       { title:'Tez hisob', sub:'tezkor mashq va sinov', desc:"Qo'shish-ayirishni tez va aniq yechish uchun qisqa mashqlar.", prompts:[
         { q:"6 + 3 nechaga teng?", options:['8','9','10','7'], answer:'9', explain:'6 + 3 = 9.' },
         { q:"10 ? 5 nechaga teng?", options:['4','5','6','3'], answer:'5', explain:'10 ? 5 = 5.' },
@@ -68,6 +73,11 @@ const TOPIC_I18N: Record<Lang, { head: string; sub: string; tag: string; section
         { q:"Qays?s? ?shm?yeshlik?", options:['?','?','?','?'], answer:'?', explain:'? ? ?shm?yeshlik.' },
         { q:'2, 4, 6, ... keyingi san?', options:['7','8','9','10'], answer:'8', explain:"H?r sapar 2 qos?lad?: 6 + 2 = 8." },
         { q:"Qays?s? jup san?", options:['1','3','4','5'], answer:'4', explain:'4 jup san.' }
+      ]},
+      { title:'K?beytiw', sub:'2, 5, 10 h?m kesteler', desc:"K?beytiw kestesin naqsh, sekirip sanaw h?m almast?r?w (2?3=3?2) arqal? tez ?yrenemiz.", prompts:[
+        { q:"2 ? 4 neshege te??", options:['6','8','10','4'], answer:'8', explain:"2, 4, 6, 8 ? 2 den sekirip sanad?q." },
+        { q:"5 ? 3 neshege te??", options:['10','15','20','8'], answer:'15', explain:"5, 10, 15." },
+        { q:"3 ? 4 h?m 4 ? 3 haqq?nda ne dur?s?", options:["Birdey","H?r q?yl?","Tek 3?4 ?lken","Ekewi 10"], answer:'Birdey', explain:"Almast?r?w q?siyeti: 3?4 = 4?3 = 12." }
       ]},
       { title:'Tez esap', sub:'tez mashq h?m s?naq', desc:"Qos?w-al?wd? tez h?m an?q sheshiw ush?n q?sqa mashqlar.", prompts:[
         { q:"6 + 3 neshege te??", options:['8','9','10','7'], answer:'9', explain:'6 + 3 = 9.' },
@@ -97,6 +107,11 @@ const TOPIC_I18N: Record<Lang, { head: string; sub: string; tag: string; section
         { q:'2, 4, 6, ... ????? ????? ???????', options:['7','8','9','10'], answer:'8', explain:'?????? ??? ?????????? 2: 6 + 2 = 8.' },
         { q:'????? ????? ???????', options:['1','3','4','5'], answer:'4', explain:'4 ? ?????? ?????.' }
       ]},
+      { title:'?????????', sub:'2, 5, 10 ? ???????', desc:'?????? ??????? ????????? ????? ??????????????, ???? ?????? ? ???????? ???????????? (2?3=3?2).', prompts:[
+        { q:'??????? ????? 2 ? 4?', options:['6','8','10','4'], answer:'8', explain:'2, 4, 6, 8 ? ??????? ?? 2.' },
+        { q:'??????? ????? 5 ? 3?', options:['10','15','20','8'], answer:'15', explain:'5, 10, 15.' },
+        { q:'??? ????? ??? 3 ? 4 ? 4 ? 3?', options:['?????????','??????','?????? 3?4 ??????','??? 10'], answer:'?????????', explain:'???????????????? ????????: 3?4 = 4?3 = 12.' }
+      ]},
       { title:'??????? ????', sub:'??????? ??????????', desc:'???????? ??????? ??? ???????? ???????? ? ?????????.', prompts:[
         { q:'??????? ????? 6 + 3?', options:['8','9','10','7'], answer:'9', explain:'6 + 3 = 9.' },
         { q:'??????? ????? 10 ? 5?', options:['4','5','6','3'], answer:'5', explain:'10 ? 5 = 5.' },
@@ -125,6 +140,11 @@ const TOPIC_I18N: Record<Lang, { head: string; sub: string; tag: string; section
         { q:'2, 4, 6, ... what comes next?', options:['7','8','9','10'], answer:'8', explain:'Add 2 each time: 6 + 2 = 8.' },
         { q:'Which number is even?', options:['1','3','4','5'], answer:'4', explain:'4 is even.' }
       ]},
+      { title:'Multiplication', sub:'2, 5, 10 and tables', desc:'Learn times tables with patterns, skip counting, and the commutative property (2?3=3?2).', prompts:[
+        { q:'What is 2 ? 4?', options:['6','8','10','4'], answer:'8', explain:'2, 4, 6, 8 ? skip count by 2.' },
+        { q:'What is 5 ? 3?', options:['10','15','20','8'], answer:'15', explain:'5, 10, 15.' },
+        { q:'What is true about 3 ? 4 and 4 ? 3?', options:['Same','Different','Only 3?4 is bigger','Both 10'], answer:'Same', explain:'Commutative property: 3?4 = 4?3 = 12.' }
+      ]},
       { title:'Quick math', sub:'fast practice', desc:'Short drills for fast and accurate addition and subtraction.', prompts:[
         { q:'What is 6 + 3?', options:['8','9','10','7'], answer:'9', explain:'6 + 3 = 9.' },
         { q:'What is 10 ? 5?', options:['4','5','6','3'], answer:'5', explain:'10 ? 5 = 5.' },
@@ -138,6 +158,7 @@ const TOPIC_META: Array<Pick<MathTopic, 'id'|'art'|'accent'|'itemIds'>> = [
   { id:'qoshish', art:'yulduz', accent:'#5eead4', itemIds:[15,16,17,18] },
   { id:'ayirish', art:'sar', accent:'#ffd166', itemIds:[19,20] },
   { id:'mantiq', art:'gul', accent:'#a78bfa', itemIds:[23,25,26,31] },
+  { id:'karra', art:'yulduz2', accent:'#f59e0b', itemIds:[18,21,37] },
   { id:'tez', art:'raketa', accent:'#ff8fab', itemIds:[21,37,24,40] }
 ];
 
