@@ -19,7 +19,7 @@ interface MathTopic {
 }
 
 const TOPIC_I18N: Record<Lang, { head: string; sub: string; tag: string; section: string; games: string; gamesSub: string; next: string; retry: string; topics: Array<{title:string;sub:string;desc:string;prompts:Array<{q:string;options:string[];answer:string;explain:string}>}> }> = {
-  uz: { head: 'Matematika studiyasi', sub: "Sanash, qo'shish, ayirish va mantiqni o'yin orqali o'rganing.", tag: "bo'lim", section: "Matematika bo'limi", games: "Matematika o'yinlari", gamesSub: "bo'limiga mos mashqlar", next: 'Keyingisi...', retry: 'Yana urinib ko?ring.',
+  uz: { head: 'Matematika studiyasi', sub: "Sanash, qo'shish, ayirish va mantiqni o'yin orqali o'rganing.", tag: "bo'lim", section: "Matematika bo'limi", games: "Matematika o'yinlari", gamesSub: "bo'limiga mos mashqlar", next: 'Keyingisi...', retry: "Yana urinib ko'ring.",
     topics: [
       { title:'Raqamlar va sanash', sub:'1?20, tartib, taqqoslash', desc:"Raqamlarni tanish, sanash, tartiblash va kattalikni solishtirishni o'rganing.", prompts:[
         { q:'Qaysi son 6 dan katta?', options:['4','5','9','3'], answer:'9', explain:'9 soni 6 dan katta.' },
@@ -54,7 +54,7 @@ const TOPIC_I18N: Record<Lang, { head: string; sub: string; tag: string; section
     ]},
   kaa: { head:'Matematika studiyas?', sub:"Sanaw, qos?w, al?w h?m mantiqt? oy?n arqal? ?yreni?.", tag:"b?lim", section:"Matematika b?limi", games:"Matematika oy?nlar?", gamesSub:"b?limine s?ykes mashqlar", next:'Keyingisi...', retry:"J?ne ur?n?p k?ri?.",
     topics:[
-      { title:'Sanlar h?m sanaw', sub:'1?20, t?rtip, sal?st?r?w', desc:"Sanlard? tan?w, sanaw, t?rtiplew h?m sal?st?r?wd? ?yrenemiz.", prompts:[
+      { title:'Sanlar h?m sanaw', sub:'1?20, t?rtiplestiriw, sal?st?r?w', desc:"Sanlard? tan?w, sanaw, t?rtiplew h?m sal?st?r?wd? ?yrenemiz.", prompts:[
         { q:'Qays? san 6 dan ?lken?', options:['4','5','9','3'], answer:'9', explain:'9 san? 6 dan ?lken.' },
         { q:'1 den keyin qays? san keledi?', options:['0','2','3','5'], answer:'2', explain:'Sanaw t?rtibi: 1, 2, 3...' },
         { q:'10 h?m 12 aras?nda qays? san bar?', options:['9','11','13','8'], answer:'11', explain:'10 nan keyin 11, keyin 12 keledi.' }
@@ -69,13 +69,13 @@ const TOPIC_I18N: Record<Lang, { head: string; sub: string; tag: string; section
         { q:"8 ? 2 neshege te??", options:['5','6','7','4'], answer:'6', explain:'8 den 2 ni alsaq 6 qalad?.' },
         { q:"10 ? 3 neshege te??", options:['6','7','8','5'], answer:'7', explain:'10 nan 3 ti alsaq 7 qalad?.' }
       ]},
-      { title:'Forma h?m mantiq', sub:'naqsh, saat, jupl?q', desc:"Formalardan, izbe-izlikten, jupl?qtan h?m waq?ttan paydalan?p mantiqt? k?shleytiremiz.", prompts:[
+      { title:'Forma h?m mantiq', sub:'naqsh, saat, jupl?q', desc:"Formalar, izbe-izlik, jupl?q h?m waq?t arqal? mantiqt? k?shleytiremiz.", prompts:[
         { q:"Qays?s? ?shm?yeshlik?", options:['?','?','?','?'], answer:'?', explain:'? ? ?shm?yeshlik.' },
         { q:'2, 4, 6, ... keyingi san?', options:['7','8','9','10'], answer:'8', explain:"H?r sapar 2 qos?lad?: 6 + 2 = 8." },
         { q:"Qays?s? jup san?", options:['1','3','4','5'], answer:'4', explain:'4 jup san.' }
       ]},
       { title:'K?beytiw', sub:'2, 5, 10 h?m kesteler', desc:"K?beytiw kestesin naqsh, sekirip sanaw h?m almast?r?w (2?3=3?2) arqal? tez ?yrenemiz.", prompts:[
-        { q:"2 ? 4 neshege te??", options:['6','8','10','4'], answer:'8', explain:"2, 4, 6, 8 ? 2 den sekirip sanad?q." },
+        { q:"2 ? 4 neshege te??", options:['6','8','10','4'], answer:'8', explain:"2, 4, 6, 8 ? 2 den sekirip sanaym?z." },
         { q:"5 ? 3 neshege te??", options:['10','15','20','8'], answer:'15', explain:"5, 10, 15." },
         { q:"3 ? 4 h?m 4 ? 3 haqq?nda ne dur?s?", options:["Birdey","H?r q?yl?","Tek 3?4 ?lken","Ekewi 10"], answer:'Birdey', explain:"Almast?r?w q?siyeti: 3?4 = 4?3 = 12." }
       ]},
@@ -85,14 +85,14 @@ const TOPIC_I18N: Record<Lang, { head: string; sub: string; tag: string; section
         { q:"4 + 4 neshege te??", options:['6','7','8','9'], answer:'8', explain:'4 + 4 = 8.' }
       ]}
     ]},
-  ru: { head:'?????????????? ??????', sub:'?????? ???????, ??????????, ???????? ? ??????? ????????? ????? ????.', tag:'??????', section:'?????? ??????????', games:'?????????????? ????', gamesSub:'?????????? ?? ???????', next:'?????...', retry:'???????? ??? ???.',
+  ru: { head:'?????????????? ??????', sub:'?????? ???????, ??????????, ???????? ? ??????? ????????? ????? ????.', tag:'???????', section:'?????? ??????????', games:'?????????????? ????', gamesSub:'???????? ?? ???????', next:'??????...', retry:'?????????? ??? ???.',
     topics:[
-      { title:'????? ? ????', sub:'1?20, ???????, ?????????', desc:'?????? ???????? ?????, ???????, ????????????? ? ??????????.', prompts:[
+      { title:'????? ? ????', sub:'1?20, ???????, ?????????', desc:'?????? ???????? ?????, ???????, ??????????? ?? ??????? ? ??????????.', prompts:[
         { q:'????? ????? ?????? 6?', options:['4','5','9','3'], answer:'9', explain:'9 ?????? 6.' },
         { q:'????? ????? ???? ????? 1?', options:['0','2','3','5'], answer:'2', explain:'??????? ?????: 1, 2, 3...' },
         { q:'????? ????? ????? 10 ? 12?', options:['9','11','13','8'], answer:'11', explain:'????? 10 ???? 11, ????? 12.' }
       ]},
-      { title:'????????', sub:'??????????? ? ?????', desc:'?????? ?????????? ????????, ????????? ?? 10 ? ?????? ???????.', prompts:[
+      { title:'????????', sub:'??????????? ? ?????', desc:'?????? ?????????? ????????, ????????? ?? 10 ? ?????? ??????????.', prompts:[
         { q:'??????? ????? 3 + 4?', options:['6','7','8','5'], answer:'7', explain:'3 + 4 = 7.' },
         { q:'??????? ????? ???????? ? 7, ????? ???????? 10?', options:['2','3','4','5'], answer:'3', explain:'7 + 3 = 10.' },
         { q:'??????? ????? 5 + 5?', options:['9','10','11','8'], answer:'10', explain:'5 + 5 = 10.' }
@@ -102,7 +102,7 @@ const TOPIC_I18N: Record<Lang, { head: string; sub: string; tag: string; section
         { q:'??????? ????? 8 ? 2?', options:['5','6','7','4'], answer:'6', explain:'8 ? 2 = 6.' },
         { q:'??????? ????? 10 ? 3?', options:['6','7','8','5'], answer:'7', explain:'10 ? 3 = 7.' }
       ]},
-      { title:'?????? ? ??????', sub:'????, ?????, ????', desc:'????????? ?????? ????? ??????, ??????????????????, ???? ? ?????.', prompts:[
+      { title:'????? ? ??????', sub:'????, ?????, ????', desc:'????????? ?????? ????? ?????, ??????????????????, ???? ? ?????.', prompts:[
         { q:'????? ?????? ? ????????????', options:['?','?','?','?'], answer:'?', explain:'? ? ???????????.' },
         { q:'2, 4, 6, ... ????? ????? ???????', options:['7','8','9','10'], answer:'8', explain:'?????? ??? ?????????? 2: 6 + 2 = 8.' },
         { q:'????? ????? ???????', options:['1','3','4','5'], answer:'4', explain:'4 ? ?????? ?????.' }
@@ -181,6 +181,7 @@ export function createMathView() {
   let promptIdx = 0;
   let promptFeedback: { ok: boolean; text: string } | null = null;
   let promptOpts: string[] = [];
+  let karraN = 2;
   let isVisible = false;
   let artRaf = 0;
   let artCanvases: Array<{ canvas: HTMLCanvasElement; art: string; accent: string; size: number }> = [];
@@ -250,53 +251,115 @@ export function createMathView() {
         <span class="alpha-cell-glyph" style="font-size:clamp(18px,2.4vw,28px)"><small>${t.title}</small></span>
         <span class="alpha-cell-word">${t.sub}</span>
       `;
-      card.addEventListener('click', () => { selected = i; promptIdx = 0; resetPrompt(); render(); });
+      card.addEventListener('click', () => { selected = i; promptIdx = 0; karraN = 2; resetPrompt(); render(); });
       left.appendChild(card);
     });
 
     const stage = document.createElement('aside');
     stage.className = 'alpha-stage-card math-stage-card';
-    const top = document.createElement('div');
-    top.className = 'alpha-stage-top';
-    const info = document.createElement('div');
-    info.className = 'alpha-stage-hero';
-    info.innerHTML = `
-      <div class="alpha-stage-meta"><span>${String(selected + 1).padStart(2, '0')} / ${topics.length}</span><span>?</span><span>${copy.section}</span></div>
-      <div class="alpha-stage-pair" style="--entry-accent:${topic.accent};font-size:clamp(34px,5vw,56px);line-height:1.1">${topic.title}</div>
-      <p class="alpha-spot-hint" style="margin:0 0 10px;color:var(--mute);font-weight:650">${topic.desc}</p>
-      <div class="alpha-stage-words">${topic.itemIds.map((id) => { const it = EDU_ITEMS.find(x=>x.id===id); return it ? `<span class="alpha-word-chip">${it.title}</span>` : ''; }).join('')}</div>
-    `;
-    const art = document.createElement('canvas');
-    art.width = 124; art.height = 124; art.className = 'alpha-stage-art';
-    artCanvases.push({ canvas: art, art: topic.art, accent: topic.accent, size: 96 });
-    top.append(info, art);
-    stage.appendChild(top);
 
-    const prompt = getPrompt();
-    if (!promptOpts.length) resetPrompt();
-    const quiz = document.createElement('div');
-    quiz.className = 'alpha-lab-body';
-    quiz.innerHTML = `
-      <div class="alpha-check-form">
-        <div class="alpha-check-prompt">${prompt.q}</div>
-        <div class="alpha-check-opts">${promptOpts.map((o) => `<button type="button" class="alpha-check-opt" data-val="${o}">${o}</button>`).join('')}</div>
-        <div class="alpha-check-msg" id="math-check-msg" style="color:${promptFeedback ? (promptFeedback.ok ? (isDayMode() ? '#047857' : '#5eead4') : (isDayMode() ? '#be123c' : '#ff8fab')) : ''}">${promptFeedback ? promptFeedback.text : ''}</div>
-      </div>
-    `;
-    quiz.querySelectorAll('.alpha-check-opt').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const val = (btn as HTMLElement).dataset.val || '';
-        if (val === prompt.answer) {
-          promptFeedback = { ok: true, text: prompt.explain + ' ' + copy.next };
-          render();
-          setTimeout(() => { promptIdx++; promptFeedback = null; resetPrompt(); if (isVisible) render(); }, 900);
-        } else {
-          promptFeedback = { ok: false, text: copy.retry };
-          render();
-        }
+    if (topic.id === 'karra') {
+      const karraWrap = document.createElement('div');
+      karraWrap.className = 'karra-stage';
+      const ns = [1,2,3,4,5,6,7,8,9];
+      const n = karraN;
+      const titleByLang: Record<Lang,string> = { uz:`${n} karra jadvali`, kaa:`${n} k?beytiw kestesi`, ru:`??????? ????????? ?? ${n}`, en:`${n} times table` };
+      const tipByLang: Record<Lang,string> = {
+        uz:"Maslahat: naqshni ko'r, sakrab sanashni ayt, keyin tez javob ber. 3?4 va 4?3 bir xil!",
+        kaa:"M?sl?h?t: naqshd? k?r, sekirip sana, keyin tez juwap ber. 3?4 h?m 4?3 birdey!",
+        ru:"?????: ?????? ?? ??????????????, ?????? ??????, ????? ??????? ??????. 3?4 ? 4?3 ?????????!",
+        en:"Tip: spot the pattern, skip count, then answer fast. 3?4 and 4?3 are the same!"
+      };
+      karraWrap.innerHTML = `
+        <div class="alpha-stage-meta"><span>${String(selected + 1).padStart(2, '0')} / ${topics.length}</span><span>?</span><span>${copy.section}</span></div>
+        <div class="karra-head">
+          <div>
+            <div class="alpha-stage-pair" style="--entry-accent:${topic.accent};font-size:clamp(30px,4.5vw,52px);line-height:1.1">${titleByLang[getLang()]}</div>
+            <p class="alpha-spot-hint" style="margin:6px 0 0;color:var(--mute);font-weight:650">${tipByLang[getLang()]}</p>
+          </div>
+          <canvas class="alpha-stage-art karra-art" width="124" height="124"></canvas>
+        </div>
+        <div class="karra-n-row">${ns.map(x=>`<button type="button" class="karra-n-btn ${x===n?'is-active':''}" data-n="${x}">${x}</button>`).join('')}</div>
+        <div class="karra-table" style="--karra-accent:${topic.accent}">
+          ${ns.map((m,i)=>`<div class="karra-row" style="animation-delay:${i*45}ms"><span class="karra-eq">${n} ? ${m}</span><span class="karra-eq-sign">=</span><strong class="karra-ans">${n*m}</strong><span class="karra-dots" aria-hidden="true">${Array.from({length:Math.min(m,10)},()=>'<i></i>').join('')}</span></div>`).join('')}
+        </div>
+        <div class="karra-skip" aria-label="skip count"><span class="karra-skip-label">Skip:</span>${ns.map(m=>`<span class="karra-skip-chip" style="animation-delay:${m*55}ms">${n*m}</span>`).join('')}</div>
+      `;
+      const kart = karraWrap.querySelector('.karra-art') as HTMLCanvasElement | null;
+      if (kart) artCanvases.push({ canvas: kart, art: 'yulduz', accent: topic.accent, size: 96 });
+      karraWrap.querySelectorAll('.karra-n-btn').forEach(btn => {
+        btn.addEventListener('click', () => { karraN = Number((btn as HTMLElement).dataset.n || 2); promptIdx = 0; resetPrompt(); render(); });
       });
-    });
-    stage.appendChild(quiz);
+
+      const prompt = getPrompt();
+      if (!promptOpts.length) resetPrompt();
+      const quiz = document.createElement('div');
+      quiz.className = 'alpha-lab-body karra-quiz';
+      quiz.innerHTML = `
+        <div class="alpha-check-form">
+          <div class="alpha-check-prompt">${prompt.q}</div>
+          <div class="alpha-check-opts">${promptOpts.map((o) => `<button type="button" class="alpha-check-opt" data-val="${o}">${o}</button>`).join('')}</div>
+          <div class="alpha-check-msg" style="color:${promptFeedback ? (promptFeedback.ok ? (isDayMode() ? '#047857' : '#5eead4') : (isDayMode() ? '#be123c' : '#ff8fab')) : ''}">${promptFeedback ? promptFeedback.text : ''}</div>
+        </div>
+      `;
+      quiz.querySelectorAll('.alpha-check-opt').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const val = (btn as HTMLElement).dataset.val || '';
+          if (val === prompt.answer) {
+            promptFeedback = { ok: true, text: prompt.explain + ' ' + copy.next };
+            render();
+            setTimeout(() => { promptIdx++; promptFeedback = null; resetPrompt(); if (isVisible) render(); }, 900);
+          } else {
+            promptFeedback = { ok: false, text: copy.retry };
+            render();
+          }
+        });
+      });
+      karraWrap.appendChild(quiz);
+      stage.appendChild(karraWrap);
+    } else {
+      const top = document.createElement('div');
+      top.className = 'alpha-stage-top';
+      const info = document.createElement('div');
+      info.className = 'alpha-stage-hero';
+      info.innerHTML = `
+        <div class="alpha-stage-meta"><span>${String(selected + 1).padStart(2, '0')} / ${topics.length}</span><span>?</span><span>${copy.section}</span></div>
+        <div class="alpha-stage-pair" style="--entry-accent:${topic.accent};font-size:clamp(34px,5vw,56px);line-height:1.1">${topic.title}</div>
+        <p class="alpha-spot-hint" style="margin:0 0 10px;color:var(--mute);font-weight:650">${topic.desc}</p>
+        <div class="alpha-stage-words">${topic.itemIds.map((id) => { const it = EDU_ITEMS.find(x=>x.id===id); return it ? `<span class="alpha-word-chip">${it.title}</span>` : ''; }).join('')}</div>
+      `;
+      const art = document.createElement('canvas');
+      art.width = 124; art.height = 124; art.className = 'alpha-stage-art';
+      artCanvases.push({ canvas: art, art: topic.art, accent: topic.accent, size: 96 });
+      top.append(info, art);
+      stage.appendChild(top);
+
+      const prompt = getPrompt();
+      if (!promptOpts.length) resetPrompt();
+      const quiz = document.createElement('div');
+      quiz.className = 'alpha-lab-body';
+      quiz.innerHTML = `
+        <div class="alpha-check-form">
+          <div class="alpha-check-prompt">${prompt.q}</div>
+          <div class="alpha-check-opts">${promptOpts.map((o) => `<button type="button" class="alpha-check-opt" data-val="${o}">${o}</button>`).join('')}</div>
+          <div class="alpha-check-msg" style="color:${promptFeedback ? (promptFeedback.ok ? (isDayMode() ? '#047857' : '#5eead4') : (isDayMode() ? '#be123c' : '#ff8fab')) : ''}">${promptFeedback ? promptFeedback.text : ''}</div>
+        </div>
+      `;
+      quiz.querySelectorAll('.alpha-check-opt').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const val = (btn as HTMLElement).dataset.val || '';
+          if (val === prompt.answer) {
+            promptFeedback = { ok: true, text: prompt.explain + ' ' + copy.next };
+            render();
+            setTimeout(() => { promptIdx++; promptFeedback = null; resetPrompt(); if (isVisible) render(); }, 900);
+          } else {
+            promptFeedback = { ok: false, text: copy.retry };
+            render();
+          }
+        });
+      });
+      stage.appendChild(quiz);
+    }
 
     layout.append(left, stage);
     shell.appendChild(layout);

@@ -20,7 +20,7 @@ const TEXTS = {
     sub: "?????? ??????????? ? ???????? ??????",
     button: "??????????",
     close: "???????",
-    help: "Chrome: ???? -> ?????????? ??? ???????? ??????????. Safari: ?????????? -> ?? ????? ?????.",
+    help: "Chrome: ???? -> ??????????. Safari: ?????????? -> ?? ????? ?????.",
     done: "?????????? ????????"
   },
   en: {
@@ -38,8 +38,8 @@ const store = {
   set(key, value) { try { localStorage.setItem(key, value); } catch { return; } }
 };
 
-const lang = document.documentElement.lang || 'uz';
-const t = TEXTS[lang] || TEXTS.uz;
+let lang = document.documentElement.lang || 'uz';
+const getText = () => TEXTS[lang] || TEXTS.uz;
 const standalone = navigator.standalone === true || ['standalone', 'fullscreen', 'minimal-ui'].some((mode) => window.matchMedia(`(display-mode: ${mode})`).matches);
 
 const registerServiceWorker = () => {
@@ -71,12 +71,17 @@ if (!standalone && store.get('vesna-pwa-installed') !== '1') {
   const help = document.getElementById('pwa-install-help');
   let deferred = null;
 
-  document.getElementById('pwa-install-title').textContent = t.title;
-  document.getElementById('pwa-install-sub').textContent = t.sub;
-  installBtn.textContent = t.button;
-  closeBtn.textContent = '?';
-  closeBtn.setAttribute('aria-label', t.close);
-  help.textContent = t.help;
+  const applyText = () => {
+    const t = getText();
+    document.getElementById('pwa-install-title').textContent = t.title;
+    document.getElementById('pwa-install-sub').textContent = t.sub;
+    if (!help.hidden) installBtn.textContent = t.done; else installBtn.textContent = t.button;
+    closeBtn.textContent = '?';
+    closeBtn.setAttribute('aria-label', t.close);
+    help.textContent = t.help;
+  };
+  applyText();
+  window.addEventListener('alif:lang', (e) => { lang = e.detail?.lang || document.documentElement.lang || 'uz'; applyText(); });
 
   const dismissed = store.get('vesna-pwa-dismissed') === '1';
   const mobile = /android|iphone|ipad|ipod/i.test(navigator.userAgent) || window.matchMedia('(max-width: 900px)').matches;
@@ -91,7 +96,7 @@ if (!standalone && store.get('vesna-pwa-installed') !== '1') {
   installBtn.addEventListener('click', async () => {
     if (!deferred) {
       help.hidden = false;
-      installBtn.textContent = t.done;
+      installBtn.textContent = getText().done;
       return;
     }
     deferred.prompt();
